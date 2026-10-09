@@ -7,6 +7,7 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { Playground } from './components/sections/Playground';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
+import { InteractiveBotCompanion } from './components/ui/InteractiveBotCompanion';
 
 export function App() {
   return (
@@ -24,6 +25,9 @@ export function App() {
         <Playground />
         <Contact />
       </main>
+
+      {/* Floating Interactive Mascot / Bot Companion */}
+      <InteractiveBotCompanion />
 
       {/* Editorial Footer */}
       <Footer />

@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUpRight, Sparkles, Layers, Cpu, Smartphone } from 'luci
 import { profileData } from '../../data/profile';
 import { AvailabilityBadge } from '../ui/AvailabilityBadge';
 import { MagneticButton } from '../ui/MagneticButton';
+import { InteractiveDevStation } from '../ui/InteractiveDevStation';
 
 export const Hero: React.FC = () => {
 
@@ -26,36 +27,44 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Oversized Editorial Headline */}
-        <div className="max-w-6xl my-4 md:my-8">
-          <h1 className="font-display text-hero font-extrabold text-[#121214] tracking-tight leading-[0.98]">
-            I build digital experiences that{' '}
-            <span className="relative inline-block text-[#121214] underline decoration-[#CCFF00] decoration-wavy decoration-2 sm:decoration-4 underline-offset-8">
-              work beautifully.
-            </span>
-          </h1>
+        {/* Hero Grid: Editorial Headline + Interactive 3D Character Station */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center my-4 md:my-8">
+          {/* Left Column: Headline & Action CTAs */}
+          <div className="lg:col-span-7">
+            <h1 className="font-display text-hero font-extrabold text-[#121214] tracking-tight leading-[0.98]">
+              I build digital experiences that{' '}
+              <span className="relative inline-block text-[#121214] underline decoration-[#CCFF00] decoration-wavy decoration-2 sm:decoration-4 underline-offset-8">
+                work beautifully.
+              </span>
+            </h1>
 
-          <p className="mt-8 md:mt-10 text-lg md:text-2xl text-[#5C5C66] max-w-2xl font-body leading-relaxed font-normal">
-            {profileData.shortBio}
-          </p>
-        </div>
+            <p className="mt-6 md:mt-8 text-lg md:text-xl xl:text-2xl text-[#5C5C66] max-w-2xl font-body leading-relaxed font-normal">
+              {profileData.shortBio}
+            </p>
 
-        {/* Action CTAs & Interactive Capability Chips */}
-        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-          <MagneticButton asAnchor href="#work" variant="primary" className="group">
-            <span>Explore my work</span>
-            <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
-          </MagneticButton>
+            {/* Action CTAs */}
+            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+              <MagneticButton asAnchor href="#work" variant="primary" className="group">
+                <span>Explore my work</span>
+                <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
+              </MagneticButton>
 
-          <MagneticButton asAnchor href="#contact" variant="outline" className="group">
-            <span>Let's collaborate</span>
-            <ArrowUpRight className="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </MagneticButton>
+              <MagneticButton asAnchor href="#contact" variant="outline" className="group">
+                <span>Let's collaborate</span>
+                <ArrowUpRight className="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </MagneticButton>
 
-          {/* Interactive Micro-Widget */}
-          <div className="hidden xl:flex items-center gap-2 pl-4 border-l border-black/10 font-mono-tech text-xs text-[#5C5C66]">
-            <Sparkles className="w-3.5 h-3.5 text-[#88B800]" />
-            <span>High-Fidelity Code & Architecture</span>
+              {/* Interactive Micro-Widget */}
+              <div className="hidden xl:flex items-center gap-2 pl-4 border-l border-black/10 font-mono-tech text-xs text-[#5C5C66]">
+                <Sparkles className="w-3.5 h-3.5 text-[#88B800]" />
+                <span>High-Fidelity Code & Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: 3D Developer Character Station */}
+          <div className="lg:col-span-5 w-full max-w-lg lg:max-w-none mx-auto">
+            <InteractiveDevStation />
           </div>
         </div>
 
