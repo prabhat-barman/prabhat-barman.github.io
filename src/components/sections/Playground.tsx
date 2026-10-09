@@ -19,9 +19,9 @@ export const Playground: React.FC = () => {
 
   return (
     <section id="playground" className="py-24 md:py-32 border-b border-black/8 bg-[#FAF9F5]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         <SectionHeading
-          index="04"
+          index="05"
           category="Interactive Playground"
           title="Creative coding & frontend physics."
           description="A hands-on testing laboratory exploring real-time DOM physics, Canvas 2D math, and tactile micro-interactions without bloated 3D engines."

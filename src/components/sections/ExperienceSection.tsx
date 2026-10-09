@@ -23,9 +23,9 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <section id="experience" className="py-24 md:py-32 border-b border-black/8 bg-[#F9F9F6]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         <SectionHeading
-          index="03"
+          index="04"
           category="Experience & Capabilities"
           title="Battle-tested production background."
           description="A verifiable trajectory of frontend and mobile engineering across high-traffic consumer apps and enterprise software systems."

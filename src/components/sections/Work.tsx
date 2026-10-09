@@ -339,7 +339,7 @@ export const Work: React.FC = () => {
 
   return (
     <section id="work" className="py-24 md:py-32 border-b border-black/8 bg-[#F9F9F6]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         <SectionHeading
           index="01"
           category="Selected Production Projects"

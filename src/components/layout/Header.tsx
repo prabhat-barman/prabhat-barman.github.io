@@ -7,6 +7,7 @@ import { MobileMenu } from './MobileMenu';
 
 const NAV_ITEMS = [
   { label: 'Work', href: '#work' },
+  { label: 'Architecture', href: '#architecture' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Playground', href: '#playground' },
@@ -15,7 +16,7 @@ const NAV_ITEMS = [
 
 export const Header: React.FC = () => {
   const { scrollDirection, isAtTop } = useScrollDirection();
-  const activeSection = useScrollSpy(['hero', 'work', 'about', 'experience', 'playground', 'contact'], 180);
+  const activeSection = useScrollSpy(['hero', 'work', 'architecture', 'about', 'experience', 'playground', 'contact'], 180);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Hidden when scrolling down and not at top of page
@@ -32,7 +33,7 @@ export const Header: React.FC = () => {
             : 'bg-[#F9F9F6]/95 backdrop-blur-md border-b border-black/8 shadow-xs'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+        <div className="w-full px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 h-20 flex items-center justify-between">
           {/* Brand Wordmark */}
           <a
             href="#"

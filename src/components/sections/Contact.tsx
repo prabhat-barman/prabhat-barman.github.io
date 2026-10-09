@@ -93,9 +93,9 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-[#F9F9F6]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         <SectionHeading
-          index="05"
+          index="06"
           category="Contact & Inquiries"
           title="Have an idea worth building?"
           description="Let's turn your next idea into a thoughtful, reliable digital product. Available for senior engineering roles and select contract collaborations."

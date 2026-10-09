@@ -5,10 +5,10 @@ import { SectionHeading } from '../ui/SectionHeading';
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-24 md:py-32 border-b border-black/8 bg-[#FAF9F5]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         <SectionHeading
-          index="02"
-          category="Architecture & Philosophy"
+          index="03"
+          category="Philosophy & Approach"
           title="Bridging design nuance with technical rigor."
           description="Software engineering centered on building resilient, maintainable, and high-performance digital products."
         />

@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
       {/* Background subtle architectural grid lines */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+      <div className="w-full px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 max-w-[1720px] mx-auto relative z-10">
         {/* Top meta pill row */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
           <AvailabilityBadge showDetail={true} />
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Oversized Editorial Headline */}
-        <div className="max-w-5xl my-4 md:my-8">
+        <div className="max-w-6xl my-4 md:my-8">
           <h1 className="font-display text-hero font-extrabold text-[#121214] tracking-tight leading-[0.98]">
             I build digital experiences that{' '}
             <span className="relative inline-block text-[#121214] underline decoration-[#CCFF00] decoration-wavy decoration-2 sm:decoration-4 underline-offset-8">
@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Subtle Scroll Indicator */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full mt-10 flex items-center justify-between text-xs font-mono-tech text-[#5C5C66]">
+      <div className="w-full px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 max-w-[1720px] mx-auto mt-10 flex items-center justify-between text-xs font-mono-tech text-[#5C5C66]">
         <div className="flex items-center gap-2">
           <span className="inline-block w-4 h-[1px] bg-black/40" />
           <span>INDEX: 01 — 05</span>
