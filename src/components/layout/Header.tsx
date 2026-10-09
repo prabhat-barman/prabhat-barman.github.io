@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, ArrowUpRight } from 'lucide-react';
+import { Menu, ArrowUpRight, Terminal } from 'lucide-react';
 import { profileData } from '../../data/profile';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
@@ -65,7 +65,17 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Header Action / Let's Talk CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3.5">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/5 hover:bg-black/10 border border-black/8 text-xs font-mono-tech text-[#121214] transition-all hover:scale-105 active:scale-95"
+              title="Launch Developer Terminal (⌘K or ~)"
+            >
+              <Terminal className="w-3.5 h-3.5 text-[#121214]" />
+              <span>⌘K Terminal</span>
+            </button>
+
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-xs font-mono-tech tracking-tight font-medium text-[#121214] hover:text-black border-b border-black/30 pb-0.5 hover:border-black transition-all"

@@ -9,7 +9,8 @@ import {
   Sparkles,
   Terminal,
   Activity,
-  Code2
+  Code2,
+  Compass
 } from 'lucide-react';
 
 interface InteractiveDevStationProps {
@@ -63,6 +64,79 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
     animId = requestAnimationFrame(measureFps);
     return () => cancelAnimationFrame(animId);
   }, []);
+
+  const [customThought, setCustomThought] = useState<string | null>(null);
+  const [isTouring, setIsTouring] = useState(false);
+
+  // Quick Tour function
+  const TOUR_STOPS = [
+    { target: 'hero', text: "Welcome to Prabhat.dev! 4+ years of React & React Native production experience 🚀" },
+    { target: 'work', text: "Here is my work! Try the 1,000 Hz WebSocket stress tester and mobile phone simulator below 🏎️" },
+    { target: 'sticky-scroll', text: "Architecture: How we achieved 60fps frame rates and 35–40% faster initial loads ⚡" },
+    { target: 'about', text: "My philosophy: Good code solves user needs; great architecture scales without friction 🛡️" },
+    { target: 'experience', text: "4+ years at Netlink Software Group delivering automotive IoT and enterprise apps 💼" },
+    { target: 'playground', text: "Check out the interactive lab! Test kinetic typography and canvas wave physics 🧪" },
+    { target: 'contact', text: "Ready to collaborate? Let's build something extraordinary together! 📬" },
+  ];
+
+  const handleStartTour = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setIsTouring(true);
+    let currentStep = 0;
+
+    const executeStep = () => {
+      if (currentStep >= TOUR_STOPS.length) {
+        setIsTouring(false);
+        setCustomThought("Tour complete! Feel free to explore or open the ⌘K Terminal 🚀");
+        return;
+      }
+      const stop = TOUR_STOPS[currentStep];
+      const el = document.getElementById(stop.target);
+      el?.scrollIntoView({ behavior: 'smooth' });
+      setCustomThought(stop.text);
+      setShowBubble(true);
+      currentStep++;
+      setTimeout(executeStep, 4000);
+    };
+
+    executeStep();
+  };
+
+  // Contextual scroll listener
+  useEffect(() => {
+    if (isTouring) return;
+
+    const sections = [
+      { id: 'work', text: "Check out SiriusXM & IrisInsights below! You can stress test the telemetry live 🏎️" },
+      { id: 'sticky-scroll', text: "Architecture deep dive: Notice how 60fps is preserved with selective memoization ⚡" },
+      { id: 'experience', text: "3 promotions at Netlink Software from Trainee to Senior Frontend Engineer 💼" },
+      { id: 'playground', text: "Welcome to the lab! Test the 60fps wave canvas and micro-interactions 🧪" },
+      { id: 'contact', text: "Want to talk about a role or project? Send a message below! 📬" },
+    ];
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY < 400) {
+        setCustomThought(null);
+        return;
+      }
+
+      for (const sec of sections) {
+        const el = document.getElementById(sec.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 300 && rect.bottom >= 300) {
+            setCustomThought(sec.text);
+            setShowBubble(true);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isTouring]);
 
   // Mouse tilt physics
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -197,8 +271,7 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
           {/* Interactive Speech Bubble */}
           {showBubble && (
             <div
-              onClick={handleNextQuote}
-              className="absolute left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs bottom-20 z-20 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] group"
+              className="absolute left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs bottom-20 z-20 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg transform transition-all duration-300 hover:scale-[1.02] group"
               style={{ transform: 'translateZ(30px)' }}
             >
               <div className="flex items-start gap-2.5">
@@ -207,11 +280,23 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
                 </div>
                 <div className="flex-1">
                   <div className="text-xs font-semibold text-[#121214] font-body leading-snug">
-                    {QUOTES[quoteIndex]}
+                    {customThought || QUOTES[quoteIndex]}
                   </div>
-                  <div className="text-[10px] font-mono-tech text-[#5C5C66] mt-1 flex items-center justify-between">
-                    <span>Click bubble for more</span>
-                    <span className="text-[#121214] font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+                  <div className="text-[10px] font-mono-tech text-[#5C5C66] mt-2 flex items-center justify-between pt-1.5 border-t border-black/8">
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); handleNextQuote(); }}
+                      className="text-black font-semibold hover:underline"
+                    >
+                      Next Quote →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleStartTour}
+                      className="px-2 py-0.5 rounded bg-[#121214] text-[#CCFF00] font-bold hover:bg-black transition-colors"
+                    >
+                      {isTouring ? 'Touring...' : 'Quick Tour 🚀'}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -323,6 +408,30 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
                 className="p-2 rounded-xl text-xs font-mono-tech bg-[#F9F9F6] text-[#121214] border border-black/8 hover:border-black/25 active:scale-95"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Quick Tour Button */}
+              <button
+                type="button"
+                onClick={handleStartTour}
+                title="Start Guided Portfolio Tour"
+                className={`p-2 rounded-xl text-xs font-mono-tech transition-all border ${
+                  isTouring
+                    ? 'bg-[#CCFF00] text-black border-[#121214] shadow-xs'
+                    : 'bg-[#F9F9F6] text-[#121214] border-black/8 hover:border-black/25 active:scale-95'
+                }`}
+              >
+                <Compass className={`w-3.5 h-3.5 ${isTouring ? 'animate-spin' : ''}`} />
+              </button>
+
+              {/* Terminal Launcher Button */}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
+                title="Open Interactive CLI Terminal (⌘K)"
+                className="p-2 rounded-xl text-xs font-mono-tech bg-[#F9F9F6] text-[#121214] border border-black/8 hover:border-black/25 active:scale-95 hidden sm:inline-flex"
+              >
+                <Terminal className="w-3.5 h-3.5 text-[#121214]" />
               </button>
             </div>
           </div>

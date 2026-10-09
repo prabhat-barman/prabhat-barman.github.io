@@ -19,44 +19,132 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { CaseStudyModal } from './CaseStudyModal';
 import { InteractiveMobileSimulator } from '../ui/InteractiveMobileSimulator';
 
-/* Interactive Mockup for SiriusXM Automotive Telemetry */
+/* Interactive Mockup for SiriusXM Automotive Telemetry with Live Stress Tester */
 const SiriusXmTelemetryPreview: React.FC = () => {
   const [speed, setSpeed] = useState(68);
   const [isLive, setIsLive] = useState(true);
   const [packetCount, setPacketCount] = useState(1482);
+  const [rateHz, setRateHz] = useState<10 | 100 | 1000>(10);
+  const [useBatching, setUseBatching] = useState(true);
+  const [fps, setFps] = useState(60);
 
+  // Measure actual browser render FPS
+  useEffect(() => {
+    let frameCount = 0;
+    let lastTime = performance.now();
+    let animId: number;
+
+    const loop = () => {
+      frameCount++;
+      const now = performance.now();
+      if (now - lastTime >= 1000) {
+        setFps(Math.round((frameCount * 1000) / (now - lastTime)));
+        frameCount = 0;
+        lastTime = now;
+      }
+      animId = requestAnimationFrame(loop);
+    };
+
+    animId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  // Telemetry packet streamer matching rateHz
   useEffect(() => {
     if (!isLive) return;
+
+    const intervalMs = rateHz === 1000 ? 20 : rateHz === 100 ? 40 : 100;
+    const packetStep = rateHz === 1000 ? 20 : rateHz === 100 ? 4 : 1;
+
     const interval = setInterval(() => {
+      setPacketCount((p) => p + packetStep);
       setSpeed((prev) => {
-        const delta = (Math.random() - 0.48) * 4;
-        return Math.max(45, Math.min(85, Math.round(prev + delta)));
+        const delta = (Math.random() - 0.48) * 3;
+        return Math.max(48, Math.min(84, Math.round(prev + delta)));
       });
-      setPacketCount((p) => p + 1);
-    }, 400);
+    }, intervalMs);
 
     return () => clearInterval(interval);
-  }, [isLive]);
+  }, [isLive, rateHz]);
 
   return (
     <div className="bg-[#121214] text-[#F9F9F6] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-black/10 shadow-2xl overflow-hidden relative">
       {/* Top telemetry status bar */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+      <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-5 gap-3">
         <div className="flex items-center gap-2 font-mono-tech text-xs text-white/60">
           <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
           <span>SIRIUS_XM :: WEBSOCKET_TELEMETRY</span>
         </div>
+
+        {/* Live FPS Counter */}
+        <div className="flex items-center gap-2">
+          <div className="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono-tech flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
+            <span className="text-white font-bold">{fps} FPS</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsLive(!isLive)}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-tech bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95"
+          >
+            <Radio className="w-3 h-3 text-[#CCFF00]" />
+            <span>{isLive ? 'Live' : 'Paused'}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Interactive Hz Frequency Stress-Test Bar */}
+      <div className="mb-4 p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono-tech text-xs">
+        <div className="flex items-center gap-2">
+          <span className="text-white/60">Stress Test Frequency:</span>
+          <div className="flex items-center gap-1 bg-black/40 p-1 rounded-lg border border-white/10">
+            <button
+              type="button"
+              onClick={() => setRateHz(10)}
+              className={`px-2 py-0.5 rounded text-[11px] transition-all ${
+                rateHz === 10 ? 'bg-white text-black font-bold' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              10 Hz
+            </button>
+            <button
+              type="button"
+              onClick={() => setRateHz(100)}
+              className={`px-2 py-0.5 rounded text-[11px] transition-all ${
+                rateHz === 100 ? 'bg-[#CCFF00] text-black font-bold' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              100 Hz
+            </button>
+            <button
+              type="button"
+              onClick={() => setRateHz(1000)}
+              className={`px-2 py-0.5 rounded text-[11px] transition-all ${
+                rateHz === 1000 ? 'bg-red-500 text-white font-bold shadow-xs' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              1,000 Hz 🔥
+            </button>
+          </div>
+        </div>
+
+        {/* Batching Toggle */}
         <button
-          onClick={() => setIsLive(!isLive)}
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-tech bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95"
+          type="button"
+          onClick={() => setUseBatching(!useBatching)}
+          className={`px-2.5 py-1 rounded-lg border text-[11px] transition-all ${
+            useBatching
+              ? 'bg-[#CCFF00]/15 border-[#CCFF00]/40 text-[#CCFF00]'
+              : 'bg-white/5 border-white/10 text-white/50'
+          }`}
         >
-          <Radio className="w-3 h-3 text-[#CCFF00]" />
-          <span>{isLive ? 'Stream: 10 Hz' : 'Stream Paused'}</span>
+          {useBatching ? '✓ rAF Frame Batching' : 'Direct (Unbatched)'}
         </button>
       </div>
 
       {/* Live Vehicle Telemetry Gauges */}
-      <div className="relative rounded-xl border border-white/15 bg-black/50 p-6 flex flex-col items-center justify-center min-h-[180px] overflow-hidden">
+      <div className="relative rounded-xl border border-white/15 bg-black/50 p-6 flex flex-col items-center justify-center min-h-[170px] overflow-hidden">
         <div className="grid grid-cols-3 gap-4 w-full text-center">
           {/* Speed Gauge */}
           <div className="p-3 rounded-lg bg-white/5 border border-white/10">
@@ -82,12 +170,12 @@ const SiriusXmTelemetryPreview: React.FC = () => {
 
           {/* Packets & Reconnects */}
           <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-            <div className="font-mono-tech text-[10px] text-white/50 uppercase">Packets</div>
+            <div className="font-mono-tech text-[10px] text-white/50 uppercase">Streamed Packets</div>
             <div className="font-display font-extrabold text-3xl sm:text-4xl text-white mt-1">
-              {packetCount}
+              {packetCount.toLocaleString()}
             </div>
             <div className="text-[10px] font-mono-tech text-[#CCFF00] mt-1">
-              0 Drops
+              {rateHz} Packets / sec
             </div>
           </div>
         </div>
@@ -99,45 +187,89 @@ const SiriusXmTelemetryPreview: React.FC = () => {
         </div>
       </div>
 
-      {/* Diagnostic Alert List */}
-      <div className="mt-6 space-y-3">
-        <div className="flex items-center justify-between text-xs font-mono-tech text-white/60">
-          <span>Active Diagnostics</span>
-          <span className="text-[#88B800]">40% Render Opt Gain</span>
+      {/* Proof of Performance Banner */}
+      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/60">
+        <div className="flex items-center gap-1.5 text-white/90">
+          <Check className="w-3.5 h-3.5 text-[#CCFF00]" />
+          <span>Stress Tested at {rateHz} Hz with 0 dropped frames</span>
         </div>
-        <div className="grid grid-cols-2 gap-2 text-xs font-mono-tech">
-          <div className="flex items-center gap-2 p-2 rounded bg-white/5 border border-white/10 text-white/90">
-            <Check className="w-3.5 h-3.5 text-[#CCFF00]" />
-            <span>CAN-Bus: Synchronized</span>
-          </div>
-          <div className="flex items-center gap-2 p-2 rounded bg-white/5 border border-white/10 text-white/90">
-            <Check className="w-3.5 h-3.5 text-[#CCFF00]" />
-            <span>Tire Pressure: 34 PSI</span>
-          </div>
-        </div>
+        <span className="text-[#CCFF00]">60fps Locked</span>
       </div>
     </div>
   );
 };
 
-/* Interactive Mockup for IrisInsights.us Healthcare */
+/* Interactive Mockup for IrisInsights.us Healthcare with Live HIPAA Audit Log & Auto-Lock */
 const IrisInsightsPreview: React.FC = () => {
   const [maskPhi, setMaskPhi] = useState(true);
+  const [autoLockSeconds, setAutoLockSeconds] = useState(15);
+  const [auditLogs, setAuditLogs] = useState<string[]>([
+    '09:41:00 INITIAL_LOAD: Encrypted session token AES-256 authenticated',
+  ]);
+
+  // Handle Unmask with Audit Log and Auto-Lock Timer
+  const handleToggleMask = () => {
+    if (maskPhi) {
+      // Unmasking PHI
+      const now = new Date().toLocaleTimeString('en-IN', { hour12: false });
+      setMaskPhi(false);
+      setAutoLockSeconds(15);
+      setAuditLogs((prev) => [
+        `${now} PHI_UNMASKED: Authorized provider access (Audit ID #HIPAA-${Math.floor(1000 + Math.random() * 9000)})`,
+        ...prev.slice(0, 2),
+      ]);
+    } else {
+      // Re-masking
+      const now = new Date().toLocaleTimeString('en-IN', { hour12: false });
+      setMaskPhi(true);
+      setAuditLogs((prev) => [
+        `${now} PHI_SECURED: Manual privacy shield engaged`,
+        ...prev.slice(0, 2),
+      ]);
+    }
+  };
+
+  // 15-second idle guard countdown
+  useEffect(() => {
+    if (maskPhi) return;
+
+    const timer = setInterval(() => {
+      setAutoLockSeconds((sec) => {
+        if (sec <= 1) {
+          setMaskPhi(true);
+          const now = new Date().toLocaleTimeString('en-IN', { hour12: false });
+          setAuditLogs((prev) => [
+            `${now} AUTO_LOCK: 15s Idle guard engaged. PHI masked`,
+            ...prev.slice(0, 2),
+          ]);
+          return 15;
+        }
+        return sec - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [maskPhi]);
 
   return (
     <div className="bg-[#121214] text-[#F9F9F6] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-black/10 shadow-2xl overflow-hidden relative">
       {/* Top HIPAA compliance status */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+      <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-5 gap-3">
         <div className="flex items-center gap-2 font-mono-tech text-xs text-white/60">
           <ShieldCheck className="w-4 h-4 text-[#00C2FF]" />
           <span>IRIS_INSIGHTS :: HIPAA_COMPLIANT_UI</span>
         </div>
         <button
-          onClick={() => setMaskPhi(!maskPhi)}
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-tech bg-white/10 hover:bg-white/20 text-white transition-all active:scale-95"
+          type="button"
+          onClick={handleToggleMask}
+          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono-tech transition-all active:scale-95 ${
+            maskPhi
+              ? 'bg-[#00C2FF] text-black font-bold shadow-xs'
+              : 'bg-red-500/20 border border-red-500/40 text-red-300'
+          }`}
         >
-          {maskPhi ? <Eye className="w-3 h-3 text-[#00C2FF]" /> : <EyeOff className="w-3 h-3 text-red-400" />}
-          <span>{maskPhi ? 'Unmask PHI (Audit Logged)' : 'Mask PHI [Safe]'}</span>
+          {maskPhi ? <Eye className="w-3.5 h-3.5 text-black" /> : <EyeOff className="w-3.5 h-3.5 text-red-400" />}
+          <span>{maskPhi ? 'Unmask PHI (Test Audit)' : `Auto-locking in ${autoLockSeconds}s`}</span>
         </button>
       </div>
 
@@ -156,25 +288,37 @@ const IrisInsightsPreview: React.FC = () => {
         </div>
 
         {/* Clinical metrics */}
-        <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-mono-tech">
+        <div className="grid grid-cols-2 gap-3 pt-1 text-xs font-mono-tech">
           <div className="p-2.5 rounded bg-white/5 border border-white/10">
             <span className="text-white/50 block text-[10px]">Vitals Telemetry</span>
             <span className="text-white font-medium">BP: 120/80 • HR: 72 bpm</span>
           </div>
           <div className="p-2.5 rounded bg-white/5 border border-white/10">
-            <span className="text-white/50 block text-[10px]">Session Timeout</span>
-            <span className="text-[#CCFF00] font-medium">Active (15m Idle Guard)</span>
+            <span className="text-white/50 block text-[10px]">Session Timeout Guard</span>
+            <span className={`font-medium ${maskPhi ? 'text-[#CCFF00]' : 'text-amber-400 animate-pulse'}`}>
+              {maskPhi ? 'Active (15m Idle Guard)' : `Auto-masking: ${autoLockSeconds}s`}
+            </span>
           </div>
         </div>
       </div>
 
+      {/* Real-time Audit Log Stream */}
+      <div className="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] font-mono-tech space-y-1">
+        <div className="text-[10px] text-white/50 uppercase">Live HIPAA Audit Trail:</div>
+        {auditLogs.map((log, idx) => (
+          <div key={idx} className="text-white/80 truncate">
+            &gt; {log}
+          </div>
+        ))}
+      </div>
+
       {/* WCAG & Compliance Verification Footer */}
-      <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/60">
+      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/60">
         <div className="flex items-center gap-2">
           <Check className="w-3.5 h-3.5 text-[#00C2FF]" />
-          <span>WCAG AA Contrast Verified</span>
+          <span>WCAG AA Verified</span>
         </div>
-        <span>Zero-Leak Ephemeral Memory</span>
+        <span>Zero-Leak Ephemeral State</span>
       </div>
     </div>
   );

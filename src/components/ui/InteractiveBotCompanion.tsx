@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, X, ChevronUp, ExternalLink, Terminal } from 'lucide-react';
+import { Sparkles, X, ChevronUp, Terminal } from 'lucide-react';
 import { profileData } from '../../data/profile';
 
 export const InteractiveBotCompanion: React.FC = () => {
@@ -106,14 +106,17 @@ export const InteractiveBotCompanion: React.FC = () => {
               <Sparkles className="w-3 h-3 text-[#CCFF00]" />
               <span>Next Tip</span>
             </button>
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="py-1.5 px-2.5 rounded-lg bg-[#CCFF00] text-[#121214] font-bold flex items-center justify-center gap-1.5 hover:bg-[#b8e600] transition-colors"
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                window.dispatchEvent(new CustomEvent('open-terminal'));
+              }}
+              className="py-1.5 px-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-[#CCFF00] font-bold flex items-center justify-center gap-1.5 transition-colors"
             >
-              <span>Hire Prabhat</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
+              <Terminal className="w-3 h-3" />
+              <span>⌘K Shell</span>
+            </button>
           </div>
 
           <div className="mt-2.5 text-[10px] font-mono-tech text-white/40 flex items-center justify-between">
