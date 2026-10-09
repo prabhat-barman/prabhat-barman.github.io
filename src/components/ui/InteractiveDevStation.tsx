@@ -19,6 +19,7 @@ interface InteractiveDevStationProps {
 
 const QUOTES = [
   "Hey there! Welcome to Prabhat.dev 👋",
+  "Built WellValet: Canadian grocery scanner live on App Store & Google Play 🇨🇦",
   "React Native + Reanimated 3: Smooth 60fps on iOS & Android 📱",
   "Currently architecting high-performance React 19 apps ⚡",
   "Bluetooth LE & JSI Bridges: Sub-50ms telematics response 🏎️",
@@ -233,14 +234,14 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
         />
 
         {/* Top Header Bar / Live Status */}
-        <div className="absolute top-0 inset-x-0 z-20 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+        <div className="absolute top-0 inset-x-0 z-20 p-2.5 sm:p-5 flex items-center justify-between gap-2 pointer-events-none">
           {/* Status Badge */}
-          <div className="pointer-events-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md text-white text-xs font-mono-tech border border-white/10 shadow-sm">
-            <span className="relative flex h-2 w-2">
+          <div className="pointer-events-auto inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/75 backdrop-blur-md text-white text-[10px] sm:text-xs font-mono-tech border border-white/10 shadow-sm max-w-[200px] sm:max-w-none">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CCFF00] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#CCFF00]" />
             </span>
-            <span className="font-semibold text-[11px] tracking-wide">
+            <span className="font-semibold text-[10px] sm:text-[11px] tracking-wide truncate">
               {activeMood === 'focus' && 'HEADPHONES ON • FOCUS'}
               {activeMood === 'coffee' && 'REFUELING CAFFEINE • +100%'}
               {activeMood === 'turbo' && 'TURBO COMPILING • 0ms'}
@@ -249,8 +250,8 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
           </div>
 
           {/* Real-time FPS Meter */}
-          <div className="pointer-events-auto flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-black/8 text-[11px] font-mono-tech text-[#121214] shadow-xs">
-            <Activity className="w-3.5 h-3.5 text-[#6FA800]" />
+          <div className="pointer-events-auto flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-black/8 text-[10px] sm:text-[11px] font-mono-tech text-[#121214] shadow-xs shrink-0">
+            <Activity className="w-3 h-3 text-[#6FA800]" />
             <span className="font-bold">{fps} FPS</span>
           </div>
         </div>

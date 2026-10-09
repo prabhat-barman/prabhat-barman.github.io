@@ -81,9 +81,11 @@ export interface ProjectData {
   accentColor?: string;
   demoUrl?: string;
   repoUrl?: string;
+  appStoreUrl?: string;
+  playStoreUrl?: string;
   caseStudy: ProjectCaseStudy;
   visible: boolean;
-  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab' | 'mobile-simulator';
+  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab' | 'mobile-simulator' | 'wellvalet-scanner';
 }
 
 export interface ExperienceItem {

@@ -2,6 +2,71 @@ import type { ProjectData } from '../types/portfolio';
 
 export const projectsData: ProjectData[] = [
   {
+    id: 'wellvalet-mobile',
+    title: 'WellValet — Grocery & Allergen Scanner',
+    category: 'Mobile Engineering (React Native • iOS & Android • Web)',
+    year: '2024 — Present',
+    featured: true,
+    tagline: 'Canadian grocery barcode scanner app delivering instant personalized wellness scores, allergen alerts, and OCR ingredient analysis.',
+    summary: 'A published cross-platform mobile application and web ecosystem available in Canada on the Apple App Store and Google Play Store. Features instant camera barcode scanning, ML/OCR ingredient list extraction, personalized dietary allergen alerts (Gluten, Dairy, Nuts, Vegan), and Canadian PIPEDA-compliant privacy architecture.',
+    role: 'Lead Mobile Engineer — React Native Architecture, Camera Barcode Scanner, OCR Pipeline & Store Release',
+    techStack: ['React Native', 'iOS & Android', 'TypeScript', 'Vision Camera', 'OCR / ML Kit', 'Tailwind CSS', 'Redux Toolkit', 'PIPEDA Compliant', 'App Store & Google Play'],
+    accentColor: '#34D399',
+    demoUrl: 'https://www.wellvalet.com/',
+    appStoreUrl: 'https://apps.apple.com/ca/app/wellvalet/id6778571808',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.cruiseanalytix.wellvalet',
+    repoUrl: '',
+    visible: true,
+    previewType: 'wellvalet-scanner',
+    caseStudy: {
+      overview: 'WellValet is a live Canadian grocery and beauty barcode scanner app that provides instant personalized wellness scores (0–100), allergen alerts, and OCR ingredient list analysis without ads, available on iOS, Android, and the web.',
+      problem: 'Canadian grocery shoppers dealing with food allergies or health restrictions needed an instantaneous, ad-free way to decode complex additive codes and nutrition labels in under one second while standing in grocery aisles.',
+      goals: [
+        'Engineer a cross-platform React Native app deployed to the Apple App Store and Google Play Store in Canada.',
+        'Implement sub-500ms camera barcode detection and offline-capable OCR text recognition for ingredients.',
+        'Build a personalized dietary algorithm calculating Wellness Scores (0–100) and flagging customized allergens.',
+        'Ensure full compliance with Canadian PIPEDA privacy regulations with zero third-party ad tracking.'
+      ],
+      role: [
+        'Architected the React Native mobile codebase with modular separation between camera vision modules and allergen rules.',
+        'Built real-time camera scanning viewfinder with hardware-accelerated barcode decoding.',
+        'Designed and implemented the responsive web presence at wellvalet.com.',
+        'Orchestrated end-to-end App Store and Google Play Store release submissions, privacy manifests, and review approvals.'
+      ],
+      technicalApproach: [
+        'Coupled React Native Vision Camera with ML Kit barcode scanning for instant multi-format decoding (UPC-A, EAN-13).',
+        'Implemented on-device OCR fallback for unbarcoded bulk items and hard-to-read ingredient lists.',
+        'Engineered local SQLite/MMKV cache for over 50,000+ Canadian food products, enabling offline aisle scanning.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'On-Device Privacy & PIPEDA Compliance',
+          rationale: 'User allergen profiles and scan histories are processed locally on-device, satisfying Canadian PIPEDA privacy regulations without selling shopper data.'
+        },
+        {
+          decision: 'Sub-500ms Scan-to-Score Pipeline',
+          rationale: 'Pre-indexed local nutrition tables allowed instant score calculation without waiting on cold cloud API roundtrips.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Recognizing distorted or glossy barcode packages under fluorescent grocery store lighting.',
+          solution: 'Implemented multi-frame averaging with automatic torch illumination toggle and auto-focus region locking.'
+        },
+        {
+          challenge: 'Detecting hidden allergen derivatives in bilingual Canadian English/French ingredient lists.',
+          solution: 'Constructed an alias-mapping dictionary matching 400+ botanical and chemical terms for common allergens.'
+        }
+      ],
+      verifiedHighlights: [
+        'Published & active on the Apple App Store (Canada) and Google Play Store.',
+        'Production website live at https://www.wellvalet.com/.',
+        'Sub-500ms barcode scanning with camera vision integration.',
+        '100% PIPEDA-compliant privacy architecture with zero third-party tracking.'
+      ]
+    }
+  },
+  {
     id: 'siriusxm-telemetry',
     title: 'SiriusXM Connected Vehicles',
     category: 'Automotive IoT & Real-Time Telemetry',

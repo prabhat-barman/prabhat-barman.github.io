@@ -96,7 +96,7 @@ export const InteractiveMobileSimulator: React.FC<InteractiveMobileSimulatorProp
       </div>
 
       {/* Realistic Mobile Device Frame */}
-      <div className="relative w-full max-w-[340px] sm:max-w-[360px] aspect-[9/18.5] rounded-[44px] p-3.5 bg-gradient-to-b from-[#2a2a2e] via-[#1a1a1c] to-[#0d0d0f] border-4 border-[#3a3a40] shadow-2xl overflow-hidden transition-all duration-300">
+      <div className="relative w-full max-w-[300px] xs:max-w-[340px] sm:max-w-[360px] aspect-[9/18.5] rounded-[38px] sm:rounded-[44px] p-2.5 sm:p-3.5 bg-gradient-to-b from-[#2a2a2e] via-[#1a1a1c] to-[#0d0d0f] border-4 border-[#3a3a40] shadow-2xl overflow-hidden transition-all duration-300">
         {/* Device Outer Glow */}
         <div className="absolute inset-0 rounded-[40px] border border-white/15 pointer-events-none" />
 

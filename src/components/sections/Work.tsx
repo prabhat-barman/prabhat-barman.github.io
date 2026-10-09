@@ -18,6 +18,7 @@ import type { ProjectData } from '../../types/portfolio';
 import { SectionHeading } from '../ui/SectionHeading';
 import { CaseStudyModal } from './CaseStudyModal';
 import { InteractiveMobileSimulator } from '../ui/InteractiveMobileSimulator';
+import { WellValetScannerPreview } from '../ui/WellValetScannerPreview';
 
 /* Interactive Mockup for SiriusXM Automotive Telemetry with Live Stress Tester */
 const SiriusXmTelemetryPreview: React.FC = () => {
@@ -576,11 +577,36 @@ export const Work: React.FC = () => {
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </a>
                     )}
+
+                    {project.appStoreUrl && (
+                      <a
+                        href={project.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-black text-white text-xs font-semibold rounded-full hover:bg-black/80 transition-colors"
+                      >
+                        <span> App Store</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#34D399]" />
+                      </a>
+                    )}
+
+                    {project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 border border-black/15 text-[#121214] text-xs font-semibold rounded-full hover:bg-black/5 transition-colors"
+                      >
+                        <span>Google Play</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
                 {/* Interactive Visual Preview Column */}
                 <div className={`lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                  {project.previewType === 'wellvalet-scanner' && <WellValetScannerPreview />}
                   {project.previewType === 'automotive-telemetry' && <SiriusXmTelemetryPreview />}
                   {project.previewType === 'mobile-simulator' && <InteractiveMobileSimulator />}
                   {project.previewType === 'healthcare-hipaa' && <IrisInsightsPreview />}

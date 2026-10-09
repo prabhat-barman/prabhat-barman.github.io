@@ -69,8 +69,8 @@
 
 /* Fluid responsive typography with clamp */
 .text-hero {
-  font-size: clamp(2.5rem, 6.2vw, 5.8rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 5.8vw, 5.8rem);
+  line-height: 1.04;
   letter-spacing: -0.04em;
 }
 
