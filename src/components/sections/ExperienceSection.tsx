@@ -11,17 +11,15 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { TracingBeam } from '../ui/TracingBeam';
 import { CardSpotlight } from '../ui/CardSpotlight';
 import { HoverBorderGradient } from '../ui/HoverBorderGradient';
+import { ResumeModal } from '../ui/ResumeModal';
 
 export const ExperienceSection: React.FC = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
-  const [resumeNotice, setResumeNotice] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   const handleResumeClick = (e: React.MouseEvent) => {
-    if (!profileData.contact.hasResumeFile) {
-      e.preventDefault();
-      setResumeNotice(true);
-      setTimeout(() => setResumeNotice(false), 4000);
-    }
+    e.preventDefault();
+    setIsResumeModalOpen(true);
   };
 
   return (
@@ -44,24 +42,13 @@ export const ExperienceSection: React.FC = () => {
             {/* Resume Action */}
             <div className="relative">
               <HoverBorderGradient
-                as="a"
-                href={profileData.contact.resumeUrl}
-                download="Prabhat_Software_Engineer_Resume.pdf"
+                as="button"
                 onClick={handleResumeClick}
                 className="!px-4 !py-2 text-xs"
               >
                 <FileDown className="w-3.5 h-3.5 text-[#CCFF00]" />
-                <span>Download Verified Resume</span>
+                <span>View & Print Verified Resume</span>
               </HoverBorderGradient>
-
-              {resumeNotice && (
-                <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-white border border-black/15 shadow-xl rounded-xl text-xs text-[#121214] z-20 animate-in fade-in duration-150">
-                  <p className="font-medium text-[#121214]">Resume available upon request</p>
-                  <p className="text-[#5C5C66] mt-1">
-                    Connect via <a href={`mailto:${profileData.contact.email}`} className="underline font-semibold">email</a> to receive the latest confidential resume copy.
-                  </p>
-                </div>
-              )}
             </div>
           </div>
 
@@ -278,6 +265,12 @@ export const ExperienceSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Interactive Printable / Copyable ATS Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+      />
     </section>
   );
 };

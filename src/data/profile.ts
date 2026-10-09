@@ -3,8 +3,8 @@ import type { ProfileData } from '../types/portfolio';
 export const profileData: ProfileData = {
   brandName: 'Prabhat.dev',
   fullName: 'Prabhat Barman',
-  role: 'Software Engineer | React.js & React Native Developer',
-  shortBio: 'Software Engineer with 4+ years of experience building scalable, high-performance web applications across automotive, healthcare, and enterprise domains with React.js, React Native, and real-time WebSockets.',
+  role: 'Software Engineer | React.js | React Native | TypeScript | Redux Toolkit | Frontend Development',
+  shortBio: 'Software Engineer with 4+ years of experience developing scalable web and mobile applications using React.js, React Native, JavaScript, TypeScript, and Redux Toolkit. Experienced in reusable component architecture, REST API integration, real-time applications using WebSockets, performance optimization, and responsive UI development. Proven ability to improve application performance, collaborate with cross-functional teams, and deliver maintainable, production-ready solutions across healthcare, automotive, and enterprise domains.',
   editorialBio: [
     'I architect and build user interfaces that merge strict technical rigor with deliberate aesthetic restraint. Over the past 4+ years at Netlink Software Group, my work has centered on React.js web ecosystems and real-time systems—turning demanding product specs into performant, production-ready experiences across automotive telemetry, HIPAA-compliant healthcare, and enterprise platforms.',
     'I believe great software engineering lives in the nuance: predictable state machines, zero-jank frame rates, accessible interaction patterns, and modular design systems that teams can build upon for years without technical debt.',

@@ -85,6 +85,7 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
             <p className="text-[#CCFF00] font-semibold mb-1">AVAILABLE COMMANDS:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-zinc-300">
               <div><span className="text-white font-bold">help</span> - Display this help manual</div>
+              <div><span className="text-white font-bold">resume</span> - Display verified ATS resume</div>
               <div><span className="text-white font-bold">about</span> - Background & engineering summary</div>
               <div><span className="text-white font-bold">skills</span> - Core React, RN, and performance stack</div>
               <div><span className="text-white font-bold">projects</span> - View all verified production apps</div>
@@ -94,6 +95,46 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
               <div><span className="text-white font-bold">clear</span> - Clear terminal display screen</div>
               <div><span className="text-[#CCFF00] font-bold">sudo hire prabhat</span> - Launch hiring protocol 🚀</div>
               <div><span className="text-white font-bold">exit</span> - Close terminal shell</div>
+            </div>
+          </div>
+        );
+        break;
+
+      case 'resume':
+        output = (
+          <div className="space-y-3 text-xs text-zinc-300 font-mono">
+            <div className="border-b border-zinc-700 pb-2">
+              <p className="text-white font-bold text-sm">{profileData.fullName}</p>
+              <p className="text-[#CCFF00] font-semibold">{profileData.role}</p>
+              <p className="text-zinc-400 text-[11px]">{profileData.location} • {profileData.contact.email} • {profileData.contact.phone}</p>
+            </div>
+            <div>
+              <p className="text-[#CCFF00] font-bold">PROFESSIONAL SUMMARY</p>
+              <p className="text-zinc-300 leading-relaxed text-[11px] mt-1">{profileData.shortBio}</p>
+            </div>
+            <div>
+              <p className="text-[#CCFF00] font-bold">CORE TECHNICAL SKILLS</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[11px] mt-1 text-zinc-300">
+                <p><span className="text-white font-semibold">State Management:</span> Redux Toolkit, Redux, Context API</p>
+                <p><span className="text-white font-semibold">React Dev:</span> React Hooks, Custom Hooks, Component Architecture, React Router</p>
+                <p><span className="text-white font-semibold">Performance:</span> React Profiling, Memoization, Lazy Loading, Code Splitting</p>
+                <p><span className="text-white font-semibold">Mobile:</span> React Native, Vision Camera, API Integration, Mobile UI Optimization</p>
+                <p><span className="text-white font-semibold">Testing:</span> Vitest, Jest, React Testing Library</p>
+                <p><span className="text-white font-semibold">Build & DevOps:</span> Vite, CI/CD, Azure DevOps, Docker, Git</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-[#CCFF00] font-bold">PRODUCTION EXPERIENCE</p>
+              <p className="text-white font-semibold mt-1">Software Engineer — Netlink Software (Mar 2023 — Present)</p>
+              <p className="text-zinc-400 text-[11px]">• Cut initial load times by 35–40% via code-splitting & memoization.</p>
+              <p className="text-zinc-400 text-[11px]">• Built reusable component abstractions across 6+ modules, reducing duplicate code by 30%.</p>
+            </div>
+            <div>
+              <p className="text-[#CCFF00] font-bold">FLAGSHIP PROJECTS</p>
+              <p className="text-white font-semibold mt-1">1. WellValet — Grocery & Allergen Scanner (React Native)</p>
+              <p className="text-zinc-400 text-[11px]">• Barcode scanning, personalized allergen detection, family profiles, 0-100 wellness scoring. Live in Canada.</p>
+              <p className="text-white font-semibold mt-1">2. SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)</p>
+              <p className="text-zinc-400 text-[11px]">• Real-time WebSocket streaming, 60fps frame batching, sub-100ms dashboard responsiveness.</p>
             </div>
           </div>
         );
