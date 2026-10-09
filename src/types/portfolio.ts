@@ -1,3 +1,18 @@
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  location: string;
+  description: string;
+}
+
+export interface CertificationItem {
+  name: string;
+  issuer: string;
+  date: string;
+  credentialUrl?: string;
+}
+
 export interface ProfileData {
   brandName: string;
   fullName: string;
@@ -14,10 +29,11 @@ export interface ProfileData {
   };
   contact: {
     email: string;
+    phone: string;
     github: string;
     linkedin: string;
     twitter?: string;
-    resumeUrl: string; // configurable, hides or opens fallback if missing
+    resumeUrl: string;
     hasResumeFile: boolean;
   };
   metrics: Array<{
@@ -30,6 +46,8 @@ export interface ProfileData {
     description: string;
     tag: string;
   }>;
+  education: EducationItem[];
+  certifications: CertificationItem[];
 }
 
 export interface ProjectCaseStudy {
@@ -64,7 +82,7 @@ export interface ProjectData {
   repoUrl?: string;
   caseStudy: ProjectCaseStudy;
   visible: boolean;
-  previewType: 'mobile-scanner' | 'streaming-player' | 'design-system' | 'creative-lab';
+  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab';
 }
 
 export interface ExperienceItem {
@@ -73,7 +91,7 @@ export interface ExperienceItem {
   role: string;
   period: string;
   location: string;
-  type: string; // "Full-time" | "Contract" | "Selected Engagement"
+  type: string;
   description: string;
   responsibilities: string[];
   technologies: string[];
@@ -85,7 +103,7 @@ export interface SkillCategory {
   description: string;
   skills: Array<{
     name: string;
-    level: string; // e.g. "Primary", "Advanced", "Production Core"
+    level: string;
     note?: string;
   }>;
 }

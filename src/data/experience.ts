@@ -2,54 +2,54 @@ import type { ExperienceItem } from '../types/portfolio';
 
 export const experienceData: ExperienceItem[] = [
   {
-    id: 'exp-1',
-    company: 'Product & Engineering Practice',
-    role: 'Senior Software Engineer (Frontend & Mobile)',
-    period: '2023 — Present',
-    location: 'Bengaluru, India / Hybrid',
-    type: 'Full-time & Project Delivery',
-    description: 'Leading frontend architecture for multi-platform products across React.js web and React Native mobile ecosystems.',
+    id: 'netlink-se',
+    company: 'Netlink Software Pvt Ltd',
+    role: 'Software Engineer',
+    period: 'Mar 2023 — Present',
+    location: 'Bhopal, Madhya Pradesh, India',
+    type: 'Full-time',
+    description: 'Leading frontend component architecture, performance optimization, and real-time UI integrations across automotive IoT and healthcare enterprise client products.',
     responsibilities: [
-      'Architect modular, scalable component libraries with strict TypeScript typings and design token synchronization.',
-      'Direct mobile application engineering on React Native, integrating camera frame processors, offline persistence, and biometric auth.',
-      'Conduct rigorous code reviews focused on runtime performance, bundle-size budgets, accessibility (WCAG AA), and code reusability.',
-      'Partner closely with product management and UX design to transform intricate user flows into seamless, testable production features.'
+      'Designed reusable component abstractions adopted across 6+ modules, reducing duplicate code by 30% and improving long-term maintainability.',
+      'Led frontend performance optimization initiatives by profiling rendering bottlenecks and applying memoization, code-splitting, and lazy loading, reducing initial load time by 35–40%.',
+      'Implemented responsive, production-ready UI systems from design specifications, ensuring cross-browser compatibility and consistent user experience across devices.',
+      'Collaborated within Agile/Scrum cross-functional teams with backend engineers, designers, and QA to deliver scalable, mission-critical product features.'
     ],
-    technologies: ['React.js', 'React Native', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'Vite', 'REST APIs'],
-    highlight: 'Drove frontend standards and design systems used across consumer mobile apps and enterprise portals.'
+    technologies: ['React.js', 'React Native', 'JavaScript (ES6+)', 'TypeScript', 'Redux Toolkit', 'WebSockets', 'Tailwind CSS', 'Git', 'Agile/Scrum'],
+    highlight: 'Reduced duplicate code by 30% across 6+ modules and cut initial load times by 35–40%.'
   },
   {
-    id: 'exp-2',
-    company: 'Enterprise Software & Digital Platforms',
-    role: 'Software Engineer (Frontend)',
-    period: '2021 — 2023',
-    location: 'Bengaluru, India',
+    id: 'netlink-ase',
+    company: 'Netlink Software Pvt Ltd',
+    role: 'Associate Software Engineer',
+    period: 'Jun 2022 — Feb 2023',
+    location: 'Bhopal, Madhya Pradesh, India',
     type: 'Full-time',
-    description: 'Developed high-density enterprise interfaces, data visualization dashboards, and reusable form validation engines.',
+    description: 'Developed scalable, responsive UI components and owned frontend delivery across enterprise client web applications.',
     responsibilities: [
-      'Built and maintained reusable enterprise design systems (floq_ui) adopted across distributed product engineering squads.',
-      'Engineered virtualized data tables capable of rendering 10k+ rows with smooth 60fps sorting and inline editing.',
-      'Optimized Core Web Vitals, reducing First Contentful Paint (FCP) and Cumulative Layout Shift (CLS) through asset optimization and route-level code splitting.',
-      'Collaborated with backend teams to establish clean RESTful API contracts, data normalization, and optimistic mutation patterns.'
+      'Developed scalable, responsive UI components that improved design consistency and usability across multiple enterprise applications.',
+      'Integrated third-party libraries and backend REST APIs to streamline feature development, accelerating delivery timelines by approximately 20%.',
+      'Owned end-to-end frontend implementation for assigned features, coordinating with backend and QA teams to ensure on-time, production-ready releases.',
+      'Identified and resolved UI defects, improving cross-browser compatibility across Chrome, Firefox, Safari, and Edge.'
     ],
-    technologies: ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'Redux Toolkit', 'HTML5', 'CSS3', 'Git', 'Webpack'],
-    highlight: 'Architected schema-driven form generation pipelines, cutting new form implementation time significantly.'
+    technologies: ['React.js', 'JavaScript', 'HTML5', 'CSS3/SCSS', 'REST APIs', 'Git', 'JIRA'],
+    highlight: 'Accelerated feature delivery timelines by ~20% through reusable component integration.'
   },
   {
-    id: 'exp-3',
-    company: 'Creative Technology & Digital Solutions',
-    role: 'Associate Frontend Developer',
-    period: '2020 — 2021',
-    location: 'India',
+    id: 'netlink-tc',
+    company: 'Netlink Software Pvt Ltd',
+    role: 'Trainee Consultant',
+    period: 'Dec 2021 — May 2022',
+    location: 'Bhopal, Madhya Pradesh, India',
     type: 'Full-time',
-    description: 'Implemented responsive web applications, modern landing experiences, and client-facing interfaces.',
+    description: 'Built foundational UI components and dynamic REST API integrations during initial enterprise training and project onboarding.',
     responsibilities: [
-      'Translated wireframes and high-fidelity Figma designs into pixel-accurate, cross-browser responsive web pages.',
-      'Implemented clean CSS layouts using modern Flexbox, CSS Grid, and custom animations without heavy script dependencies.',
-      'Integrated third-party REST APIs and managed component lifecycle states with modern React hooks.',
-      'Maintained version control workflows with Git and participated in agile sprints and daily standups.'
+      'Built reusable frontend components to accelerate UI development and promote consistency across application screens.',
+      'Implemented REST API integrations to enable dynamic, data-driven user interfaces and real-time data rendering.',
+      'Collaborated with cross-functional teams to ensure seamless integration of frontend components with backend services.',
+      'Participated in code reviews, daily standups, and technical training in modern JavaScript and React paradigms.'
     ],
     technologies: ['React.js', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs', 'Git'],
-    highlight: 'Established a reputation for detail-oriented UI fidelity and zero visual regression in QA passes.'
+    highlight: 'Successfully transitioned from trainee to core associate engineer with high UI quality ratings.'
   }
 ];

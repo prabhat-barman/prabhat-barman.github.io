@@ -192,6 +192,83 @@ export const ExperienceSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Education & Verified Certifications Grid */}
+        <div className="mt-24 pt-16 border-t border-black/8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Education */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="flex items-center gap-2 font-mono-tech text-xs text-[#5C5C66] uppercase tracking-widest">
+              <span>Academic Foundation</span>
+            </div>
+            <h4 className="font-display text-2xl font-bold text-[#121214]">
+              Education
+            </h4>
+
+            {profileData.education.map((edu) => (
+              <div
+                key={edu.degree}
+                className="p-6 rounded-2xl bg-white border border-black/8 shadow-xs space-y-3"
+              >
+                <div className="font-mono-tech text-xs text-[#5C5C66]">
+                  {edu.period} • {edu.location}
+                </div>
+                <div className="font-display font-bold text-base text-[#121214]">
+                  {edu.degree}
+                </div>
+                <div className="text-sm text-[#5C5C66] font-medium">
+                  {edu.institution}
+                </div>
+                <p className="text-xs text-[#5C5C66] leading-relaxed pt-1">
+                  {edu.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Certifications */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center gap-2 font-mono-tech text-xs text-[#5C5C66] uppercase tracking-widest">
+              <span>Verified Qualifications</span>
+            </div>
+            <h4 className="font-display text-2xl font-bold text-[#121214]">
+              Licenses & Certifications
+            </h4>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {profileData.certifications.map((cert) => (
+                <div
+                  key={cert.name}
+                  className="p-5 rounded-2xl bg-white border border-black/8 shadow-xs hover:border-black/20 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-black/5 text-[#5C5C66]">
+                        {cert.date}
+                      </span>
+                      {cert.credentialUrl && (
+                        <a
+                          href={cert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#121214] hover:text-[#88B800] transition-colors"
+                          aria-label={`View ${cert.name} certificate`}
+                        >
+                          <span className="font-mono-tech text-[10px] underline">Credential</span>
+                        </a>
+                      )}
+                    </div>
+                    <div className="font-display font-bold text-sm text-[#121214]">
+                      {cert.name}
+                    </div>
+                    <div className="text-xs text-[#5C5C66] mt-1">
+                      {cert.issuer}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

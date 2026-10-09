@@ -2,63 +2,55 @@ import type { SkillCategory } from '../types/portfolio';
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: 'Frontend Engineering',
-    description: 'Modern, component-driven web architectures built for scale, responsiveness, and resilience.',
+    category: 'Frontend Web & Mobile',
+    description: 'Component-driven architectures, responsive engineering, and cross-platform mobile delivery.',
     skills: [
-      { name: 'React.js (v18 & v19)', level: 'Core Expertise', note: 'Hooks, Suspense, Error Boundaries, Render Optimization' },
-      { name: 'TypeScript', level: 'Production Core', note: 'Strict typing, Generics, Utility Types, Interface Contracts' },
-      { name: 'JavaScript (ES6+)', level: 'Deep Foundation', note: 'Closures, Event Loop, Async/Await, DOM APIs' },
-      { name: 'Tailwind CSS', level: 'Design Systems', note: 'Custom tokens, fluid clamp utilities, minimal bundle overhead' },
-      { name: 'HTML5 Semantic Architecture', level: 'Standard', note: 'Accessible landmarks, screen reader optimization' },
-      { name: 'CSS3 & Modern Layouts', level: 'Standard', note: 'CSS Grid, Flexbox, Container Queries, CSS Math' }
+      { name: 'React.js & React 19', level: 'Production Core', note: 'Hooks, Suspense, Custom Hooks, Functional Components' },
+      { name: 'React Native', level: 'Mobile Core', note: 'Cross-platform iOS/Android, Native bridges, Metro bundler' },
+      { name: 'TypeScript', level: 'Production Core', note: 'Strict typing, Generics, DTO interfaces, compile-time safety' },
+      { name: 'JavaScript (ES6+)', level: 'Deep Foundation', note: 'Closures, Event loop, Async/await, DOM manipulation' },
+      { name: 'Component-Driven Architecture', level: 'Architecture', note: 'Atomic design, reusable abstractions for 6+ modules' },
+      { name: 'Tailwind CSS & SCSS', level: 'Design Systems', note: 'Design tokens, custom fluid utilities, SCSS modules' },
+      { name: 'HTML5 & Responsive Layouts', level: 'Standard', note: 'CSS Grid, Flexbox, Mobile-first responsive design' },
+      { name: 'Redux & Redux Toolkit (RTK)', level: 'State Core', note: 'Normalized slices, async thunks, predictable store' }
     ]
   },
   {
-    category: 'Mobile Development',
-    description: 'Cross-platform native mobile engineering with seamless native bridge integration.',
+    category: 'APIs & Real-Time Integration',
+    description: 'Low-latency telemetry streaming, real-time event loops, and robust backend contracts.',
     skills: [
-      { name: 'React Native', level: 'Core Expertise', note: 'Cross-platform iOS & Android, Metro Bundler, Native Modules' },
-      { name: 'Vision Camera & Frame Processors', level: 'Specialized', note: 'Real-time camera feed processing & barcode recognition' },
-      { name: 'Mobile Navigation', level: 'Production Core', note: 'React Navigation, deep linking, native gesture sheets' },
-      { name: 'Offline Storage', level: 'Production Core', note: 'AsyncStorage, SQLite, persistent cache strategies' }
+      { name: 'WebSockets', level: 'Real-Time Telemetry', note: 'Live automotive telemetry, low-latency state synchronization' },
+      { name: 'REST APIs & Fetch/Axios', level: 'Production Core', note: 'HTTP interceptors, dynamic data rendering, error handling' },
+      { name: 'Node.js & Express.js', level: 'Backend Context', note: 'API contract definition, mock services, server middleware' }
     ]
   },
   {
-    category: 'State Management & Data Architecture',
-    description: 'Predictable, deterministic state containers and server-state caching.',
+    category: 'Performance & Optimization',
+    description: 'Disciplines that achieved 35–40% reduction in initial load times and buttery 60fps frame rates.',
     skills: [
-      { name: 'Redux Toolkit (RTK)', level: 'Production Core', note: 'Slices, createAsyncThunk, normalized entity adapters' },
-      { name: 'React Context & Custom Hooks', level: 'Standard', note: 'Encapsulated domain logic, reactive subscriptions' },
-      { name: 'Form State & Validation', level: 'Production Core', note: 'React Hook Form, Zod schema validation' }
+      { name: 'Render Optimization', level: 'Specialized', note: 'Eliminating wasted re-renders, profiling render trees' },
+      { name: 'Memoization', level: 'Specialized', note: 'useMemo, useCallback, React.memo for high-frequency feeds' },
+      { name: 'Code Splitting & Lazy Loading', level: 'Specialized', note: 'Dynamic imports, route-based splitting, minimal chunks' },
+      { name: 'Testing & Code Quality', level: 'Testing', note: 'Jest, React Testing Library, SonarQube automated checks' }
     ]
   },
   {
-    category: 'Integration & Networking',
-    description: 'Reliable network layers, optimistic updates, and resilient error recovery.',
+    category: 'Tools & DevOps Workflow',
+    description: 'Modern build pipelines, version control workflows, and collaborative Agile tooling.',
     skills: [
-      { name: 'REST APIs & HTTP Protocols', level: 'Production Core', note: 'Axios, Fetch API, interceptors, retry policies, rate-limiting' },
-      { name: 'Backend Integration Contracts', level: 'Production Core', note: 'DTO mapping, schema synchronization, status code handling' },
-      { name: 'WebSockets & Real-Time Streams', level: 'Practical', note: 'Event-driven real-time feeds and live telemetry' }
+      { name: 'Git & Version Control', level: 'Workflow Core', note: 'Certified by GeeksforGeeks, atomic commits, branching' },
+      { name: 'GitHub & Bitbucket', level: 'Workflow Core', note: 'PR reviews, CI workflows, repository management' },
+      { name: 'Agile & Scrum Delivery', level: 'Methodology', note: 'Sprint planning, daily standups, retrospective continuous delivery' },
+      { name: 'JIRA & Azure DevOps', level: 'Management', note: 'Issue tracking, sprint backlogs, feature board management' }
     ]
   },
   {
-    category: 'Tooling & Developer Experience',
-    description: 'High-speed build tools, version control, and profiling instrumentation.',
+    category: 'Standards, Security & Accessibility',
+    description: 'Regulated workflows, secure authentication, and universal digital access.',
     skills: [
-      { name: 'Vite & Modern Bundlers', level: 'Primary Tooling', note: 'Fast HMR, rollup plugins, code splitting, asset pipelines' },
-      { name: 'Git & Version Control', level: 'Standard', note: 'Branching strategies, rebase workflows, atomic commits' },
-      { name: 'Browser Developer Tools', level: 'Profiling', note: 'Performance panel, memory leak profiling, network throttling' },
-      { name: 'Storybook & Component Isolation', level: 'Design Systems', note: 'Visual testing, interactive component catalogs' }
-    ]
-  },
-  {
-    category: 'Engineering Practices & Quality',
-    description: 'The disciplines that ensure software remains fast, accessible, and maintainable over years.',
-    skills: [
-      { name: 'Reusable Component Architecture', level: 'Discipline', note: 'Atomic design, compound components, headless separation' },
-      { name: 'Performance Optimization', level: 'Discipline', note: 'Virtualization, lazy-loading, memoization, tree-shaking' },
-      { name: 'Accessibility (WCAG AA)', level: 'Discipline', note: 'Keyboard focus management, ARIA roles, color contrast' },
-      { name: 'Debugging & Production Triage', level: 'Discipline', note: 'Systematic root-cause analysis, defensive error handling' }
+      { name: 'HIPAA-Aware Architecture', level: 'Regulated Domain', note: 'Secure patient workflows, data privacy, regulatory compliance' },
+      { name: 'WCAG AA Accessibility', level: 'Inclusion', note: 'Screen reader optimization, keyboard focus rings, semantic tags' },
+      { name: 'OAuth 2.0 & JWT Authentication', level: 'Security', note: 'Token lifecycle, session persistence, route guards' }
     ]
   }
 ];

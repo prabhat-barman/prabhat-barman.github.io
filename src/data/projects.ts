@@ -2,192 +2,250 @@ import type { ProjectData } from '../types/portfolio';
 
 export const projectsData: ProjectData[] = [
   {
-    id: 'wellvalet',
-    title: 'WellValet',
-    category: 'Mobile & Web Application',
-    year: '2024 — Present',
+    id: 'siriusxm-telemetry',
+    title: 'SiriusXM Connected Vehicles',
+    category: 'Automotive IoT & Real-Time Telemetry',
+    year: '2023 — Present',
     featured: true,
-    tagline: 'Intelligent ingredient scanning and dietary transparency engine.',
-    summary: 'A high-performance grocery scanning application built for rapid barcode recognition, real-time dietary ingredient analysis, allergen warnings, and nutritional breakdown.',
-    role: 'Lead Frontend & Mobile Engineer — UI Architecture, Camera Stream Integration, Offline Barcode Caching',
-    techStack: ['React Native', 'React.js', 'TypeScript', 'Redux Toolkit', 'Vision Camera', 'Tailwind CSS', 'REST APIs'],
+    tagline: 'Real-time vehicle monitoring dashboard streaming low-latency WebSocket telemetry.',
+    summary: 'A high-performance automotive intelligence dashboard displaying live vehicle speed, GPS positioning, battery health, and diagnostic alerts with optimized sub-100ms render cycles.',
+    role: 'Software Engineer — Real-Time WebSocket Architecture, UI Memoization & Diagnostic Map Components',
+    techStack: ['React.js', 'TypeScript', 'WebSockets', 'Redux Toolkit', 'Tailwind CSS', 'Render Optimization', 'REST APIs'],
     accentColor: '#CCFF00',
-    demoUrl: 'https://wellvalet.com', // configurable
-    repoUrl: '', // omitted if private enterprise repo
-    visible: true,
-    previewType: 'mobile-scanner',
-    caseStudy: {
-      overview: 'WellValet empowers consumers to instantly decipher complex grocery product labels by scanning barcodes or ingredients lists in grocery store environments with variable lighting and intermittent connectivity.',
-      problem: 'Consumers with allergies or specific dietary restrictions (e.g. celiac, vegan, diabetic) spend minutes deciphering fine-print ingredient labels in supermarket aisles. Existing barcode scanners either required heavy internet bandwidth or suffered from sluggish camera preview render loops.',
-      goals: [
-        'Deliver sub-200ms barcode detection and ingredient classification on mobile devices.',
-        'Engineer an offline-first cache strategy for frequently scanned food items.',
-        'Create a clear, high-contrast visual alert hierarchy for critical allergen matches.',
-        'Maintain 60fps scrolling across extensive ingredient and additive breakdown lists.'
-      ],
-      role: [
-        'Architected the cross-platform React Native client and companion web inspection portal.',
-        'Integrated low-latency device camera frame processors with native barcode recognition.',
-        'Built deterministic dietary rule-matching UI states with Redux Toolkit.',
-        'Implemented accessible ingredient badges with color-blind friendly iconography and WCAG AA contrast.'
-      ],
-      technicalApproach: [
-        'Utilized native vision camera frame processors to decouple scanning computations from the JavaScript event loop.',
-        'Employed normalized Redux state slices with indexed key-value lookup for instant offline matching.',
-        'Engineered responsive nutritional sheet modals with gesture-driven sheet spring physics.',
-        'Separated scanner viewports into lightweight decoupled components to prevent unnecessary camera feed remounts.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Decoupled Frame Processor from Main JS Thread',
-          rationale: 'Scanning high-density QR and EAN-13 barcodes on low-end Android devices was causing UI freezes. Native frame processing eliminated thread contention.'
-        },
-        {
-          decision: 'Optimistic Ingredient Categorization UI',
-          rationale: 'Displayed instant cached hazard badges (e.g., "Contains Gluten") before downloading full manufacturer nutritional breakdowns.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Handling low-light camera glare on glossy packaging wrappers.',
-          solution: 'Implemented dynamic torch toggle alongside automatic bounding-box visual guides that coach the user on optimal scanning distance.'
-        },
-        {
-          challenge: 'Rendering hundreds of microscopic additive codes (E-numbers) without layout shifts.',
-          solution: 'Built a virtualized expandable list view with pre-computed item heights and search indexing.'
-        }
-      ],
-      verifiedHighlights: [
-        'Real-time barcode detection and dietary risk categorization.',
-        'Offline-first synchronized SQLite/AsyncStorage local caching.',
-        'WCAG AA accessible color palettes with distinct allergen iconography.',
-        'Cross-platform codebase sharing business logic between web and mobile.'
-      ]
-    }
-  },
-  {
-    id: 'playdrama',
-    title: 'PlayDrama & PlayCinema',
-    category: 'Entertainment & Streaming Platform',
-    year: '2023 — 2024',
-    featured: true,
-    tagline: 'Low-latency digital entertainment client with seamless playback transitions.',
-    summary: 'A modern video streaming and entertainment frontend engineered for cinema-grade playback, instant episode switching, interactive subtitles, and intuitive media catalogues.',
-    role: 'Frontend Engineer — Video Player Integration, Media Catalog UI, State Management & Responsive Layouts',
-    techStack: ['React.js', 'React Native', 'TypeScript', 'HLS.js / Video.js', 'Tailwind CSS', 'Redux Toolkit', 'REST APIs'],
-    accentColor: '#8C52FF',
     demoUrl: '',
     repoUrl: '',
     visible: true,
-    previewType: 'streaming-player',
+    previewType: 'automotive-telemetry',
     caseStudy: {
-      overview: 'PlayDrama / PlayCinema provides thousands of hours of high-definition drama and cinema content through a responsive web and mobile application designed for frictionless binge-watching.',
-      problem: 'Video streaming users demand immediate start times, zero layout shifts when toggling between windowed and fullscreen modes, and effortless episode transitions without losing track of audio preferences or subtitle states.',
+      overview: 'SiriusXM Connected Vehicles platform aggregates streaming vehicular diagnostic telemetry across connected fleets, delivering immediate health metrics, GPS geofencing, and proactive critical alert triggers.',
+      problem: 'High-frequency telemetry data streams (10+ packet updates per second) were overwhelming the React component tree, causing UI stutters, CPU spikes, and delayed map coordinate updates.',
       goals: [
-        'Build custom video player controls with smooth keyboard shortcuts and touch gestures.',
-        'Ensure zero memory leaks during continuous multi-hour episode switching.',
-        'Develop responsive media carousels with fluid hover previews and bookmarking.',
-        'Provide localized subtitle rendering with custom font size and styling controls.'
+        'Stream real-time vehicle speed, battery state-of-charge, and GPS telemetry via persistent WebSockets.',
+        'Improve UI rendering performance by 40% through strict memoization and code-splitting.',
+        'Develop modular UI components for telemetry gauges, diagnostic alert banners, and live fleet maps.',
+        'Increase user operational engagement by 20% through responsive, data-driven interfaces.'
       ],
       role: [
-        'Engineered the core custom video playback overlay with custom scrubbers, volume gestures, and speed controls.',
-        'Built the catalog exploration screens featuring horizontal thumbnail carousels and genre filters.',
-        'Managed playback telemetry and watch-history synchronization across sessions.',
-        'Implemented resilient reconnection and buffer-starvation recovery handlers.'
+        'Engineered the real-time WebSocket communication layer with automated reconnect and heartbeat protocols.',
+        'Implemented selective memoization using useMemo, useCallback, and React.memo to isolate high-frequency telemetry updates from unaffected UI panels.',
+        'Created modular, reusable UI components for telemetry speedometers, diagnostic alert feeds, and battery gauges.',
+        'Applied route-level code splitting and lazy loading to drastically cut initial bundle payload.'
       ],
       technicalApproach: [
-        'Created an abstraction layer over native HTML5 video and mobile media engines to unify keyboard and touch events.',
-        'Utilized CSS container queries and fluid typography for consistent video HUD scaling across phones, tablets, and ultra-wide desktop monitors.',
-        'Implemented virtualized horizontal scroll containers with eager pre-fetching of next-episode thumbnails.'
+        'Decoupled incoming raw socket telemetry packets from the main render cycle using buffered frame batching.',
+        'Employed normalized Redux state slices with indexed key-value lookup for instant vehicle retrieval.',
+        'Rendered SVG circular gauges with hardware-accelerated CSS transforms rather than continuous canvas repaints.'
       ],
       keyDecisions: [
         {
-          decision: 'Custom HUD Overlay Architecture',
-          rationale: 'Default browser player controls vary wildly across Safari, Chrome, and mobile browsers. A custom HUD guaranteed uniform design and accessible keyboard shortcuts.'
+          decision: 'Frame-Throttled Socket Data Ingestion',
+          rationale: 'Batching WebSocket messages to match requestAnimationFrame intervals prevented redundant intermediate React re-renders while keeping gauges visually instantaneous.'
         },
         {
-          decision: 'Debounced Playback Progress Sync',
-          rationale: 'Throttled playback time update events to avoid flooding the user state API while maintaining accurate resume points.'
+          decision: 'Isolated Telemetry Widget State',
+          rationale: 'Separated speed and battery gauges into independent leaf components so parent dashboards never re-render during real-time speed fluctuations.'
         }
       ],
       challengesAndSolutions: [
         {
-          challenge: 'Safari iOS fullscreen video taking over native UI and ignoring custom overlays.',
-          solution: 'Implemented custom playsinline container orchestration with fallback controls optimized for Safari webkit restrictions.'
+          challenge: 'Intermittent vehicular connectivity causing missed alert packets and socket disconnects.',
+          solution: 'Engineered an exponential backoff reconnect handler with an indexed client-side event replay queue.'
         },
         {
-          challenge: 'Jitter during rapid scrubbing across heavy 4K video timelines.',
-          solution: 'Implemented preview thumbnail sprites that render during drag scrub before committing the player seek command.'
+          challenge: 'Heavy memory footprint during prolonged multi-hour live telemetry sessions.',
+          solution: 'Implemented capped circular buffers for historical time-series chart data, capping DOM memory usage.'
         }
       ],
       verifiedHighlights: [
-        'Custom accessible video player with full keyboard control.',
-        'Adaptive bitrate playback and buffering state indicators.',
-        'Responsive media grids optimized for desktop, tablet, and mobile.',
-        'Reliable cross-session watch history and episode bookmarking.'
+        '40% improvement in UI performance through memoization and code splitting.',
+        'Live low-latency WebSocket telemetry streaming for speed, GPS, and diagnostics.',
+        '20% increase in user engagement through responsive, data-driven interfaces.',
+        'Standardized reusable automotive UI components for fleet diagnostics and maps.'
       ]
     }
   },
   {
-    id: 'floq-ui',
-    title: 'floq_ui',
-    category: 'Enterprise UI System & Application',
-    year: '2022 — 2023',
+    id: 'irisinsights-healthcare',
+    title: 'IrisInsights.us',
+    category: 'Regulated Healthcare Platform',
+    year: '2023 — 2024',
     featured: true,
-    tagline: 'Production design system, schema-driven form engine, and high-density data tables.',
-    summary: 'A unified enterprise web frontend suite and reusable component library featuring complex data workflows, schema-driven forms, virtualized tables, and strict accessibility compliance.',
-    role: 'UI Architect & Frontend Engineer — Component Library Architecture, Form Engine, Table Virtualization',
-    techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'React Hook Form', 'Zod', 'Vite', 'Storybook'],
+    tagline: 'HIPAA-compliant patient workflow architecture and accessible clinical interfaces.',
+    summary: 'A secure, HIPAA-compliant healthcare web application engineered for sensitive patient records, clinical workflows, and WCAG AA accessibility standards.',
+    role: 'Software Engineer — HIPAA-Compliant Frontend Modules, WCAG Accessibility & Cross-Browser Consistency',
+    techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'WCAG AA', 'OAuth 2.0 / JWT', 'REST APIs'],
     accentColor: '#00C2FF',
+    demoUrl: 'https://irisinsights.us',
+    repoUrl: '',
+    visible: true,
+    previewType: 'healthcare-hipaa',
+    caseStudy: {
+      overview: 'IrisInsights.us delivers modern, HIPAA-compliant patient management interfaces for healthcare providers, clinical administrators, and patient engagement workflows.',
+      problem: 'Healthcare applications must balance strict federal data privacy mandates (HIPAA) with effortless usability for doctors and medical staff under time-critical conditions, requiring flawless accessibility across all assistive technologies.',
+      goals: [
+        'Develop HIPAA-compliant frontend modules supporting secure patient workflows and zero-leak session handling.',
+        'Translate complex medical and healthcare regulations into scalable, maintainable React UI architecture.',
+        'Ensure full WCAG AA accessibility compliance and cross-browser consistency across all enterprise environments.',
+        'Maintain rock-solid security with encrypted session tokens and automatic idle timeouts.'
+      ],
+      role: [
+        'Architected HIPAA-compliant React components adhering strictly to healthcare data masking rules.',
+        'Implemented WCAG AA keyboard navigation, high-contrast visual tokens, and screen-reader ARIA live regions.',
+        'Integrated secure REST APIs with OAuth 2.0 token expiration interceptors and secure in-memory caching.',
+        'Conducted rigorous cross-browser testing across Chrome, Safari, Firefox, and Edge to guarantee zero UI regressions.'
+      ],
+      technicalApproach: [
+        'Enforced strict TypeScript interfaces mirroring compliant healthcare data transfer objects (DTOs).',
+        'Implemented sensitive patient data masking filters that obscure Protected Health Information (PHI) unless explicitly unmasked by authorized roles.',
+        'Created accessible modal dialogs with automated focus trapping and keyboard escape management.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'In-Memory PHI State Cache',
+          rationale: 'Avoided storing sensitive patient health records in localStorage/sessionStorage, eliminating XSS extraction vectors and ensuring strict HIPAA alignment.'
+        },
+        {
+          decision: 'Automated Idle Session Guard',
+          rationale: 'Integrated passive mouse and keyboard activity listeners with a 15-minute HIPAA idle timeout countdown modal.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Rendering high-density clinical lab charts while adhering to high-contrast WCAG ratios.',
+          solution: 'Created an accessible color token palette verified through automated axe-core audits and contrast analyzers.'
+        },
+        {
+          challenge: 'Complex multi-step patient onboarding forms with conditional clinical validation.',
+          solution: 'Engineered a schema-driven form state machine with step-level validation and auto-save drafts.'
+        }
+      ],
+      verifiedHighlights: [
+        'HIPAA-compliant frontend modules with secure patient data handling.',
+        '100% WCAG AA accessibility compliance verified across screen readers and keyboard navigation.',
+        'Scalable, maintainable React component architecture for regulated enterprise healthcare.',
+        'Cross-browser consistency tested across enterprise browser standards.'
+      ]
+    }
+  },
+  {
+    id: 'netlink-design-system',
+    title: 'floq_ui & Enterprise Architecture',
+    category: 'Enterprise UI System & Reusable Framework',
+    year: '2022 — Present',
+    featured: true,
+    tagline: 'Standardized component abstractions across 6+ modules, reducing duplicate code by 30%.',
+    summary: 'A unified enterprise design system and reusable component suite built at Netlink Software, powering multiple high-traffic client applications with virtualized data grids and schema-driven forms.',
+    role: 'Lead UI Architecture — Reusable Abstractions, Performance Optimization & Cross-Squad Adoption',
+    techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Code Splitting', 'Storybook', 'Agile/Scrum'],
+    accentColor: '#8C52FF',
     demoUrl: '',
     repoUrl: '',
     visible: true,
     previewType: 'design-system',
     caseStudy: {
-      overview: 'floq_ui was created to solve fragmentation across multi-team enterprise web workflows by providing a battle-tested, accessible component foundation and schema-driven data screens.',
-      problem: 'Enterprise teams were constantly rewriting complex multi-step forms, data tables with 50+ columns, and filtering modals, resulting in conflicting UI patterns, visual inconsistency, and poor keyboard accessibility.',
+      overview: 'Designed and deployed reusable component abstractions at Netlink Software adopted across 6+ enterprise modules, eliminating UI fragmentation and accelerating feature delivery by ~20%.',
+      problem: 'Engineering teams across multiple enterprise modules were building divergent button states, date pickers, and data tables from scratch, resulting in massive code duplication and maintenance overhead.',
       goals: [
-        'Deliver a shared UI foundation of 40+ accessible components with strict TypeScript types.',
-        'Support high-density data tables rendering 10,000+ records with column sorting, filtering, and row selection.',
-        'Implement dynamic form generation driven by Zod validation schemas.',
-        'Achieve full WCAG AA compliance with automated accessibility linting.'
+        'Design reusable component abstractions for 6+ modules, reducing duplicate code by 30%.',
+        'Lead frontend performance optimization initiatives, achieving a 35–40% reduction in initial load time.',
+        'Standardize typography, color tokens, and layout guidelines across all enterprise applications.',
+        'Enable backend and QA teams to test standardized, accessible UI primitives with high confidence.'
       ],
       role: [
-        'Defined the design token architecture (spacing, typography, color semantics, and elevation).',
-        'Implemented the virtualized data grid with multi-column sorting and frozen header rows.',
-        'Engineered the reusable form abstraction supporting async validation and complex conditional fields.',
-        'Authored component documentation and comprehensive usage guidelines.'
+        'Designed modular component primitives (data tables, form inputs, modal dialogs, status badges).',
+        'Led the performance optimization drive using bundle analysis, dynamic imports, and memoization.',
+        'Authored component usage documentation and collaborated with Agile squads to guide adoption.',
+        'Coordinated with backend teams to establish clean API contracts and data normalization patterns.'
       ],
       technicalApproach: [
-        'Used headless component primitives (Radix UI patterns) paired with Tailwind CSS for customizable styling.',
-        'Adopted row virtualization (TanStack Virtual / custom virtualizers) to render only visible DOM nodes.',
-        'Created composable compound components (e.g. Table.Root, Table.Header, Table.Row, Table.Cell) for maximum flexibility.'
+        'Adopted compound component patterns (e.g. Table.Root, Table.Header, Table.Row) for flexible developer ergonomics.',
+        'Employed virtualization for high-density enterprise tables rendering thousands of records at steady 60fps.',
+        'Built tree-shakeable ES module packages ensuring consuming applications only bundle imported components.'
       ],
       keyDecisions: [
         {
-          decision: 'Compound Component Pattern',
-          rationale: 'Avoided bloated configuration props on giant monolithic components, giving consuming teams full JSX composition control.'
+          decision: '30% Code Duplication Reduction via Shared Abstractions',
+          rationale: 'Consolidating form fields and table components into a single shared library eliminated duplicate code across 6+ squads.'
         },
         {
-          decision: 'Strict Schema-First Form Validation',
-          rationale: 'Coupled React Hook Form with Zod to ensure compile-time type safety from backend API contracts to form fields.'
+          decision: 'Route-Level Code Splitting',
+          rationale: 'Dynamically loading heavier charting and report modules slashed initial bundle size, cutting load times by 35–40%.'
         }
       ],
       challengesAndSolutions: [
         {
-          challenge: 'Rendering wide data tables with 40+ editable inputs without UI lag.',
-          solution: 'Isolated cell-level render state using uncontrolled input hooks and debounced batch updates.'
+          challenge: 'Migrating legacy enterprise modules to new design system without breaking existing business logic.',
+          solution: 'Built backward-compatible wrapper adapters that allowed squads to migrate incrementally component-by-component.'
         },
         {
-          challenge: 'Keyboard accessibility across nested dropdowns and modal drawers.',
-          solution: 'Enforced automatic focus trapping, escape-key restoration, and explicit ARIA live regions for async state announcements.'
+          challenge: 'Ensuring design consistency across varied client brand themes.',
+          solution: 'Implemented CSS custom property token overrides for themes while keeping core layout logic immutable.'
         }
       ],
       verifiedHighlights: [
-        'Standardized 40+ production components across multiple enterprise applications.',
-        'Sub-16ms frame rates on 10,000+ row virtualized data grids.',
-        '100% WCAG AA compliance verified via automated axe testing.',
-        'Comprehensive TypeScript autocompletion and prop validation.'
+        'Reduced duplicate code by 30% across 6+ enterprise modules.',
+        'Achieved a 35–40% reduction in initial load time via memoization and lazy loading.',
+        'Accelerated feature delivery timelines by ~20%.',
+        'Adopted by distributed engineering squads in production enterprise environments.'
+      ]
+    }
+  },
+  {
+    id: 'language-academy',
+    title: 'Language Academy',
+    category: 'EdTech & Exam Simulation Platform',
+    year: '2022 — 2023',
+    featured: false,
+    tagline: 'Modern education platform for language proficiency exams with analytics and mock tests.',
+    summary: 'A responsive education platform for students preparing for language certification exams, featuring timed mock test modules, audio playback assessments, score tracking, and performance analytics.',
+    role: 'Frontend Engineer — Student Dashboard, Mock Test Engine & Performance Analytics',
+    techStack: ['React.js', 'JavaScript (ES6+)', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'Audio API'],
+    accentColor: '#FF6B00',
+    demoUrl: '',
+    repoUrl: '',
+    visible: true,
+    previewType: 'education-exam',
+    caseStudy: {
+      overview: 'Language Academy enables language learners to prepare for international proficiency exams through realistic timed testing simulations, automated scoring rubrics, and detailed performance insights.',
+      problem: 'Students needed an intuitive interface that mirrored real-world computer-based exam conditions—including strict timers, audio passage playback, and instant performance feedback—without distracting UI clutter.',
+      goals: [
+        'Build responsive and reusable UI components using React.js and modern frontend architecture.',
+        'Implement student dashboard, authentication flow, mock test modules, score tracking, and analytics.',
+        'Ensure sub-second question transitions and resilient state persistence during test sessions.',
+        'Provide actionable visual score breakdowns across reading, writing, listening, and speaking.'
+      ],
+      role: [
+        'Developed the interactive exam test runner with countdown timer and question navigator.',
+        'Built student dashboard visual score cards displaying historical progress and target percentiles.',
+        'Integrated audio playback controls for listening comprehension exercises.',
+        'Managed exam session state persistence to prevent loss of answers during accidental page refreshes.'
+      ],
+      technicalApproach: [
+        'Created a deterministic Redux exam slice tracking current question index, answers map, and elapsed time.',
+        'Implemented auto-save triggers on every answer selection syncing with local storage and backend REST endpoints.',
+        'Used fluid responsive layouts ensuring tests could be taken seamlessly on laptops, tablets, or phones.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Offline-Resilient Exam State',
+          rationale: 'Saved candidate progress locally on every keystroke/selection so network blips never disrupted a timed test.'
+        },
+        {
+          decision: 'Distraction-Free Exam Mode',
+          rationale: 'Engineered a minimalist fullscreen layout mode hiding all non-essential navigation during active tests.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Synchronizing audio passage playback with question timer restrictions.',
+          solution: 'Built custom HTML5 audio controllers with event callbacks that automatically unlocked question fields upon audio completion.'
+        }
+      ],
+      verifiedHighlights: [
+        'Interactive student dashboard with comprehensive score analytics.',
+        'Timed mock test modules mirroring official exam specifications.',
+        'Responsive and reusable UI components built with React.js.',
+        'Seamless authentication and student session management.'
       ]
     }
   },
@@ -201,7 +259,7 @@ export const projectsData: ProjectData[] = [
     summary: 'A curated suite of interaction prototypes exploring modern browser graphics, velocity-based typography physics, 60fps canvas wave simulations, and tactile micro-interactions.',
     role: 'Creative Developer — Interaction Design, Canvas Math, DOM Animation Optimization',
     techStack: ['React 19', 'TypeScript', 'HTML5 Canvas API', 'CSS Math (clamp, trig)', 'Lucide Icons'],
-    accentColor: '#FF6B00',
+    accentColor: '#CCFF00',
     demoUrl: '#playground',
     repoUrl: 'https://github.com/prabhatbarman',
     visible: true,
