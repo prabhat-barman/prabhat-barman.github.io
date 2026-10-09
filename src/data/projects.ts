@@ -65,6 +65,69 @@ export const projectsData: ProjectData[] = [
     }
   },
   {
+    id: 'siriusxm-mobile-drive',
+    title: 'SiriusXM Drive Mobile Companion',
+    category: 'Mobile Engineering (React Native • iOS & Android)',
+    year: '2023 — Present',
+    featured: true,
+    tagline: 'Cross-platform React Native telematics companion with Bluetooth LE pairing and remote vehicle controls.',
+    summary: 'A high-fidelity React Native mobile application for connected vehicle drivers. Features BLE key fob authentication, remote engine start/stop, door lock toggles, live tire pressure telemetry, GPS locator with Apple/Google Maps integration, and 60fps animations powered by Reanimated 3.',
+    role: 'Software Engineer — React Native Cross-Platform Architecture, Bluetooth LE Bridges & Gesture Animations',
+    techStack: ['React Native', 'TypeScript', 'Reanimated 3', 'Redux Toolkit', 'Bluetooth LE', 'iOS & Android', 'MMKV Caching', 'Gesture Handler', 'JSI'],
+    accentColor: '#CCFF00',
+    demoUrl: '',
+    repoUrl: '',
+    visible: true,
+    previewType: 'mobile-simulator',
+    caseStudy: {
+      overview: 'SiriusXM Drive Mobile Companion gives vehicle drivers immediate control of their connected cars directly from iOS and Android devices, bridging Bluetooth Low Energy proximity pairing with cloud telematics.',
+      problem: 'Drivers needed instant, reliable remote vehicle interactions (e.g. unlocking doors or pre-cooling the cabin) even with spotty cellular reception, without draining phone battery or suffering slow native bridge latency.',
+      goals: [
+        'Engineer a cross-platform React Native mobile app deployed to both Apple App Store and Google Play Store.',
+        'Implement sub-50ms native bridge communication for Bluetooth Low Energy (BLE) proximity detection.',
+        'Achieve rock-solid 60 FPS gesture and fluid transitions using React Native Reanimated 3 worklets on UI thread.',
+        'Design offline-first telemetry caching with fast MMKV key-value storage.'
+      ],
+      role: [
+        'Architected core React Native component tree with strict separation of presentation and business logic.',
+        'Implemented Reanimated 3 gesture handlers and interactive physics-based controls for remote start and climate dials.',
+        'Constructed native JSI bridge wrappers for Bluetooth Low Energy peripheral scanning and RSSI signal calibration.',
+        'Integrated encrypted offline storage with MMKV for instantaneous app launch without cold network stalls.'
+      ],
+      technicalApproach: [
+        'Offloaded high-frequency gesture animations and physics springs to the native UI thread via Reanimated 3 worklets.',
+        'Abstracted platform differences between iOS CoreBluetooth and Android BLE into a unified TypeScript manager.',
+        'Configured Hermes JavaScript engine with bytecode precompilation, achieving ~45% faster cold startup times.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Reanimated 3 UI Thread Execution',
+          rationale: 'Running gestures and spring animations directly on the native thread prevented JS thread bottlenecks during heavy background telemetry sync.'
+        },
+        {
+          decision: 'MMKV Synchronous Storage over AsyncStorage',
+          rationale: 'MMKV provided 30x faster read/write speeds, enabling zero-latency hydration of vehicle telemetry state upon app launch.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Handling varied Android OEM battery saver policies killing background BLE telemetry listeners.',
+          solution: 'Engineered a foreground service worker for Android paired with iOS background location and CoreBluetooth state restoration.'
+        },
+        {
+          challenge: 'Rendering high-resolution vehicle 3D perspective wireframes without UI stutters.',
+          solution: 'Utilized Skia-backed hardware-accelerated SVG paths with precomputed vector coordinates.'
+        }
+      ],
+      verifiedHighlights: [
+        'Seamless cross-platform deployment across iOS and Android with 95%+ shared code.',
+        'Sub-50ms BLE signal responsiveness for keyless vehicle entry and proximity unlock.',
+        'Zero dropped frames: 60 FPS gesture interactions powered by Reanimated 3 worklets.',
+        'Hermes bytecode precompilation yielding ~45% reduction in cold application boot time.'
+      ]
+    }
+  },
+  {
     id: 'irisinsights-healthcare',
     title: 'IrisInsights.us',
     category: 'Regulated Healthcare Platform',

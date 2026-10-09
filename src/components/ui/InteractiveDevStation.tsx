@@ -18,11 +18,12 @@ interface InteractiveDevStationProps {
 
 const QUOTES = [
   "Hey there! Welcome to Prabhat.dev 👋",
+  "React Native + Reanimated 3: Smooth 60fps on iOS & Android 📱",
   "Currently architecting high-performance React 19 apps ⚡",
-  "Fun fact: 4+ years building telemetry & healthcare platforms!",
+  "Bluetooth LE & JSI Bridges: Sub-50ms telematics response 🏎️",
   "Coffee converted into clean TypeScript code: 1,420+ cups ☕",
-  "60 FPS locked in. Zero frame drops allowed! 🏎️",
-  "Need a senior frontend engineer? Let's collaborate!",
+  "60 FPS locked in. Zero frame drops allowed! 🎯",
+  "Need a senior React & React Native engineer? Let's collaborate!",
   "Inspect the code: Strict TypeScript, zero warnings 🛡️",
 ];
 
@@ -234,7 +235,7 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
             </div>
             <div className="px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-mono-tech font-bold text-[#121214] shadow-md flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
               <Code2 className="w-3.5 h-3.5 text-[#121214]" />
-              <span>Native Bridges</span>
+              <span>React Native & BLE</span>
             </div>
           </div>
 

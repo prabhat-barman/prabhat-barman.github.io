@@ -103,6 +103,29 @@ export function MaskedField({ value, isAuthorized }: FieldProps) {
   </DataGrid.Header>
   <DataGrid.VirtualBody rowHeight={48} />
 </DataGrid.Root>`
+  },
+  {
+    category: '05 / REACT NATIVE MOBILE ARCHITECTURE',
+    title: '60 FPS Native Gestures & Hermes Optimization',
+    tagline: 'Cross-platform iOS & Android mobile engineering with UI thread worklets.',
+    description: 'Engineered high-performance React Native mobile applications. Executed complex gesture physics and animations directly on the native thread via Reanimated 3 worklets and tuned Hermes bytecode compilation, achieving sub-50ms bridge responsiveness and ~45% faster cold boot times.',
+    metric: '60 FPS UI Thread',
+    metricLabel: 'Zero Dropped Native Frames',
+    techBadge: 'React Native • Reanimated 3 • JSI • Hermes',
+    gradientClass: 'from-[#14532d] via-[#064e3b] to-[#022c22]',
+    accentColor: '#CCFF00',
+    codeSnippet: `// Reanimated 3 UI-Thread Worklet & JSI Fast Storage
+import { useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { MMKV } from 'react-native-mmkv';
+
+const storage = new MMKV({ id: 'telemetry-cache' });
+
+export function useVehicleSpring(isLocked: boolean) {
+  return useAnimatedStyle(() => ({
+    transform: [{ scale: withSpring(isLocked ? 1 : 1.05) }],
+    opacity: withSpring(isLocked ? 0.9 : 1),
+  }));
+}`
   }
 ];
 

@@ -83,7 +83,7 @@ export interface ProjectData {
   repoUrl?: string;
   caseStudy: ProjectCaseStudy;
   visible: boolean;
-  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab';
+  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab' | 'mobile-simulator';
 }
 
 export interface ExperienceItem {

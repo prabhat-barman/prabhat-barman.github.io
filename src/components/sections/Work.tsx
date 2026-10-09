@@ -17,6 +17,7 @@ import { projectsData } from '../../data/projects';
 import type { ProjectData } from '../../types/portfolio';
 import { SectionHeading } from '../ui/SectionHeading';
 import { CaseStudyModal } from './CaseStudyModal';
+import { InteractiveMobileSimulator } from '../ui/InteractiveMobileSimulator';
 
 /* Interactive Mockup for SiriusXM Automotive Telemetry */
 const SiriusXmTelemetryPreview: React.FC = () => {
@@ -437,6 +438,7 @@ export const Work: React.FC = () => {
                 {/* Interactive Visual Preview Column */}
                 <div className={`lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                   {project.previewType === 'automotive-telemetry' && <SiriusXmTelemetryPreview />}
+                  {project.previewType === 'mobile-simulator' && <InteractiveMobileSimulator />}
                   {project.previewType === 'healthcare-hipaa' && <IrisInsightsPreview />}
                   {project.previewType === 'design-system' && <NetlinkDesignSystemPreview />}
                   {project.previewType === 'education-exam' && <LanguageAcademyPreview />}
