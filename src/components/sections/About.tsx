@@ -1,6 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { profileData } from '../../data/profile';
 import { SectionHeading } from '../ui/SectionHeading';
+import { CardSpotlight } from '../ui/CardSpotlight';
 
 export const About: React.FC = () => {
   return (
@@ -68,9 +69,9 @@ export const About: React.FC = () => {
             </div>
 
             {profileData.corePrinciples.map((principle, idx) => (
-              <div
+              <CardSpotlight
                 key={principle.title}
-                className="p-5 rounded-2xl bg-white border border-black/8 shadow-xs hover:border-black/20 transition-colors"
+                className="p-5 shadow-xs hover:border-black/20 transition-colors"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-mono-tech text-[10px] uppercase px-2 py-0.5 rounded bg-black/5 text-[#5C5C66]">
@@ -86,7 +87,7 @@ export const About: React.FC = () => {
                 <p className="mt-1.5 text-xs sm:text-sm text-[#5C5C66] leading-relaxed">
                   {principle.description}
                 </p>
-              </div>
+              </CardSpotlight>
             ))}
           </div>
         </div>

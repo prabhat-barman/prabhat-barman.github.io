@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Terminal as TerminalIcon, X, Maximize2, Minimize2, Sparkles, CornerDownLeft } from 'lucide-react';
 import { profileData } from '../../data/profile';
 import { projectsData } from '../../data/projects';
+import { Meteors } from './Meteors';
 
 interface DeveloperTerminalProps {
   isOpen: boolean;
@@ -329,9 +330,11 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
 
         {/* Terminal Body */}
         <div
-          className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm font-mono leading-relaxed"
+          className="relative flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm font-mono leading-relaxed"
           onClick={() => inputRef.current?.focus()}
         >
+          {/* Aceternity Meteors background effect */}
+          <Meteors number={14} className="opacity-25" />
           {history.map((item) => (
             <div key={item.id} className="space-y-1.5">
               <div className="flex items-center gap-2 text-zinc-400">

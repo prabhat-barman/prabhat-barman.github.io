@@ -3,6 +3,10 @@ import { profileData } from '../../data/profile';
 import { AvailabilityBadge } from '../ui/AvailabilityBadge';
 import { MagneticButton } from '../ui/MagneticButton';
 import { InteractiveDevStation } from '../ui/InteractiveDevStation';
+import { Spotlight } from '../ui/Spotlight';
+import { FlipWords } from '../ui/FlipWords';
+import { HoverBorderGradient } from '../ui/HoverBorderGradient';
+import { CardSpotlight } from '../ui/CardSpotlight';
 
 export const Hero: React.FC = () => {
 
@@ -11,6 +15,9 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-[92vh] pt-32 pb-20 md:pt-40 md:pb-28 flex flex-col justify-between border-b border-black/8 overflow-hidden"
     >
+      {/* Aceternity UI Spotlight Ambient Beam */}
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#CCFF00" />
+
       {/* Background subtle architectural grid lines */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
 
@@ -33,9 +40,14 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-7">
             <h1 className="font-display text-hero font-extrabold text-[#121214] tracking-tight leading-[0.98]">
               I build digital experiences that{' '}
-              <span className="relative inline-block text-[#121214] underline decoration-[#CCFF00] decoration-wavy decoration-2 sm:decoration-4 underline-offset-8">
-                work beautifully.
-              </span>
+              <FlipWords
+                words={[
+                  'work beautifully.',
+                  'scale to millions.',
+                  'run at 60 FPS.',
+                  'feel instantaneous.',
+                ]}
+              />
             </h1>
 
             <p className="mt-6 md:mt-8 text-lg md:text-xl xl:text-2xl text-[#5C5C66] max-w-2xl font-body leading-relaxed font-normal">
@@ -44,10 +56,14 @@ export const Hero: React.FC = () => {
 
             {/* Action CTAs */}
             <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-              <MagneticButton asAnchor href="#work" variant="primary" className="group">
+              <HoverBorderGradient
+                as="a"
+                href="#work"
+                className="group !px-6 !py-3.5 text-sm"
+              >
                 <span>Explore my work</span>
-                <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
-              </MagneticButton>
+                <ArrowDown className="w-4 h-4 text-[#CCFF00] group-hover:translate-y-0.5 transition-transform" />
+              </HoverBorderGradient>
 
               <MagneticButton asAnchor href="#contact" variant="outline" className="group">
                 <span>Let's collaborate</span>
@@ -68,43 +84,43 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Engineering Specialty Badges */}
+        {/* Engineering Specialty Badges with Aceternity CardSpotlight */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-black/8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          <div className="p-4 rounded-xl bg-white/70 border border-black/6 transition-all hover:border-black/20 hover:bg-white shadow-xs group">
+          <CardSpotlight className="p-4 transition-all hover:border-black/20 shadow-xs group">
             <div className="flex items-center justify-between mb-2">
               <span className="font-mono-tech text-[11px] text-[#5C5C66] uppercase">Focus 01</span>
               <Layers className="w-4 h-4 text-[#121214] group-hover:rotate-12 transition-transform" />
             </div>
             <div className="font-display font-bold text-sm md:text-base text-[#121214]">React.js Systems</div>
             <div className="text-xs text-[#5C5C66] mt-1 font-body">Modular SPAs, Next & Vite</div>
-          </div>
+          </CardSpotlight>
 
-          <div className="p-4 rounded-xl bg-white/70 border border-black/6 transition-all hover:border-black/20 hover:bg-white shadow-xs group">
+          <CardSpotlight className="p-4 transition-all hover:border-black/20 shadow-xs group">
             <div className="flex items-center justify-between mb-2">
               <span className="font-mono-tech text-[11px] text-[#5C5C66] uppercase">Focus 02</span>
               <Smartphone className="w-4 h-4 text-[#121214] group-hover:scale-110 transition-transform" />
             </div>
             <div className="font-display font-bold text-sm md:text-base text-[#121214]">React Native</div>
             <div className="text-xs text-[#5C5C66] mt-1 font-body">iOS, Android & Native APIs</div>
-          </div>
+          </CardSpotlight>
 
-          <div className="p-4 rounded-xl bg-white/70 border border-black/6 transition-all hover:border-black/20 hover:bg-white shadow-xs group">
+          <CardSpotlight className="p-4 transition-all hover:border-black/20 shadow-xs group">
             <div className="flex items-center justify-between mb-2">
               <span className="font-mono-tech text-[11px] text-[#5C5C66] uppercase">Focus 03</span>
               <Cpu className="w-4 h-4 text-[#121214] group-hover:text-[#6FA800] transition-colors" />
             </div>
             <div className="font-display font-bold text-sm md:text-base text-[#121214]">Performance</div>
             <div className="text-xs text-[#5C5C66] mt-1 font-body">Virtualization & Core Web Vitals</div>
-          </div>
+          </CardSpotlight>
 
-          <div className="p-4 rounded-xl bg-white/70 border border-black/6 transition-all hover:border-black/20 hover:bg-white shadow-xs group">
+          <CardSpotlight className="p-4 transition-all hover:border-black/20 shadow-xs group">
             <div className="flex items-center justify-between mb-2">
               <span className="font-mono-tech text-[11px] text-[#5C5C66] uppercase">Focus 04</span>
               <span className="w-2 h-2 rounded-full bg-[#CCFF00] border border-black/40" />
             </div>
             <div className="font-display font-bold text-sm md:text-base text-[#121214]">Architecture</div>
             <div className="text-xs text-[#5C5C66] mt-1 font-body">Redux Toolkit, REST, A11y</div>
-          </div>
+          </CardSpotlight>
         </div>
       </div>
 

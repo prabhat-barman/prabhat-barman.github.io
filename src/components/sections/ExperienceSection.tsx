@@ -8,6 +8,9 @@ import { experienceData } from '../../data/experience';
 import { skillCategories } from '../../data/skills';
 import { profileData } from '../../data/profile';
 import { SectionHeading } from '../ui/SectionHeading';
+import { TracingBeam } from '../ui/TracingBeam';
+import { CardSpotlight } from '../ui/CardSpotlight';
+import { HoverBorderGradient } from '../ui/HoverBorderGradient';
 
 export const ExperienceSection: React.FC = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
@@ -40,15 +43,16 @@ export const ExperienceSection: React.FC = () => {
 
             {/* Resume Action */}
             <div className="relative">
-              <a
+              <HoverBorderGradient
+                as="a"
                 href={profileData.contact.resumeUrl}
                 download="Prabhat_Software_Engineer_Resume.pdf"
                 onClick={handleResumeClick}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#121214] text-[#F9F9F6] text-xs font-semibold rounded-full hover:bg-black/85 transition-colors shadow-xs"
+                className="!px-4 !py-2 text-xs"
               >
                 <FileDown className="w-3.5 h-3.5 text-[#CCFF00]" />
                 <span>Download Verified Resume</span>
-              </a>
+              </HoverBorderGradient>
 
               {resumeNotice && (
                 <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-white border border-black/15 shadow-xl rounded-xl text-xs text-[#121214] z-20 animate-in fade-in duration-150">
@@ -61,70 +65,74 @@ export const ExperienceSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-12">
-            {experienceData.map((item) => (
-              <div
-                key={item.id}
-                className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8 rounded-2xl bg-white border border-black/8 shadow-xs hover:border-black/20 transition-colors"
-              >
-                {/* Timeline metadata */}
-                <div className="md:col-span-4 space-y-2">
-                  <div className="flex items-center gap-2 font-mono-tech text-xs text-[#5C5C66]">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{item.period}</span>
-                  </div>
-                  <div className="font-display font-bold text-lg sm:text-xl text-[#121214]">
-                    {item.role}
-                  </div>
-                  <div className="text-sm font-medium text-[#5C5C66]">
-                    {item.company}
-                  </div>
-                  <div className="flex items-center gap-1.5 font-mono-tech text-xs text-[#5C5C66] pt-1">
-                    <MapPin className="w-3 h-3" />
-                    <span>{item.location}</span>
-                    <span>•</span>
-                    <span>{item.type}</span>
-                  </div>
-                </div>
-
-                {/* Role details & responsibilities */}
-                <div className="md:col-span-8 space-y-4">
-                  <p className="text-sm sm:text-base text-[#121214] font-body leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  <ul className="space-y-2 pt-2">
-                    {item.responsibilities.map((resp, rIdx) => (
-                      <li key={rIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#5C5C66]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#121214] mt-2 shrink-0" />
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Highlight pill */}
-                  {item.highlight && (
-                    <div className="mt-4 p-3 rounded-lg bg-black/[0.02] border border-black/5 text-xs font-mono-tech text-[#121214]">
-                      <span className="font-bold text-[#88B800] mr-2">KEY OUTCOME:</span>
-                      <span>{item.highlight}</span>
+          <TracingBeam>
+            <div className="space-y-12">
+              {experienceData.map((item) => (
+                <CardSpotlight
+                  key={item.id}
+                  className="p-6 sm:p-8 shadow-xs hover:border-black/20 transition-colors"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    {/* Timeline metadata */}
+                    <div className="md:col-span-4 space-y-2">
+                      <div className="flex items-center gap-2 font-mono-tech text-xs text-[#5C5C66]">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{item.period}</span>
+                      </div>
+                      <div className="font-display font-bold text-lg sm:text-xl text-[#121214]">
+                        {item.role}
+                      </div>
+                      <div className="text-sm font-medium text-[#5C5C66]">
+                        {item.company}
+                      </div>
+                      <div className="flex items-center gap-1.5 font-mono-tech text-xs text-[#5C5C66] pt-1">
+                        <MapPin className="w-3 h-3" />
+                        <span>{item.location}</span>
+                        <span>•</span>
+                        <span>{item.type}</span>
+                      </div>
                     </div>
-                  )}
 
-                  {/* Tech stack */}
-                  <div className="pt-2 flex flex-wrap gap-1.5">
-                    {item.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-black/5 text-[#121214]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {/* Role details & responsibilities */}
+                    <div className="md:col-span-8 space-y-4">
+                      <p className="text-sm sm:text-base text-[#121214] font-body leading-relaxed">
+                        {item.description}
+                      </p>
+
+                      <ul className="space-y-2 pt-2">
+                        {item.responsibilities.map((resp, rIdx) => (
+                          <li key={rIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#5C5C66]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#121214] mt-2 shrink-0" />
+                            <span>{resp}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Highlight pill */}
+                      {item.highlight && (
+                        <div className="mt-4 p-3 rounded-lg bg-black/[0.02] border border-black/5 text-xs font-mono-tech text-[#121214]">
+                          <span className="font-bold text-[#88B800] mr-2">KEY OUTCOME:</span>
+                          <span>{item.highlight}</span>
+                        </div>
+                      )}
+
+                      {/* Tech stack */}
+                      <div className="pt-2 flex flex-wrap gap-1.5">
+                        {item.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-black/5 text-[#121214]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </CardSpotlight>
+              ))}
+            </div>
+          </TracingBeam>
         </div>
 
         {/* Grouped Skills Matrix (No Percentage Bars!) */}

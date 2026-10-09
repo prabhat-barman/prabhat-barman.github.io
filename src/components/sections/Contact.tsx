@@ -11,6 +11,8 @@ import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/Icons';
 import { profileData } from '../../data/profile';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Toast } from '../ui/Toast';
+import { HoverBorderGradient } from '../ui/HoverBorderGradient';
+import { CardSpotlight } from '../ui/CardSpotlight';
 
 interface FormData {
   name: string;
@@ -158,7 +160,7 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Social & Professional Networks */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-black/8 shadow-xs space-y-4">
+            <CardSpotlight className="p-6 sm:p-7 shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono-tech text-xs uppercase tracking-wider text-[#5C5C66]">
                   Connect & Socials
@@ -244,7 +246,7 @@ export const Contact: React.FC = () => {
                   </a>
                 )}
               </div>
-            </div>
+            </CardSpotlight>
           </div>
 
           {/* Functional Contact Form */}
@@ -376,10 +378,12 @@ export const Contact: React.FC = () => {
 
               {/* Submit button */}
               <div className="pt-2">
-                <button
+                <HoverBorderGradient
+                  as="button"
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#121214] text-[#F9F9F6] font-semibold text-sm rounded-xl hover:bg-black/85 transition-all shadow-sm active:scale-[0.99] disabled:opacity-50"
+                  containerClassName="w-full !rounded-xl"
+                  className="w-full !rounded-xl !py-3.5 text-sm !bg-[#121214] hover:!bg-[#1c1c20]"
                 >
                   {isSubmitting ? (
                     <span>Formatting message...</span>
@@ -389,7 +393,7 @@ export const Contact: React.FC = () => {
                       <Send className="w-4 h-4 text-[#CCFF00]" />
                     </>
                   )}
-                </button>
+                </HoverBorderGradient>
               </div>
 
               {isSent && (
