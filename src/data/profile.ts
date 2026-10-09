@@ -21,7 +21,7 @@ export const profileData: ProfileData = {
   contact: {
     email: 'prabhatbarman98@gmail.com',
     phone: '+91 78790 29044',
-    github: 'https://github.com/prabhatbarman',
+    github: 'https://github.com/prabhat-barman',
     linkedin: 'https://linkedin.com/in/prabhat-barman',
     twitter: 'https://x.com/prabhat_dev',
     resumeUrl: '/resume.pdf',

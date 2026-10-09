@@ -172,7 +172,7 @@ export const Contact: React.FC = () => {
                 >
                   <div className="flex items-center gap-3">
                     <GithubIcon className="w-4 h-4 text-[#121214]" />
-                    <span className="text-sm font-medium">GitHub / prabhatbarman</span>
+                    <span className="text-sm font-medium">GitHub / prabhat-barman</span>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>

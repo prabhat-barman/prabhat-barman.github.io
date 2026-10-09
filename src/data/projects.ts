@@ -261,7 +261,7 @@ export const projectsData: ProjectData[] = [
     techStack: ['React 19', 'TypeScript', 'HTML5 Canvas API', 'CSS Math (clamp, trig)', 'Lucide Icons'],
     accentColor: '#CCFF00',
     demoUrl: '#playground',
-    repoUrl: 'https://github.com/prabhatbarman',
+    repoUrl: 'https://github.com/prabhat-barman',
     visible: true,
     previewType: 'creative-lab',
     caseStudy: {
