@@ -157,51 +157,90 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Network Links */}
-            <div className="p-6 rounded-2xl bg-white border border-black/8 shadow-xs space-y-4">
-              <span className="font-mono-tech text-xs uppercase tracking-wider text-[#5C5C66] block">
-                Professional Networks
-              </span>
+            {/* Social & Professional Networks */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-black/8 shadow-xs space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="font-mono-tech text-xs uppercase tracking-wider text-[#5C5C66]">
+                  Connect & Socials
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
+              </div>
 
-              <div className="flex flex-col gap-2.5">
+              <div className="flex flex-col gap-3">
+                {/* GitHub */}
                 <a
                   href={profileData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FAF9F6] border border-transparent hover:border-black/5 text-[#121214] transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-black/6 hover:border-black/20 hover:bg-white hover:shadow-md transition-all duration-300 group"
                 >
-                  <div className="flex items-center gap-3">
-                    <GithubIcon className="w-4 h-4 text-[#121214]" />
-                    <span className="text-sm font-medium">GitHub / prabhat-barman</span>
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-[#121214] text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(0,0,0,0.35)] transition-all">
+                      <GithubIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-display font-bold text-[#121214] group-hover:text-black transition-colors">
+                        GitHub
+                      </div>
+                      <div className="text-xs text-[#5C5C66] font-body">
+                        Code repositories & open-source
+                      </div>
+                    </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="w-8 h-8 rounded-full bg-white border border-black/8 flex items-center justify-center text-[#5C5C66] group-hover:text-[#121214] group-hover:border-black/20 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
                 </a>
 
+                {/* LinkedIn */}
                 <a
                   href={profileData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FAF9F6] border border-transparent hover:border-black/5 text-[#121214] transition-colors group"
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-black/6 hover:border-[#0A66C2]/30 hover:bg-white hover:shadow-md transition-all duration-300 group"
                 >
-                  <div className="flex items-center gap-3">
-                    <LinkedinIcon className="w-4 h-4 text-[#121214]" />
-                    <span className="text-sm font-medium">LinkedIn / Prabhat Barman</span>
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-[#0A66C2] text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(10,102,194,0.45)] transition-all">
+                      <LinkedinIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-display font-bold text-[#121214] group-hover:text-[#0A66C2] transition-colors">
+                        LinkedIn
+                      </div>
+                      <div className="text-xs text-[#5C5C66] font-body">
+                        Career & professional updates
+                      </div>
+                    </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="w-8 h-8 rounded-full bg-white border border-black/8 flex items-center justify-center text-[#5C5C66] group-hover:text-[#0A66C2] group-hover:border-[#0A66C2]/30 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
                 </a>
 
+                {/* Instagram */}
                 {profileData.contact.instagram && (
                   <a
                     href={profileData.contact.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FAF9F6] border border-transparent hover:border-black/5 text-[#121214] transition-colors group"
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FAF9F6] border border-black/6 hover:border-[#E4405F]/30 hover:bg-white hover:shadow-md transition-all duration-300 group"
                   >
-                    <div className="flex items-center gap-3">
-                      <InstagramIcon className="w-4 h-4 text-[#121214] group-hover:text-[#E4405F] transition-colors" />
-                      <span className="text-sm font-medium">Instagram / @__meme__o2__</span>
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(220,39,67,0.5)] transition-all">
+                        <InstagramIcon className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-display font-bold text-[#121214] group-hover:text-[#dc2743] transition-colors">
+                          Instagram
+                        </div>
+                        <div className="text-xs text-[#5C5C66] font-body">
+                          Personal & creative profile
+                        </div>
+                      </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <div className="w-8 h-8 rounded-full bg-white border border-black/8 flex items-center justify-center text-[#5C5C66] group-hover:text-[#dc2743] group-hover:border-[#dc2743]/30 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
                   </a>
                 )}
               </div>
