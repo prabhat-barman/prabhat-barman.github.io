@@ -7,7 +7,7 @@ import {
   Clock, 
   AlertCircle
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../ui/Icons';
+import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/Icons';
 import { profileData } from '../../data/profile';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Toast } from '../ui/Toast';
@@ -189,6 +189,21 @@ export const Contact: React.FC = () => {
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
+
+                {profileData.contact.instagram && (
+                  <a
+                    href={profileData.contact.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FAF9F6] border border-transparent hover:border-black/5 text-[#121214] transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <InstagramIcon className="w-4 h-4 text-[#121214] group-hover:text-[#E4405F] transition-colors" />
+                      <span className="text-sm font-medium">Instagram / @__meme__o2__</span>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[#5C5C66] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                )}
               </div>
             </div>
           </div>

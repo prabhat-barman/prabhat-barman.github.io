@@ -32,6 +32,7 @@ export interface ProfileData {
     phone: string;
     github: string;
     linkedin: string;
+    instagram?: string;
     twitter?: string;
     resumeUrl: string;
     hasResumeFile: boolean;

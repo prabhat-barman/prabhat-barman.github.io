@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../ui/Icons';
+import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/Icons';
 import { profileData } from '../../data/profile';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -116,6 +116,19 @@ export const Footer: React.FC = () => {
                   <span>LinkedIn</span>
                 </a>
               </li>
+              {profileData.contact.instagram && (
+                <li>
+                  <a
+                    href={profileData.contact.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#5C5C66] hover:text-[#121214] transition-colors"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5" />
+                    <span>Instagram</span>
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   href={`mailto:${profileData.contact.email}`}

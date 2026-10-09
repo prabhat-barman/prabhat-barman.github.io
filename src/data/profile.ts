@@ -23,6 +23,7 @@ export const profileData: ProfileData = {
     phone: '+91 78790 29044',
     github: 'https://github.com/prabhat-barman',
     linkedin: 'https://linkedin.com/in/prabhat-barman',
+    instagram: 'https://www.instagram.com/__meme__o2__/',
     twitter: 'https://x.com/prabhat_dev',
     resumeUrl: '/resume.pdf',
     hasResumeFile: false // toggle to true when file placed in /public/resume.pdf
