@@ -85,7 +85,7 @@ export interface ProjectData {
   playStoreUrl?: string;
   caseStudy: ProjectCaseStudy;
   visible: boolean;
-  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab' | 'mobile-simulator' | 'wellvalet-scanner';
+  previewType: 'automotive-telemetry' | 'healthcare-hipaa' | 'design-system' | 'education-exam' | 'creative-lab' | 'mobile-simulator' | 'wellvalet-scanner' | 'b2b-workflow';
 }
 
 export interface ExperienceItem {

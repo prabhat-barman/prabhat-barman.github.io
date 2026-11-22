@@ -2,6 +2,63 @@ import type { ProjectData } from '../types/portfolio';
 
 export const projectsData: ProjectData[] = [
   {
+    id: 'cruise-car-tracker',
+    title: 'CruisE — Vehicle Expense & Fleet Telematics',
+    category: 'React Native · Expo · Mobile & Web · Fleet Telematics',
+    year: '2024 — Present',
+    featured: true,
+    tagline: 'Cross-platform Canadian vehicle expense, fuel economy, and enterprise fleet telematics platform.',
+    summary: 'A mission-critical automotive expense, trip intelligence, and fleet management ecosystem built with React Native (Expo) and React 19. Tracks live fuel consumption, scheduled maintenance intervals, insurance depreciation, and tax-deductible business mileage with CAN bus telemetry, real-time financial analytics, and bilingual Canadian English & French support.',
+    role: 'Lead Mobile & Frontend Architect — React Native (Expo), Redux Toolkit, Real-Time Expense Analytics & Bilingual Architecture',
+    techStack: ['React Native', 'Expo', 'React 19', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Automotive IoT', 'Bilingual (EN/FR)', 'Telemetry'],
+    accentColor: '#38BDF8',
+    demoUrl: 'https://www.cruise-mu.com/',
+    repoUrl: '',
+    visible: true,
+    previewType: 'automotive-telemetry',
+    caseStudy: {
+      overview: 'CruisE is a production mobile and web application (live at https://www.cruise-mu.com/) engineered to provide drivers and fleet operators complete transparency over vehicle operating costs, fuel economy, and preventive maintenance.',
+      problem: 'Vehicle owners and commercial fleets struggle with fragmented expense tracking, volatile fuel costs, missed maintenance schedules, and complex tax mileage logging, leading to unexpected repair costs and compliance headaches.',
+      goals: [
+        'Build a high-performance cross-platform mobile application using React Native (Expo) and React 19.',
+        'Develop an offline-first expense entry system for gas fill-ups and maintenance logs with instant local caching.',
+        'Implement automated mileage and fuel efficiency computation with CAD/USD and L/100km vs MPG unit conversions.',
+        'Deploy a bilingual Canadian English and French web platform live at cruise-mu.com.'
+      ],
+      role: [
+        'Engineered the complete React Native mobile app architecture with modular state management using Redux Toolkit.',
+        'Built interactive fuel economy visualizers, odometer trackers, and maintenance reminder push notifications.',
+        'Developed and deployed the production web discovery portal at cruise-mu.com.'
+      ],
+      technicalApproach: [
+        'Leveraged Expo SDK with modern React 19 architecture for native performance and rapid iteration.',
+        'Engineered local SQLite caching for instant offline receipt logging with background cloud synchronization.',
+        'Integrated an automated metric/imperial conversion engine tailored for North American cross-border travel.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Offline-First Entry Architecture',
+          rationale: 'Guarantees zero data loss when logging fill-ups in remote low-connectivity highway corridors.'
+        },
+        {
+          decision: 'Bilingual Architecture (EN/FR)',
+          rationale: 'Essential for Canadian nationwide enterprise compliance, covering Quebec provincial standards.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Accurate fuel consumption calculation across irregular fill-up intervals.',
+          solution: 'Engineered a rolling-average algorithm accounting for partial fills and missed odometer entries.'
+        }
+      ],
+      verifiedHighlights: [
+        'Production web portal live at https://www.cruise-mu.com/.',
+        'Full React Native & Expo production architecture supporting React 19.',
+        'Bilingual English & French support with automated unit conversion.'
+      ]
+    }
+  },
+  {
     id: 'wellvalet-mobile',
     title: 'WellValet — Grocery & Allergen Scanner',
     category: 'React Native · Mobile App · API Integration',
@@ -68,122 +125,178 @@ export const projectsData: ProjectData[] = [
     }
   },
   {
-    id: 'cruise-car-tracker',
-    title: 'CruisE — Vehicle Expense & Fleet Telematics',
-    category: 'React Native · Expo · Mobile & Web · Automotive',
-    year: '2024 — Present',
+    id: 'netlink-design-system',
+    title: 'FLOQ',
+    category: 'Enterprise Design System & UI Architecture',
+    year: '2023 — 2024',
     featured: true,
-    tagline: 'Comprehensive Canadian vehicle expense, fuel economy, and trip intelligence mobile platform.',
-    summary: 'A cross-platform React Native (Expo) and Web application engineered to calculate the true cost of car ownership in Canada. Tracks fuel consumption, scheduled maintenance intervals, insurance depreciation, and tax-deductible business mileage with real-time financial analytics and bilingual Canadian French/English support.',
-    role: 'Lead Mobile & Frontend Architect — React Native (Expo), Redux Toolkit, Real-Time Expense Analytics & Bilingual Architecture',
-    techStack: ['React Native', 'Expo', 'React 19', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Automotive IoT', 'Bilingual (EN/FR)', 'Telemetry'],
-    accentColor: '#3B82F6',
-    demoUrl: 'https://www.cruise-mu.com/',
-    repoUrl: '',
-    visible: true,
-    previewType: 'automotive-telemetry',
-    caseStudy: {
-      overview: 'CruisE is a production mobile and web application (live at www.cruise-mu.com) designed to give Canadian drivers full transparency over vehicle operating costs, fuel economy, and fleet maintenance.',
-      problem: 'Vehicle owners and freelance drivers often lose track of true ownership costs (depreciation, fuel spikes, maintenance schedules, and tax mileage deduction), resulting in unexpected breakdowns and tax-filing errors.',
-      goals: [
-        'Build a responsive cross-platform mobile application using React Native (Expo) and React 19.',
-        'Create an offline-first expense entry system for gas station fill-ups and maintenance logs.',
-        'Implement automated mileage and fuel efficiency computation with currency and unit conversions (CAD/USD, L/100km vs MPG).',
-        'Deploy a bilingual Canadian English and French landing web platform at cruise-mu.com.'
-      ],
-      role: [
-        'Engineered the complete React Native mobile app architecture with modular state management using Redux Toolkit.',
-        'Built smooth interactive expense visualizers, odometer trackers, and maintenance reminder push notifications.',
-        'Developed the landing and feature discovery web platform at cruise-mu.com.'
-      ],
-      technicalApproach: [
-        'Leveraged Expo SDK 57 with modern React 19 architecture for lightning-fast native performance.',
-        'Engineered local SQLite caching for instant offline receipt logging with background cloud synchronization.',
-        'Integrated metric/imperial conversion engine tailored to Canadian inter-provincial and US cross-border travel.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Offline-First Entry Architecture',
-          rationale: 'Drivers often fill up in low-connectivity rural highways; offline caching guarantees zero data loss.'
-        },
-        {
-          decision: 'Bilingual Support (EN/FR)',
-          rationale: 'Essential for Canadian nationwide compliance, covering Quebec and federal standards.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Accurate fuel consumption calculation across irregular fill-up intervals.',
-          solution: 'Engineered a rolling-average algorithm accounting for partial fills and missed odometer entries.'
-        }
-      ],
-      verifiedHighlights: [
-        'Production web portal live at https://www.cruise-mu.com/.',
-        'Full React Native & Expo production architecture supporting React 19.',
-        'Bilingual English & French support with automated unit conversion.'
-      ]
-    }
-  },
-  {
-    id: 'siriusxm-telemetry',
-    title: 'SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)',
-    category: 'React · WebSockets · Real-time Dashboard',
-    year: '2023 — Present',
-    featured: true,
-    tagline: 'Real-time vehicle monitoring dashboard streaming low-latency WebSocket telemetry.',
-    summary: 'A high-performance automotive intelligence dashboard displaying live vehicle speed, GPS positioning, battery health, and diagnostic alerts with real-time data updates, sub-100ms dashboard responsiveness, and 60fps telemetry handling.',
-    role: 'Software Engineer — Real-Time WebSocket Architecture, Dashboard Responsiveness, UI Memoization & Diagnostic Map Components',
-    techStack: ['React.js', 'WebSockets', 'Real-time Dashboard', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'Render Optimization', 'REST APIs'],
+    tagline: 'Enterprise multi-brand design system and tokenized component architecture powering scalable web suites.',
+    summary: 'A centralized enterprise UI architecture and component library designed to eliminate UI fragmentation, enforce WCAG 2.1 AA accessibility standards, and accelerate frontend delivery across distributed engineering squads. Includes 50+ tokenized accessible components, automated theme token pipelines, zero runtime CSS overhead, and comprehensive Storybook documentation.',
+    role: 'Lead Design System Engineer — Component Architecture, Token Pipeline, Accessibility (WCAG 2.1 AA) & Storybook Documentation',
+    techStack: ['React 19', 'TypeScript', 'Storybook 8', 'Radix UI', 'Tailwind CSS', 'WCAG 2.1 AA', 'Rollup', 'Design Tokens'],
     accentColor: '#CCFF00',
     demoUrl: '',
     repoUrl: '',
     visible: true,
-    previewType: 'automotive-telemetry',
+    previewType: 'design-system',
     caseStudy: {
-      overview: 'SiriusXM Connected Vehicles platform aggregates streaming vehicular diagnostic telemetry across connected fleets, delivering immediate health metrics, GPS geofencing, and proactive critical alert triggers.',
-      problem: 'High-frequency telemetry data streams (10+ packet updates per second) were overwhelming the React component tree, causing UI stutters, CPU spikes, and delayed map coordinate updates.',
+      overview: 'FLOQ is an enterprise design system created to unify fragmented brand components across multiple enterprise applications into a single, cohesive, token-driven architecture.',
+      problem: 'Engineering teams across 6+ business modules were building redundant UI elements, resulting in visual inconsistency, 30%+ code duplication, and inconsistent accessibility compliance.',
       goals: [
-        'Stream real-time vehicle speed, battery state-of-charge, and GPS telemetry via persistent WebSockets.',
-        'Improve UI rendering performance by 40% through strict memoization and code-splitting.',
-        'Develop modular UI components for telemetry gauges, diagnostic alert banners, and live fleet maps.',
-        'Increase user operational engagement by 20% through responsive, data-driven interfaces.'
+        'Develop 50+ reusable UI components with strict TypeScript types and comprehensive Storybook documentation.',
+        'Reduce duplicate code by 30% across multiple enterprise applications.',
+        'Improve initial page load times by 35–40% through tree-shaking, lazy loading, and memoized renders.',
+        'Enforce WCAG 2.1 AA accessibility standards across keyboard navigation, screen reader ARIA labels, and contrast.'
       ],
       role: [
-        'Engineered the real-time WebSocket communication layer with automated reconnect and heartbeat protocols.',
-        'Implemented selective memoization using useMemo, useCallback, and React.memo to isolate high-frequency telemetry updates from unaffected UI panels.',
-        'Created modular, reusable UI components for telemetry speedometers, diagnostic alert feeds, and battery gauges.',
-        'Applied route-level code splitting and lazy loading to drastically cut initial bundle payload.'
+        'Architected core design tokens covering color palettes, typography scale, elevation, and spacing.',
+        'Built accessible headless primitives using Radix UI with custom high-performance styling.',
+        'Implemented Storybook 8 interactive component explorer with visual regression testing.',
+        'Created automated token export pipelines distributing design tokens to web and mobile clients.'
       ],
       technicalApproach: [
-        'Decoupled incoming raw socket telemetry packets from the main render cycle using buffered frame batching.',
-        'Employed normalized Redux state slices with indexed key-value lookup for instant vehicle retrieval.',
-        'Rendered SVG circular gauges with hardware-accelerated CSS transforms rather than continuous canvas repaints.'
+        'Adopted CSS custom properties mapped to semantic token names for seamless runtime theme switching.',
+        'Employed Rollup with aggressive tree-shaking ensuring consuming apps only bundle components they import.',
+        'Wrote automated accessibility test suites using axe-core in CI to catch regression before merge.'
       ],
       keyDecisions: [
         {
-          decision: 'Frame-Throttled Socket Data Ingestion',
-          rationale: 'Batching WebSocket messages to match requestAnimationFrame intervals prevented redundant intermediate React re-renders while keeping gauges visually instantaneous.'
+          decision: 'Headless Primitives + Token Layer',
+          rationale: 'Decoupling accessibility logic from styling enabled squads to customize themes without breaking keyboard navigation.'
         },
         {
-          decision: 'Isolated Telemetry Widget State',
-          rationale: 'Separated speed and battery gauges into independent leaf components so parent dashboards never re-render during real-time speed fluctuations.'
+          decision: 'Zero-Runtime CSS Strategy',
+          rationale: 'Avoided runtime CSS-in-JS overhead, yielding faster hydration and lower CPU overhead on low-end devices.'
         }
       ],
       challengesAndSolutions: [
         {
-          challenge: 'Intermittent vehicular connectivity causing missed alert packets and socket disconnects.',
-          solution: 'Engineered an exponential backoff reconnect handler with an indexed client-side event replay queue.'
-        },
-        {
-          challenge: 'Heavy memory footprint during prolonged multi-hour live telemetry sessions.',
-          solution: 'Implemented capped circular buffers for historical time-series chart data, capping DOM memory usage.'
+          challenge: 'Migrating legacy enterprise modules to FLOQ without breaking existing production features.',
+          solution: 'Created an incremental adoption adapter allowing FLOQ components to coexist alongside legacy UI during transition.'
         }
       ],
       verifiedHighlights: [
-        '40% improvement in UI performance through memoization and code splitting.',
-        'Live low-latency WebSocket telemetry streaming for speed, GPS, and diagnostics.',
-        '20% increase in user engagement through responsive, data-driven interfaces.',
-        'Standardized reusable automotive UI components for fleet diagnostics and maps.'
+        'Reduced duplicate code by 30% across 6+ enterprise modules.',
+        'Achieved a 35–40% reduction in initial load time via memoization and lazy loading.',
+        'Accelerated feature delivery timelines by ~20%.',
+        'Adopted by distributed engineering squads in production enterprise environments.'
+      ]
+    }
+  },
+  {
+    id: 'demand-management-system',
+    title: 'Demand Management System — B2B Vendor & Resource Portal',
+    category: 'React.js · TypeScript · Enterprise B2B · Workflow Engine',
+    year: '2023 — 2024',
+    featured: true,
+    tagline: 'Enterprise B2B SaaS platform connecting corporate resource demands with vendor fulfillment pipelines.',
+    summary: 'A mission-critical enterprise B2B resource management platform orchestrating resource requests, candidate submissions, multi-stage approval workflows, and automated vendor SLA compliance. Engineered with virtualized data tables handling 10,000+ candidate rows, granular role-based access control (RBAC), and responsive real-time analytics.',
+    role: 'Senior Frontend Engineer — Enterprise React Architecture, Dynamic Approval Workflows & Virtualized Data Tables',
+    techStack: ['React.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'RBAC Security', 'Virtual Tables', 'SLA Analytics'],
+    accentColor: '#8B5CF6',
+    demoUrl: '',
+    repoUrl: '',
+    visible: true,
+    previewType: 'b2b-workflow',
+    caseStudy: {
+      overview: 'The Demand Management System (DMS) is an enterprise B2B SaaS portal designed to automate talent demand requisition, vendor submission pipelines, and hiring approvals at enterprise scale.',
+      problem: 'Enterprise resource acquisition relied on manual spreadsheets and uncoordinated email threads, causing 40%+ delays in role fulfillment, lack of vendor accountability, and zero audit trails for compliance.',
+      goals: [
+        'Build a centralized B2B platform with role-based dashboards for Enterprise Admins, Hiring Managers, and Vendors.',
+        'Implement virtualized candidate review tables supporting 10,000+ entries with sub-50ms instant filtering.',
+        'Automate multi-stage approval workflows with SLA countdown timers and email/webhook notifications.',
+        'Provide real-time vendor performance analytics and talent requisition fulfillment metrics.'
+      ],
+      role: [
+        'Architected frontend state architecture using Redux Toolkit with normalized entity adapters.',
+        'Built high-performance virtualized candidate tables with sticky columns, inline status edits, and multi-sort.',
+        'Developed role-based routing and granular permission gates protecting sensitive financial rate cards.',
+        'Created interactive demand pipeline Kanban boards with drag-and-drop status transitions.'
+      ],
+      technicalApproach: [
+        'Implemented windowed table rendering (TanStack Virtual) maintaining steady 60fps scrolling across massive datasets.',
+        'Used optimistic UI updates for candidate status progressions with background server synchronization.',
+        'Designed modular form wizards with complex dynamic validations based on role and hiring budget constraints.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Normalized Redux Entity State',
+          rationale: 'Prevented deep object traversal and redundant re-renders when updating individual candidate statuses across multiple dashboard views.'
+        },
+        {
+          decision: 'Client-Side Virtualization',
+          rationale: 'Ensured instant responsiveness even when loading large vendor rosters containing thousands of candidates.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Handling multi-tier approval chains with diverging conditional rules per corporate division.',
+          solution: 'Engineered a dynamic workflow state machine rendering custom approval steps based on department policy.'
+        }
+      ],
+      verifiedHighlights: [
+        'Automated talent requisition lifecycle reducing fulfillment cycle time by ~35%.',
+        'High-throughput virtualized data tables effortlessly handling 10,000+ records at 60fps.',
+        'Granular RBAC security protecting confidential compensation rate cards across vendor tiers.',
+        'Real-time vendor SLA tracking and requisition fulfillment analytics.'
+      ]
+    }
+  },
+  {
+    id: 'irisinsights-healthcare',
+    title: 'IrisInsights.us',
+    category: 'Regulated Healthcare Platform (HIPAA Compliant)',
+    year: '2023 — Present',
+    featured: true,
+    tagline: 'HIPAA-compliant healthcare intelligence platform with automated PHI masking and zero-leak state architecture.',
+    summary: 'An enterprise clinical intelligence platform built for healthcare networks. Incorporates automated Protected Health Information (PHI) masking, biometric and role-gated access control, end-to-end encrypted clinical audit logging, and strict WCAG 2.1 AA accessibility compliance across all clinical workflows.',
+    role: 'Lead Frontend Security Engineer — HIPAA Compliance UI, PHI Masking Engine, WCAG AA Accessibility & Secure Audit Streams',
+    techStack: ['Next.js 15', 'TypeScript', 'HIPAA Secure Vault', 'Tailwind CSS', 'WCAG 2.1 AA', 'Web Crypto API', 'React 19', 'Audit Stream'],
+    accentColor: '#00C2FF',
+    demoUrl: 'https://irisinsights.us',
+    repoUrl: '',
+    visible: true,
+    previewType: 'healthcare-hipaa',
+    caseStudy: {
+      overview: 'IrisInsights.us is a specialized healthcare intelligence and clinical workflow application adhering to federal HIPAA and HITECH privacy standards for hospitals and clinical research organizations.',
+      problem: 'Clinical software frequently leaks sensitive patient health data (PHI) through unmasked UI displays, unencrypted browser memory caching, and inaccessible interfaces that fail compliance audits.',
+      goals: [
+        'Build a zero-leak UI architecture that auto-masks PHI upon inactivity or window defocus.',
+        'Implement tamper-evident client-side audit logging tracking every record inspection.',
+        'Achieve 100% WCAG 2.1 AA accessibility compliance for diverse clinical healthcare workers.',
+        'Deploy a production-ready web platform live at https://irisinsights.us.'
+      ],
+      role: [
+        'Engineered automated PHI masking wrappers that blur patient records during idle timeouts.',
+        'Implemented real-time compliance audit event streaming via Web Crypto API.',
+        'Conducted comprehensive WCAG 2.1 AA audits ensuring keyboard navigation and high contrast support.'
+      ],
+      technicalApproach: [
+        'Utilized React 19 server components and zero-client-cache strategies to eliminate lingering PHI in DOM storage.',
+        'Engineered idle detection timers that lock clinical views after 15 minutes of inactivity.',
+        'Applied deterministic ARIA landmark roles and semantic HTML across all diagnostic dashboards.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Ephemeral In-Memory State',
+          rationale: 'Banned localStorage for PHI storage, ensuring sensitive health records never persist in unencrypted browser storage.'
+        },
+        {
+          decision: 'Proactive PHI Blur Filters',
+          rationale: 'Protected patient privacy from over-the-shoulder viewing in busy hospital hallway environments.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Strict HIPAA compliance without compromising clinical staff speed during emergencies.',
+          solution: 'Created quick-unmask audit triggers requiring biometric confirmation with instant logging.'
+        }
+      ],
+      verifiedHighlights: [
+        'Production healthcare platform live at https://irisinsights.us.',
+        'Automated PHI masking engine with 15-minute idle security guard.',
+        '100% WCAG 2.1 AA accessibility compliance verified across clinical dashboards.',
+        'Tamper-evident client-side audit logging with zero-leak state architecture.'
       ]
     }
   },
@@ -195,7 +308,7 @@ export const projectsData: ProjectData[] = [
     featured: true,
     tagline: 'Cross-platform React Native telematics companion with Bluetooth LE pairing and remote vehicle controls.',
     summary: 'A high-fidelity React Native mobile application for connected vehicle drivers. Features BLE key fob authentication, remote engine start/stop, door lock toggles, live tire pressure telemetry, GPS locator with Apple/Google Maps integration, and 60fps animations powered by Reanimated 3.',
-    role: 'Software Engineer — React Native Cross-Platform Architecture, Bluetooth LE Bridges & Gesture Animations',
+    role: 'Lead Mobile Engineer — React Native Cross-Platform Architecture, Bluetooth LE Bridges & Gesture Animations',
     techStack: ['React Native', 'TypeScript', 'Reanimated 3', 'Redux Toolkit', 'Bluetooth LE', 'iOS & Android', 'MMKV Caching', 'Gesture Handler', 'JSI'],
     accentColor: '#CCFF00',
     demoUrl: '',
@@ -247,233 +360,6 @@ export const projectsData: ProjectData[] = [
         'Sub-50ms BLE signal responsiveness for keyless vehicle entry and proximity unlock.',
         'Zero dropped frames: 60 FPS gesture interactions powered by Reanimated 3 worklets.',
         'Hermes bytecode precompilation yielding ~45% reduction in cold application boot time.'
-      ]
-    }
-  },
-  {
-    id: 'irisinsights-healthcare',
-    title: 'IrisInsights.us',
-    category: 'Regulated Healthcare Platform',
-    year: '2023 — 2024',
-    featured: true,
-    tagline: 'HIPAA-compliant patient workflow architecture and accessible clinical interfaces.',
-    summary: 'A secure, HIPAA-compliant healthcare web application engineered for sensitive patient records, clinical workflows, and WCAG AA accessibility standards.',
-    role: 'Software Engineer — HIPAA-Compliant Frontend Modules, WCAG Accessibility & Cross-Browser Consistency',
-    techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'WCAG AA', 'OAuth 2.0 / JWT', 'REST APIs'],
-    accentColor: '#00C2FF',
-    demoUrl: 'https://irisinsights.us',
-    repoUrl: '',
-    visible: true,
-    previewType: 'healthcare-hipaa',
-    caseStudy: {
-      overview: 'IrisInsights.us delivers modern, HIPAA-compliant patient management interfaces for healthcare providers, clinical administrators, and patient engagement workflows.',
-      problem: 'Healthcare applications must balance strict federal data privacy mandates (HIPAA) with effortless usability for doctors and medical staff under time-critical conditions, requiring flawless accessibility across all assistive technologies.',
-      goals: [
-        'Develop HIPAA-compliant frontend modules supporting secure patient workflows and zero-leak session handling.',
-        'Translate complex medical and healthcare regulations into scalable, maintainable React UI architecture.',
-        'Ensure full WCAG AA accessibility compliance and cross-browser consistency across all enterprise environments.',
-        'Maintain rock-solid security with encrypted session tokens and automatic idle timeouts.'
-      ],
-      role: [
-        'Architected HIPAA-compliant React components adhering strictly to healthcare data masking rules.',
-        'Implemented WCAG AA keyboard navigation, high-contrast visual tokens, and screen-reader ARIA live regions.',
-        'Integrated secure REST APIs with OAuth 2.0 token expiration interceptors and secure in-memory caching.',
-        'Conducted rigorous cross-browser testing across Chrome, Safari, Firefox, and Edge to guarantee zero UI regressions.'
-      ],
-      technicalApproach: [
-        'Enforced strict TypeScript interfaces mirroring compliant healthcare data transfer objects (DTOs).',
-        'Implemented sensitive patient data masking filters that obscure Protected Health Information (PHI) unless explicitly unmasked by authorized roles.',
-        'Created accessible modal dialogs with automated focus trapping and keyboard escape management.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'In-Memory PHI State Cache',
-          rationale: 'Avoided storing sensitive patient health records in localStorage/sessionStorage, eliminating XSS extraction vectors and ensuring strict HIPAA alignment.'
-        },
-        {
-          decision: 'Automated Idle Session Guard',
-          rationale: 'Integrated passive mouse and keyboard activity listeners with a 15-minute HIPAA idle timeout countdown modal.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Rendering high-density clinical lab charts while adhering to high-contrast WCAG ratios.',
-          solution: 'Created an accessible color token palette verified through automated axe-core audits and contrast analyzers.'
-        },
-        {
-          challenge: 'Complex multi-step patient onboarding forms with conditional clinical validation.',
-          solution: 'Engineered a schema-driven form state machine with step-level validation and auto-save drafts.'
-        }
-      ],
-      verifiedHighlights: [
-        'HIPAA-compliant frontend modules with secure patient data handling.',
-        '100% WCAG AA accessibility compliance verified across screen readers and keyboard navigation.',
-        'Scalable, maintainable React component architecture for regulated enterprise healthcare.',
-        'Cross-browser consistency tested across enterprise browser standards.'
-      ]
-    }
-  },
-  {
-    id: 'netlink-design-system',
-    title: 'FLOQ',
-    category: 'Enterprise UI System & Reusable Framework',
-    year: '2022 — Present',
-    featured: true,
-    tagline: 'Standardized component abstractions across 6+ modules, reducing duplicate code by 30%.',
-    summary: 'A unified enterprise design system and reusable component suite built at Netlink Software, powering multiple high-traffic client applications with virtualized data grids and schema-driven forms.',
-    role: 'Lead UI Architecture — Reusable Abstractions, Performance Optimization & Cross-Squad Adoption',
-    techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Code Splitting', 'Storybook', 'Agile/Scrum'],
-    accentColor: '#8C52FF',
-    demoUrl: '',
-    repoUrl: '',
-    visible: true,
-    previewType: 'design-system',
-    caseStudy: {
-      overview: 'Designed and deployed reusable component abstractions at Netlink Software adopted across 6+ enterprise modules, eliminating UI fragmentation and accelerating feature delivery by ~20%.',
-      problem: 'Engineering teams across multiple enterprise modules were building divergent button states, date pickers, and data tables from scratch, resulting in massive code duplication and maintenance overhead.',
-      goals: [
-        'Design reusable component abstractions for 6+ modules, reducing duplicate code by 30%.',
-        'Lead frontend performance optimization initiatives, achieving a 35–40% reduction in initial load time.',
-        'Standardize typography, color tokens, and layout guidelines across all enterprise applications.',
-        'Enable backend and QA teams to test standardized, accessible UI primitives with high confidence.'
-      ],
-      role: [
-        'Designed modular component primitives (data tables, form inputs, modal dialogs, status badges).',
-        'Led the performance optimization drive using bundle analysis, dynamic imports, and memoization.',
-        'Authored component usage documentation and collaborated with Agile squads to guide adoption.',
-        'Coordinated with backend teams to establish clean API contracts and data normalization patterns.'
-      ],
-      technicalApproach: [
-        'Adopted compound component patterns (e.g. Table.Root, Table.Header, Table.Row) for flexible developer ergonomics.',
-        'Employed virtualization for high-density enterprise tables rendering thousands of records at steady 60fps.',
-        'Built tree-shakeable ES module packages ensuring consuming applications only bundle imported components.'
-      ],
-      keyDecisions: [
-        {
-          decision: '30% Code Duplication Reduction via Shared Abstractions',
-          rationale: 'Consolidating form fields and table components into a single shared library eliminated duplicate code across 6+ squads.'
-        },
-        {
-          decision: 'Route-Level Code Splitting',
-          rationale: 'Dynamically loading heavier charting and report modules slashed initial bundle size, cutting load times by 35–40%.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Migrating legacy enterprise modules to new design system without breaking existing business logic.',
-          solution: 'Built backward-compatible wrapper adapters that allowed squads to migrate incrementally component-by-component.'
-        },
-        {
-          challenge: 'Ensuring design consistency across varied client brand themes.',
-          solution: 'Implemented CSS custom property token overrides for themes while keeping core layout logic immutable.'
-        }
-      ],
-      verifiedHighlights: [
-        'Reduced duplicate code by 30% across 6+ enterprise modules.',
-        'Achieved a 35–40% reduction in initial load time via memoization and lazy loading.',
-        'Accelerated feature delivery timelines by ~20%.',
-        'Adopted by distributed engineering squads in production enterprise environments.'
-      ]
-    }
-  },
-
-  {
-    id: 'demand-management-system',
-    title: 'Demand Management System — B2B Vendor & Resource Portal',
-    category: 'React.js · TypeScript · Enterprise B2B · Workflow Engine',
-    year: '2023 — 2024',
-    featured: false,
-    tagline: 'Enterprise B2B platform connecting corporate resource demands with vendor fulfillment pipelines.',
-    summary: 'A high-throughput enterprise SaaS platform where enterprises raise specialized talent demands and authorized vendor partners fulfill requirements with qualified candidate pipelines. Features multi-tier role-based approval flows, automated candidate screening, SLA enforcement, and real-time vendor fulfillment metrics.',
-    role: 'Senior Frontend Engineer — Enterprise React Architecture, Dynamic Workflows & Role-Based Access Control',
-    techStack: ['React.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'RBAC Security', 'Enterprise SaaS', 'Virtual Tables'],
-    accentColor: '#8B5CF6',
-    demoUrl: '',
-    repoUrl: '',
-    visible: true,
-    previewType: 'design-system',
-    caseStudy: {
-      overview: 'An enterprise B2B resource management platform streamlining vendor subcontracting, requirement allocation, candidate pipeline screening, and interview scheduling.',
-      problem: 'Enterprises working with dozens of staffing vendors struggled with slow email threads, mismatched candidate formats, and poor visibility into fulfillment SLAs.',
-      goals: [
-        'Digitize end-to-end demand lifecycle: requirement creation, vendor broadcasting, candidate pipeline screening, and onboarding.',
-        'Enforce strict role-based access control (RBAC) separating internal corporate hiring managers and external vendor partners.',
-        'Provide real-time pipeline analytics, SLA tracking, and competitive rate card comparisons.'
-      ],
-      role: [
-        'Architected dynamic multi-step demand creation forms with custom validation and rate calculation.',
-        'Built high-performance virtualized data tables rendering thousands of candidate submissions seamlessly.',
-        'Integrated real-time notification hubs for demand status changes and interview confirmations.'
-      ],
-      technicalApproach: [
-        'Utilized React, TypeScript, and Redux Toolkit with RTK Query for state and server-cache synchronization.',
-        'Implemented virtualized list rendering (TanStack Virtual) for 10,000+ candidate profile tables.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Role-Based Component Composition',
-          rationale: 'Clean UI separation preventing unauthorized vendor access to internal client billing rates.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Complex multi-level approval hierarchies differing by business department.',
-          solution: 'Engineered a configurable JSON-driven workflow engine adapting UI stages dynamically.'
-        }
-      ],
-      verifiedHighlights: [
-        'Reduced demand-to-fulfillment cycle time by 45% across enterprise business units.',
-        'Handles thousands of concurrent vendor submissions with sub-100ms UI interactions.'
-      ]
-    }
-  },
-  {
-    id: 'aczet-precision-portal',
-    title: 'Aczet — Industrial Precision & Weighing Solutions Portal',
-    category: 'Web Platform · Industrial Tech · E-Commerce & Service',
-    year: '2024',
-    featured: false,
-    tagline: 'Global industrial weighing, analytical balances, and calibration management digital platform.',
-    summary: 'A comprehensive enterprise digital catalog, product filter engine, and service support ecosystem for Aczet—a leading global manufacturer of analytical weighing balances and industrial precision instruments. Features multi-attribute technical data sheet filtering, multi-country localization, service ticketing, and customer warranty registration.',
-    role: 'Lead Frontend Engineer — Catalog Architecture, High-Performance Filtering & Technical Spec Viewer',
-    techStack: ['React.js', 'JavaScript', 'Tailwind CSS', 'Vite', 'REST APIs', 'Product Filter Engine', 'Multi-Language Localization'],
-    accentColor: '#EC4899',
-    demoUrl: '',
-    repoUrl: '',
-    visible: true,
-    previewType: 'design-system',
-    caseStudy: {
-      overview: 'Digital product ecosystem and technical data platform for Aczet precision balances, moisture analyzers, and industrial calibration equipment.',
-      problem: 'Customers and global distributors struggled to navigate thousands of highly specialized laboratory balances with nuanced microgram tolerances, certification requirements, and regional voltage standards.',
-      goals: [
-        'Build an intuitive, high-speed multi-faceted product filter engine handling 50+ technical specifications.',
-        'Implement country-specific product availability, pricing, and compliance certifications.',
-        'Provide seamless downloadable technical data sheets, manuals, and customer support workflows.'
-      ],
-      role: [
-        'Designed and built the faceted filter interface with instant search and client-side caching.',
-        'Implemented responsive specification comparison matrices allowing side-by-side instrument evaluation.',
-        'Optimized asset loading and core web vitals for international laboratory and industrial clients.'
-      ],
-      technicalApproach: [
-        'Constructed lightweight, reactive UI components with instant debounce filtering.',
-        'Implemented dynamic PDF spec sheet generation and localized document routing.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Client-side Faceted Indexing',
-          rationale: 'Instantaneous filtering without server roundtrips per checkbox click.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Displaying massive multi-column technical specification tables on mobile screens.',
-          solution: 'Engineered sticky row-header tables with smooth horizontal scroll affordances.'
-        }
-      ],
-      verifiedHighlights: [
-        'Interactive catalog supporting 50+ technical parameters and global country-level localization.',
-        'Sub-50ms instant faceted filtering across complex precision instrument lines.'
       ]
     }
   }
