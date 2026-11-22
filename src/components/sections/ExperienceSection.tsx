@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { 
   Calendar, 
   MapPin, 
@@ -11,7 +11,10 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { TracingBeam } from '../ui/TracingBeam';
 import { CardSpotlight } from '../ui/CardSpotlight';
 import { HoverBorderGradient } from '../ui/HoverBorderGradient';
-import { ResumeModal } from '../ui/ResumeModal';
+
+const ResumeModal = lazy(() =>
+  import('../ui/ResumeModal').then((m) => ({ default: m.ResumeModal }))
+);
 
 export const ExperienceSection: React.FC = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
@@ -267,10 +270,14 @@ export const ExperienceSection: React.FC = () => {
       </div>
 
       {/* Interactive Printable / Copyable ATS Resume Modal */}
-      <ResumeModal
-        isOpen={isResumeModalOpen}
-        onClose={() => setIsResumeModalOpen(false)}
-      />
+      {isResumeModalOpen && (
+        <Suspense fallback={null}>
+          <ResumeModal
+            isOpen={isResumeModalOpen}
+            onClose={() => setIsResumeModalOpen(false)}
+          />
+        </Suspense>
+      )}
     </section>
   );
 };

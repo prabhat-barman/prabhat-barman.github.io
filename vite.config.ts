@@ -10,5 +10,13 @@ export default defineConfig({
     port: 5173,
     allowedHosts: true,
   },
+  preview: {
+    host: true,
+    port: 5173,
+    allowedHosts: true,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react'],
+  },
 })
 

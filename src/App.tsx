@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
 import { Work } from './components/sections/Work';
@@ -8,8 +8,14 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { Playground } from './components/sections/Playground';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
-import { InteractiveBotCompanion } from './components/ui/InteractiveBotCompanion';
-import { DeveloperTerminal } from './components/ui/DeveloperTerminal';
+
+// Code-split heavy interactive modals for ultra-fast initial paint
+const InteractiveBotCompanion = lazy(() =>
+  import('./components/ui/InteractiveBotCompanion').then((m) => ({ default: m.InteractiveBotCompanion }))
+);
+const DeveloperTerminal = lazy(() =>
+  import('./components/ui/DeveloperTerminal').then((m) => ({ default: m.DeveloperTerminal }))
+);
 
 export function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -59,13 +65,19 @@ export function App() {
       </main>
 
       {/* Floating Interactive Mascot / Bot Companion */}
-      <InteractiveBotCompanion />
+      <Suspense fallback={null}>
+        <InteractiveBotCompanion />
+      </Suspense>
 
       {/* Interactive Developer Terminal (⌘K / ~) */}
-      <DeveloperTerminal
-        isOpen={isTerminalOpen}
-        onClose={() => setIsTerminalOpen(false)}
-      />
+      <Suspense fallback={null}>
+        {isTerminalOpen && (
+          <DeveloperTerminal
+            isOpen={isTerminalOpen}
+            onClose={() => setIsTerminalOpen(false)}
+          />
+        )}
+      </Suspense>
 
       {/* Editorial Footer */}
       <Footer />
