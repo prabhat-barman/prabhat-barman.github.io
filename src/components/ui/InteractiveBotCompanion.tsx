@@ -32,19 +32,19 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: 'welcome-msg',
     sender: 'bot',
-    text: "Hey there! 👋 I'm Pixel, Prabhat's interactive AI assistant. Ask me anything about his 4+ years of React.js & React Native production experience, live apps like WellValet, or tech stack!",
+    text: "Hey there! 👋 I'm Pixel, Prabhat's interactive AI assistant. Ask me anything about his 4+ years of React.js & React Native production experience, enterprise apps like FLOQ, or tech stack!",
     timestamp: 'Just now',
     actions: [
-      { label: 'WellValet Scanner', prompt: 'Tell me about WellValet' },
-      { label: 'SiriusXM IoT', prompt: 'SiriusXM Telemetry project' },
+      { label: 'FLOQ Design System', prompt: 'Tell me about FLOQ' },
+      { label: 'Demand Management', prompt: 'Tell me about Demand Management System' },
       { label: 'Tech Stack', prompt: 'What is Prabhat’s Tech Stack?' }
     ]
   }
 ];
 
 const QUICK_PROMPTS = [
-  'Tell me about WellValet',
-  'SiriusXM Telemetry project',
+  'Tell me about FLOQ',
+  'Tell me about Demand Management System',
   'What is Prabhat’s Tech Stack?',
   'Experience & 4+ YOE highlights',
   'How do I hire or contact him?'
@@ -116,19 +116,26 @@ export const InteractiveBotCompanion: React.FC = () => {
   const getBotResponse = (query: string): { text: string; actions?: MessageAction[] } => {
     const q = query.toLowerCase();
 
-    if (q.includes('wellvalet') || q.includes('grocery') || q.includes('scanner') || q.includes('allergen')) {
-      const wellvalet = projectsData.find((p) => p.id === 'wellvalet-mobile');
+    if (q.includes('floq') || q.includes('design system') || q.includes('component')) {
       return {
-        text: `WellValet is Prabhat's published React Native grocery & beauty scanner in Canada! It features sub-500ms Vision Camera barcode scanning, personalized allergen detection, multi-user family profiles, 0–100 Wellness Scoring, and PIPEDA-compliant privacy architecture with zero ads.`,
+        text: `FLOQ is Prabhat's enterprise design system and reusable component architecture deployed across 6+ production modules at Netlink Software. It slashed initial load times by 35–40%, reduced duplicate code by 30%, and accelerated sprint delivery by ~20%.`,
         actions: [
           {
-            label: 'Visit wellvalet.com',
-            url: wellvalet?.demoUrl || 'https://www.wellvalet.com/'
+            label: 'View FLOQ Case Study',
+            actionType: 'work'
           },
           {
-            label: ' App Store (Canada)',
-            url: wellvalet?.appStoreUrl || 'https://apps.apple.com/ca/app/wellvalet/id6778571808'
-          },
+            label: 'Explore Token Specs',
+            actionType: 'work'
+          }
+        ]
+      };
+    }
+
+    if (q.includes('demand') || q.includes('vendor') || q.includes('b2b') || q.includes('procurement')) {
+      return {
+        text: `The Demand Management System is an enterprise B2B SaaS platform streamlining talent requirement allocation, candidate screening, and vendor SLAs with fine-grained RBAC and virtualized grids handling 1,000+ records with sub-50ms filtering.`,
+        actions: [
           {
             label: 'View Case Study',
             actionType: 'work'
@@ -208,7 +215,7 @@ He is currently open for Senior Engineering roles and high-impact contracts.`,
 
     if (q.includes('resume') || q.includes('cv') || q.includes('download')) {
       return {
-        text: `Prabhat's verified production resume includes 4+ years of experience, WellValet, SiriusXM, and certifications from Newton School and GeeksforGeeks.`,
+        text: `Prabhat's verified production resume includes 4+ years of experience, FLOQ, Demand Management, IrisInsights, SiriusXM, and certifications from Newton School and GeeksforGeeks.`,
         actions: [
           {
             label: 'View & Print Resume',
@@ -220,7 +227,7 @@ He is currently open for Senior Engineering roles and high-impact contracts.`,
 
     // Default intelligent fallback
     return {
-      text: `Thanks for asking! Prabhat specializes in React.js, React Native, TypeScript, and high-performance real-time applications (4+ YOE). Would you like to check out his WellValet app, SiriusXM dashboard, or get in touch?`,
+      text: `Thanks for asking! Prabhat specializes in React.js, React Native, TypeScript, and high-performance enterprise applications (4+ YOE). Would you like to check out FLOQ, Demand Management, IrisInsights, SiriusXM, or get in touch?`,
       actions: [
         {
           label: 'View Projects',

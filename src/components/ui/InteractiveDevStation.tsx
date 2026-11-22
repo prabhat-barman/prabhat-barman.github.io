@@ -19,7 +19,7 @@ interface InteractiveDevStationProps {
 
 const QUOTES = [
   "Hey there! Welcome to Prabhat.dev 👋",
-  "Built WellValet: Canadian grocery scanner live on App Store & Google Play 🇨🇦",
+  "Architected FLOQ: Enterprise Design System deployed across 6+ modules 🎨",
   "React Native + Reanimated 3: Smooth 60fps on iOS & Android 📱",
   "Currently architecting high-performance React 19 apps ⚡",
   "Bluetooth LE & JSI Bridges: Sub-50ms telematics response 🏎️",

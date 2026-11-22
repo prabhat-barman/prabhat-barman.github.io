@@ -131,10 +131,14 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
             </div>
             <div>
               <p className="text-[#CCFF00] font-bold">FLAGSHIP PROJECTS</p>
-              <p className="text-white font-semibold mt-1">1. WellValet — Grocery & Allergen Scanner (React Native)</p>
-              <p className="text-zinc-400 text-[11px]">• Barcode scanning, personalized allergen detection, family profiles, 0-100 wellness scoring. Live in Canada.</p>
-              <p className="text-white font-semibold mt-1">2. SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)</p>
-              <p className="text-zinc-400 text-[11px]">• Real-time WebSocket streaming, 60fps frame batching, sub-100ms dashboard responsiveness.</p>
+              <p className="text-white font-semibold mt-1">1. FLOQ — Enterprise Design System & UI Architecture</p>
+              <p className="text-zinc-400 text-[11px]">• Standardized token system across 6+ modules, 30% code reduction, 35-40% load time cut.</p>
+              <p className="text-white font-semibold mt-1">2. Demand Management System — B2B Vendor Portal</p>
+              <p className="text-zinc-400 text-[11px]">• End-to-end talent allocation, RBAC security, virtual candidate grids with sub-50ms filtering.</p>
+              <p className="text-white font-semibold mt-1">3. IrisInsights.us — Regulated Healthcare</p>
+              <p className="text-zinc-400 text-[11px]">• HIPAA-compliant EMR platform with zero-leak state and 100% WCAG 2.1 AA accessibility.</p>
+              <p className="text-white font-semibold mt-1">4. SiriusXM Drive Mobile Companion (React Native)</p>
+              <p className="text-zinc-400 text-[11px]">• BLE vehicle pairing, remote lock/start, Reanimated 3 worklets with 60 FPS UI thread performance.</p>
             </div>
           </div>
         );

@@ -9,14 +9,15 @@ import {
   ChevronRight,
   Radio,
   Eye,
-  EyeOff
+  EyeOff,
+  Clock,
+  Briefcase
 } from 'lucide-react';
 import { projectsData } from '../../data/projects';
 import type { ProjectData } from '../../types/portfolio';
 import { SectionHeading } from '../ui/SectionHeading';
 import { CaseStudyModal } from './CaseStudyModal';
 import { InteractiveMobileSimulator } from '../ui/InteractiveMobileSimulator';
-import { WellValetScannerPreview } from '../ui/WellValetScannerPreview';
 
 /* Interactive Mockup for SiriusXM Automotive Telemetry with Live Stress Tester */
 const SiriusXmTelemetryPreview: React.FC = () => {
@@ -71,8 +72,8 @@ const SiriusXmTelemetryPreview: React.FC = () => {
       {/* Top telemetry status bar */}
       <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-5 gap-3">
         <div className="flex items-center gap-2 font-mono-tech text-xs text-white/60">
-          <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
-          <span>CRUISE_MU :: FLEET_TELEMETRY_ENGINE</span>
+          <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
+          <span>SIRIUS_XM :: WEBSOCKET_TELEMETRY</span>
         </div>
 
         {/* Live FPS Counter */}
@@ -415,149 +416,122 @@ const NetlinkDesignSystemPreview: React.FC = () => {
   );
 };
 
-/* Interactive Mockup for Demand Management System (B2B Talent Requisition & Vendor Portal) */
-const DemandWorkflowPreview: React.FC = () => {
-  const [activeStage, setActiveStage] = useState<'all' | 'sla' | 'approved'>('all');
-  const [selectedReq, setSelectedReq] = useState<number>(0);
+/* Interactive Mockup for Demand Management System */
+const DemandManagementPreview: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'demands' | 'vendors'>('demands');
+  const [selectedCandidateIndex, setSelectedCandidateIndex] = useState<number | null>(0);
 
   const demands = [
     {
-      reqId: 'REQ-2024-892',
-      role: 'Staff React Native Architect',
-      department: 'Automotive Digital Cockpit',
-      vendor: 'Netlink Tech Solutions',
-      candidatesCount: 14,
-      slaHours: '18h SLA remaining',
-      slaStatus: 'on-track',
-      status: 'In Vendor Review',
+      reqId: 'REQ-4089',
+      role: 'Staff Frontend Architect (React 19 / TS)',
+      dept: 'Enterprise Core',
+      submitted: 8,
+      screened: 5,
+      slaRemaining: '16h 20m',
+      status: 'INTERVIEWING'
     },
     {
-      reqId: 'REQ-2024-764',
-      role: 'Senior Frontend Systems Engineer',
-      department: 'Core Design Systems (FLOQ)',
-      vendor: 'Apex Enterprise Partners',
-      candidatesCount: 8,
-      slaHours: '4h SLA warning',
-      slaStatus: 'warning',
-      status: 'SLA Escalation',
-    },
-    {
-      reqId: 'REQ-2024-651',
-      role: 'Full-Stack Telemetry Specialist',
-      department: 'Fleet IoT Infrastructure',
-      vendor: 'Vanguard Global Staffing',
-      candidatesCount: 22,
-      slaHours: 'Fulfilled on schedule',
-      slaStatus: 'approved',
-      status: 'Approved & Onboarding',
+      reqId: 'REQ-4094',
+      role: 'Lead Mobile Engineer (React Native)',
+      dept: 'Automotive IoT',
+      submitted: 6,
+      screened: 3,
+      slaRemaining: '38h 10m',
+      status: 'SCREENING'
     }
   ];
 
-  const filteredDemands = activeStage === 'sla'
-    ? demands.filter(d => d.slaStatus === 'warning')
-    : activeStage === 'approved'
-    ? demands.filter(d => d.slaStatus === 'approved')
-    : demands;
+  const vendors = [
+    { name: 'Apex Tech Partners', fulfillment: '97.4%', avgHours: '3.8h', tier: 'TIER 1' },
+    { name: 'Global Talent Grid', fulfillment: '92.1%', avgHours: '6.5h', tier: 'TIER 1' },
+    { name: 'NexGen Engineering', fulfillment: '89.6%', avgHours: '11.2h', tier: 'TIER 2' }
+  ];
 
   return (
     <div className="bg-[#121214] text-[#F9F9F6] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-black/10 shadow-2xl overflow-hidden relative">
-      {/* Top Header */}
-      <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-5 gap-3">
-        <div className="flex items-center gap-2 font-mono-tech text-xs text-white/60">
-          <span className="w-2 h-2 rounded-full bg-[#8B5CF6] animate-pulse" />
-          <span>DMS_ENTERPRISE :: B2B_FULFILLMENT_PIPELINE</span>
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+        <div className="flex items-center gap-2 font-mono-tech text-xs text-white/70">
+          <Briefcase className="w-4 h-4 text-[#8B5CF6]" />
+          <span>DEMAND_ENGINE :: VENDOR_PIPELINE</span>
         </div>
-        <div className="flex items-center gap-1.5 font-mono-tech text-[11px] text-[#8B5CF6] bg-[#8B5CF6]/15 px-3 py-1 rounded-full border border-[#8B5CF6]/30 font-semibold">
-          <ShieldCheck className="w-3.5 h-3.5 text-[#8B5CF6]" />
-          <span>RBAC: ENTERPRISE_ADMIN</span>
-        </div>
-      </div>
-
-      {/* Filter Tabs */}
-      <div className="flex items-center gap-2 mb-4 font-mono-tech text-xs">
-        <span className="text-white/50 text-[11px]">Filter Pipeline:</span>
-        <div className="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10">
+        <div className="flex items-center gap-1 bg-white/10 p-1 rounded-lg">
           <button
-            type="button"
-            onClick={() => setActiveStage('all')}
-            className={`px-2.5 py-1 rounded transition-all text-[11px] ${
-              activeStage === 'all' ? 'bg-[#8B5CF6] text-white font-bold' : 'text-white/60 hover:text-white'
+            onClick={() => setActiveTab('demands')}
+            className={`px-2.5 py-1 rounded text-[11px] font-mono-tech transition-colors ${
+              activeTab === 'demands' ? 'bg-[#8B5CF6] text-white font-semibold' : 'text-white/60 hover:text-white'
             }`}
           >
-            All Requisitions ({demands.length})
+            Active Demands
           </button>
           <button
-            type="button"
-            onClick={() => setActiveStage('sla')}
-            className={`px-2.5 py-1 rounded transition-all text-[11px] ${
-              activeStage === 'sla' ? 'bg-amber-500 text-black font-bold' : 'text-white/60 hover:text-white'
+            onClick={() => setActiveTab('vendors')}
+            className={`px-2.5 py-1 rounded text-[11px] font-mono-tech transition-colors ${
+              activeTab === 'vendors' ? 'bg-[#8B5CF6] text-white font-semibold' : 'text-white/60 hover:text-white'
             }`}
           >
-            SLA Alerts (1)
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveStage('approved')}
-            className={`px-2.5 py-1 rounded transition-all text-[11px] ${
-              activeStage === 'approved' ? 'bg-[#10B981] text-black font-bold' : 'text-white/60 hover:text-white'
-            }`}
-          >
-            Approved (1)
+            Vendor SLAs
           </button>
         </div>
       </div>
 
-      {/* Demand Cards List */}
-      <div className="space-y-2.5">
-        {filteredDemands.map((req, idx) => (
-          <div
-            key={req.reqId}
-            onClick={() => setSelectedReq(idx)}
-            className={`p-3.5 rounded-xl border transition-all cursor-pointer ${
-              selectedReq === idx
-                ? 'bg-white/10 border-[#8B5CF6]/60 shadow-lg'
-                : 'bg-black/40 border-white/10 hover:bg-white/5'
-            }`}
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-mono-tech text-[11px] text-[#8B5CF6] font-bold">{req.reqId}</span>
-                  <span className="font-mono-tech text-[10px] text-white/40">• {req.department}</span>
-                </div>
-                <h5 className="font-bold text-sm text-white mt-0.5">{req.role}</h5>
+      {/* Main Content */}
+      {activeTab === 'demands' ? (
+        <div className="space-y-3">
+          {demands.map((d, idx) => (
+            <div
+              key={d.reqId}
+              onClick={() => setSelectedCandidateIndex(idx)}
+              className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                selectedCandidateIndex === idx
+                  ? 'border-[#8B5CF6] bg-white/10 shadow-lg'
+                  : 'border-white/10 bg-white/5 hover:bg-white/10'
+              }`}
+            >
+              <div className="flex items-center justify-between text-xs font-mono-tech text-white/60 mb-1">
+                <span>{d.reqId} • {d.dept}</span>
+                <span className="text-[#CCFF00] font-semibold">{d.status}</span>
               </div>
-              <span
-                className={`px-2 py-0.5 rounded text-[10px] font-mono-tech font-semibold whitespace-nowrap ${
-                  req.slaStatus === 'warning'
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                    : req.slaStatus === 'approved'
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                    : 'bg-white/10 text-white/80 border border-white/15'
-                }`}
-              >
-                {req.status}
-              </span>
+              <h5 className="font-semibold text-sm text-white mb-2">{d.role}</h5>
+              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/10 font-mono-tech text-[11px]">
+                <div>
+                  <span className="text-white/40 block">Submitted:</span>
+                  <span className="text-white font-bold">{d.submitted} profiles</span>
+                </div>
+                <div>
+                  <span className="text-white/40 block">Screened:</span>
+                  <span className="text-white font-bold">{d.screened} candidates</span>
+                </div>
+                <div>
+                  <span className="text-white/40 block">SLA Clock:</span>
+                  <span className="text-[#8B5CF6] font-bold">{d.slaRemaining}</span>
+                </div>
+              </div>
             </div>
-
-            <div className="mt-2.5 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between text-[11px] font-mono-tech text-white/60 gap-2">
-              <span>Vendor: <strong className="text-white/80">{req.vendor}</strong></span>
-              <span className="text-[#8B5CF6]">{req.candidatesCount} Candidates</span>
-              <span className={req.slaStatus === 'warning' ? 'text-amber-400 font-bold' : 'text-emerald-400'}>
-                {req.slaHours}
-              </span>
-            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="p-4 rounded-xl border border-white/10 bg-white/5 space-y-3 font-mono-tech text-xs">
+          <div className="flex items-center justify-between pb-2 border-b border-white/10 text-white/50 text-[11px] uppercase">
+            <span>Vendor Partner</span>
+            <span>SLA Compliance</span>
+            <span>Avg Response</span>
           </div>
-        ))}
-      </div>
+          {vendors.map((v) => (
+            <div key={v.name} className="flex items-center justify-between py-1 border-b border-white/5 last:border-0">
+              <span className="text-white font-medium">{v.name}</span>
+              <span className="text-[#CCFF00] font-bold">{v.fulfillment}</span>
+              <span className="text-white/70">{v.avgHours}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
-      {/* High-Throughput Engine specs footer */}
-      <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/60">
-        <span className="flex items-center gap-1.5">
-          <Check className="w-3.5 h-3.5 text-[#8B5CF6]" />
-          <span>10,000+ Virtualized Rows @ 60fps</span>
-        </span>
-        <span className="text-white/40">Sub-50ms Faceted Search</span>
+      {/* Footer */}
+      <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/60">
+        <span>Role-Based Access Control (RBAC)</span>
+        <span className="text-[#8B5CF6] font-semibold">Sub-50ms Virtual Grid</span>
       </div>
     </div>
   );
@@ -691,37 +665,10 @@ export const Work: React.FC = () => {
 
                 {/* Interactive Visual Preview Column */}
                 <div className={`lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  {project.previewType === 'wellvalet-scanner' && <WellValetScannerPreview />}
-                  {project.previewType === 'automotive-telemetry' && <SiriusXmTelemetryPreview />}
-                  {project.previewType === 'mobile-simulator' && <InteractiveMobileSimulator />}
-                  {project.previewType === 'healthcare-hipaa' && <IrisInsightsPreview />}
                   {project.previewType === 'design-system' && <NetlinkDesignSystemPreview />}
-                  {project.previewType === 'b2b-workflow' && <DemandWorkflowPreview />}
-                  {project.previewType === 'creative-lab' && (
-                    <div className="bg-[#121214] text-white rounded-2xl p-8 border border-black/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
-                      <div>
-                        <div className="flex items-center gap-2 font-mono-tech text-xs text-white/60 mb-4">
-                          <Sparkles className="w-3.5 h-3.5 text-[#CCFF00]" />
-                          <span>INTERACTION_LABORATORY</span>
-                        </div>
-                        <h4 className="font-display text-2xl font-bold">
-                          Kinetic Typography & Canvas Physics
-                        </h4>
-                        <p className="mt-2 text-sm text-white/70 max-w-md">
-                          Explore live experiments in browser physics, vector wave calculations, and tactile micro-interactions.
-                        </p>
-                      </div>
-                      <div className="pt-8">
-                        <a
-                          href="#playground"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#CCFF00] text-[#121214] text-xs font-bold rounded-full hover:bg-[#B8E600] transition-colors"
-                        >
-                          <span>Open Interactive Playground</span>
-                          <ChevronRight className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-                  )}
+                  {project.previewType === 'demand-portal' && <DemandManagementPreview />}
+                  {project.previewType === 'healthcare-hipaa' && <IrisInsightsPreview />}
+                  {project.previewType === 'mobile-simulator' && <InteractiveMobileSimulator />}
                 </div>
               </article>
             );

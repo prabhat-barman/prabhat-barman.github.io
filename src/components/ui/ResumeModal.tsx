@@ -58,14 +58,26 @@ Technologies: ${exp.technologies.join(', ')}
 `).join('\n')}
 
 FLAGSHIP PROJECTS:
-1. WellValet — Grocery & Allergen Scanner (React Native)
-- Live: https://www.wellvalet.com/
-- App Store: https://apps.apple.com/ca/app/wellvalet/id6778571808
-- Google Play: https://play.google.com/store/apps/details?id=com.cruiseanalytix.wellvalet
-- Features: Barcode scanning, personalized allergen detection, multi-member family profiles, 0-100 wellness scoring, OCR ingredient list extraction, PIPEDA compliance.
+1. FLOQ — Enterprise Design System & UI Architecture (Netlink Software)
+- Role: Lead UI Systems Engineer
+- Technologies: React 19, TypeScript, Storybook 8, Radix UI, Rollup Bundler, Tailwind CSS
+- Features: Standardized component architecture across 6+ modules, reducing duplicate code by 30%, cutting initial load times by 35–40%, and accelerating sprint velocity by ~20%.
 
-2. SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)
-- Features: Real-time WebSocket vehicle telemetry streaming (10+ Hz), 60fps frame batching, sub-100ms dashboard responsiveness, dynamic telemetry gauges.
+2. Demand Management System — B2B Vendor & Resource Portal
+- Role: Senior Frontend Engineer
+- Technologies: React.js, TypeScript, Redux Toolkit, RBAC Security, Virtual Tables, REST APIs
+- Features: Enterprise talent demand allocation, fine-grained RBAC for hiring managers and vendors, sub-50ms candidate searching across 1,000+ records, real-time SLA metrics.
+
+3. IrisInsights.us — Regulated Healthcare Platform
+- Role: Frontend Healthcare Systems Engineer
+- Live: https://irisinsights.us
+- Technologies: React.js, Next.js, TypeScript, HIPAA Secure Vault, WCAG 2.1 AA, OAuth 2.0
+- Features: 100% WCAG 2.1 AA accessibility, zero-leak ephemeral PHI state, automated session timeouts in full compliance with federal HIPAA standards.
+
+4. SiriusXM Drive Mobile Companion (React Native)
+- Role: Lead Mobile Systems Engineer
+- Technologies: React Native, TypeScript, Reanimated 3, Bluetooth LE, MMKV Storage, JSI
+- Features: BLE keyless proximity pairing, remote lock/unlock & start, 60 FPS UI thread animations with Reanimated 3 worklets, sub-50ms native bridge response.
 
 EDUCATION:
 ${profileData.education.map((e) => `${e.degree} — ${e.institution} (${e.period})`).join('\n')}
@@ -281,51 +293,71 @@ ${profileData.certifications.map((c) => `- ${c.name} (${c.issuer}, ${c.date})`).
               Flagship Production Projects
             </h2>
             <div className="space-y-4">
-              {/* WellValet */}
+              {/* FLOQ */}
               <div className="p-3.5 rounded-xl bg-[#FAF9F6] border border-black/8 space-y-1.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="font-bold text-[#121214]">
-                    WellValet — Canadian Grocery & Allergen Scanner
+                    FLOQ — Enterprise Design System & UI Architecture
+                  </span>
+                  <span className="font-mono-tech text-[11px] text-[#8C52FF] font-semibold">
+                    Netlink Software · 6+ Modules
+                  </span>
+                </div>
+                <p className="text-xs text-[#5C5C66]">
+                  Standardized component framework and design tokens across 6+ production modules. Reduced duplicate code by 30%, slashed initial load times by 35–40% through strict tree-shaking, and accelerated sprint velocity by ~20%.
+                </p>
+              </div>
+
+              {/* Demand Management System */}
+              <div className="p-3.5 rounded-xl bg-[#FAF9F6] border border-black/8 space-y-1.5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-bold text-[#121214]">
+                    Demand Management System — B2B Vendor & Resource Portal
+                  </span>
+                  <span className="font-mono-tech text-[11px] text-[#8B5CF6] font-semibold">
+                    React · RBAC · Virtual Tables
+                  </span>
+                </div>
+                <p className="text-xs text-[#5C5C66]">
+                  Enterprise B2B resource management platform with fine-grained role-based access control (RBAC). Built dynamic demand wizard, real-time vendor SLA tracking, and virtualized candidate grid handling 1,000+ records with sub-50ms filtering.
+                </p>
+              </div>
+
+              {/* IrisInsights */}
+              <div className="p-3.5 rounded-xl bg-[#FAF9F6] border border-black/8 space-y-1.5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-bold text-[#121214]">
+                    IrisInsights.us — Regulated Healthcare Platform
                   </span>
                   <div className="flex items-center gap-2 font-mono-tech text-[11px]">
                     <a
-                      href="https://apps.apple.com/ca/app/wellvalet/id6778571808"
+                      href="https://irisinsights.us"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline font-semibold flex items-center gap-0.5 text-[#10B981]"
+                      className="underline font-semibold flex items-center gap-0.5 text-[#00C2FF]"
                     >
-                      <span>App Store</span>
-                      <ExternalLink className="w-2.5 h-2.5" />
-                    </a>
-                    <span>•</span>
-                    <a
-                      href="https://www.wellvalet.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline font-semibold flex items-center gap-0.5"
-                    >
-                      <span>wellvalet.com</span>
+                      <span>irisinsights.us</span>
                       <ExternalLink className="w-2.5 h-2.5" />
                     </a>
                   </div>
                 </div>
                 <p className="text-xs text-[#5C5C66]">
-                  Cross-platform React Native app published on Apple App Store & Google Play in Canada. Implemented sub-500ms hardware barcode scanner, personalized dietary allergen alerts, multi-member family profile restrictions, instant 0–100 Wellness Scores, and PIPEDA-compliant privacy architecture.
+                  HIPAA-compliant clinical therapy and EMR management platform. Engineered zero-leak ephemeral state architecture for sensitive Protected Health Information (PHI) and verified 100% WCAG 2.1 AA accessibility across all patient-facing modules.
                 </p>
               </div>
 
-              {/* SiriusXM */}
+              {/* SiriusXM Drive Mobile Companion */}
               <div className="p-3.5 rounded-xl bg-[#FAF9F6] border border-black/8 space-y-1.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="font-bold text-[#121214]">
-                    SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)
+                    SiriusXM Drive Mobile Companion
                   </span>
-                  <span className="font-mono-tech text-[11px] text-[#5C5C66]">
-                    React · WebSockets · Real-time Dashboard
+                  <span className="font-mono-tech text-[11px] text-[#10B981] font-semibold">
+                    React Native · Bluetooth LE · Reanimated 3
                   </span>
                 </div>
                 <p className="text-xs text-[#5C5C66]">
-                  Engineered real-time vehicle monitoring platform streaming 10+ Hz WebSocket vehicular telemetry. Handled incoming telemetry using buffered requestAnimationFrame frame batching, isolating widget re-render trees to maintain buttery 60fps responsiveness and sub-100ms dashboard latency.
+                  Cross-platform React Native companion app for connected automotive drivers. Built BLE key fob proximity pairing, sub-50ms native bridge wrappers, MMKV fast key-value storage, and buttery 60 FPS gesture animations on the UI thread.
                 </p>
               </div>
             </div>
