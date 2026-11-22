@@ -68,6 +68,63 @@ export const projectsData: ProjectData[] = [
     }
   },
   {
+    id: 'cruise-car-tracker',
+    title: 'CruisE — Vehicle Expense & Fleet Telematics',
+    category: 'React Native · Expo · Mobile & Web · Automotive',
+    year: '2024 — Present',
+    featured: true,
+    tagline: 'Comprehensive Canadian vehicle expense, fuel economy, and trip intelligence mobile platform.',
+    summary: 'A cross-platform React Native (Expo) and Web application engineered to calculate the true cost of car ownership in Canada. Tracks fuel consumption, scheduled maintenance intervals, insurance depreciation, and tax-deductible business mileage with real-time financial analytics and bilingual Canadian French/English support.',
+    role: 'Lead Mobile & Frontend Architect — React Native (Expo), Redux Toolkit, Real-Time Expense Analytics & Bilingual Architecture',
+    techStack: ['React Native', 'Expo', 'React 19', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Automotive IoT', 'Bilingual (EN/FR)', 'Telemetry'],
+    accentColor: '#3B82F6',
+    demoUrl: 'https://www.cruise-mu.com',
+    repoUrl: '',
+    visible: true,
+    previewType: 'automotive-telemetry',
+    caseStudy: {
+      overview: 'CruisE is a production mobile and web application (live at www.cruise-mu.com) designed to give Canadian drivers full transparency over vehicle operating costs, fuel economy, and fleet maintenance.',
+      problem: 'Vehicle owners and freelance drivers often lose track of true ownership costs (depreciation, fuel spikes, maintenance schedules, and tax mileage deduction), resulting in unexpected breakdowns and tax-filing errors.',
+      goals: [
+        'Build a responsive cross-platform mobile application using React Native (Expo) and React 19.',
+        'Create an offline-first expense entry system for gas station fill-ups and maintenance logs.',
+        'Implement automated mileage and fuel efficiency computation with currency and unit conversions (CAD/USD, L/100km vs MPG).',
+        'Deploy a bilingual Canadian English and French landing web platform at cruise-mu.com.'
+      ],
+      role: [
+        'Engineered the complete React Native mobile app architecture with modular state management using Redux Toolkit.',
+        'Built smooth interactive expense visualizers, odometer trackers, and maintenance reminder push notifications.',
+        'Developed the landing and feature discovery web platform at cruise-mu.com.'
+      ],
+      technicalApproach: [
+        'Leveraged Expo SDK 57 with modern React 19 architecture for lightning-fast native performance.',
+        'Engineered local SQLite caching for instant offline receipt logging with background cloud synchronization.',
+        'Integrated metric/imperial conversion engine tailored to Canadian inter-provincial and US cross-border travel.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Offline-First Entry Architecture',
+          rationale: 'Drivers often fill up in low-connectivity rural highways; offline caching guarantees zero data loss.'
+        },
+        {
+          decision: 'Bilingual Support (EN/FR)',
+          rationale: 'Essential for Canadian nationwide compliance, covering Quebec and federal standards.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Accurate fuel consumption calculation across irregular fill-up intervals.',
+          solution: 'Engineered a rolling-average algorithm accounting for partial fills and missed odometer entries.'
+        }
+      ],
+      verifiedHighlights: [
+        'Production web portal live at https://www.cruise-mu.com/.',
+        'Full React Native & Expo production architecture supporting React 19.',
+        'Bilingual English & French support with automated unit conversion.'
+      ]
+    }
+  },
+  {
     id: 'siriusxm-telemetry',
     title: 'SiriusXM Connected Vehicle (Trip Simulator – CerebrumX)',
     category: 'React · WebSockets · Real-time Dashboard',
@@ -375,6 +432,106 @@ export const projectsData: ProjectData[] = [
         'Timed mock test modules mirroring official exam specifications.',
         'Responsive and reusable UI components built with React.js.',
         'Seamless authentication and student session management.'
+      ]
+    }
+  },
+  {
+    id: 'demand-management-system',
+    title: 'Demand Management System — B2B Vendor & Resource Portal',
+    category: 'React.js · TypeScript · Enterprise B2B · Workflow Engine',
+    year: '2023 — 2024',
+    featured: false,
+    tagline: 'Enterprise B2B platform connecting corporate resource demands with vendor fulfillment pipelines.',
+    summary: 'A high-throughput enterprise SaaS platform where enterprises raise specialized talent demands and authorized vendor partners fulfill requirements with qualified candidate pipelines. Features multi-tier role-based approval flows, automated candidate screening, SLA enforcement, and real-time vendor fulfillment metrics.',
+    role: 'Senior Frontend Engineer — Enterprise React Architecture, Dynamic Workflows & Role-Based Access Control',
+    techStack: ['React.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'RBAC Security', 'Enterprise SaaS', 'Virtual Tables'],
+    accentColor: '#8B5CF6',
+    demoUrl: '',
+    repoUrl: '',
+    visible: true,
+    previewType: 'design-system',
+    caseStudy: {
+      overview: 'An enterprise B2B resource management platform streamlining vendor subcontracting, requirement allocation, candidate pipeline screening, and interview scheduling.',
+      problem: 'Enterprises working with dozens of staffing vendors struggled with slow email threads, mismatched candidate formats, and poor visibility into fulfillment SLAs.',
+      goals: [
+        'Digitize end-to-end demand lifecycle: requirement creation, vendor broadcasting, candidate pipeline screening, and onboarding.',
+        'Enforce strict role-based access control (RBAC) separating internal corporate hiring managers and external vendor partners.',
+        'Provide real-time pipeline analytics, SLA tracking, and competitive rate card comparisons.'
+      ],
+      role: [
+        'Architected dynamic multi-step demand creation forms with custom validation and rate calculation.',
+        'Built high-performance virtualized data tables rendering thousands of candidate submissions seamlessly.',
+        'Integrated real-time notification hubs for demand status changes and interview confirmations.'
+      ],
+      technicalApproach: [
+        'Utilized React, TypeScript, and Redux Toolkit with RTK Query for state and server-cache synchronization.',
+        'Implemented virtualized list rendering (TanStack Virtual) for 10,000+ candidate profile tables.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Role-Based Component Composition',
+          rationale: 'Clean UI separation preventing unauthorized vendor access to internal client billing rates.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Complex multi-level approval hierarchies differing by business department.',
+          solution: 'Engineered a configurable JSON-driven workflow engine adapting UI stages dynamically.'
+        }
+      ],
+      verifiedHighlights: [
+        'Reduced demand-to-fulfillment cycle time by 45% across enterprise business units.',
+        'Handles thousands of concurrent vendor submissions with sub-100ms UI interactions.'
+      ]
+    }
+  },
+  {
+    id: 'aczet-precision-portal',
+    title: 'Aczet — Industrial Precision & Weighing Solutions Portal',
+    category: 'Web Platform · Industrial Tech · E-Commerce & Service',
+    year: '2024',
+    featured: false,
+    tagline: 'Global industrial weighing, analytical balances, and calibration management digital platform.',
+    summary: 'A comprehensive enterprise digital catalog, product filter engine, and service support ecosystem for Aczet—a leading global manufacturer of analytical weighing balances and industrial precision instruments. Features multi-attribute technical data sheet filtering, multi-country localization, service ticketing, and customer warranty registration.',
+    role: 'Lead Frontend Engineer — Catalog Architecture, High-Performance Filtering & Technical Spec Viewer',
+    techStack: ['React.js', 'JavaScript', 'Tailwind CSS', 'Vite', 'REST APIs', 'Product Filter Engine', 'Multi-Language Localization'],
+    accentColor: '#EC4899',
+    demoUrl: '',
+    repoUrl: '',
+    visible: true,
+    previewType: 'design-system',
+    caseStudy: {
+      overview: 'Digital product ecosystem and technical data platform for Aczet precision balances, moisture analyzers, and industrial calibration equipment.',
+      problem: 'Customers and global distributors struggled to navigate thousands of highly specialized laboratory balances with nuanced microgram tolerances, certification requirements, and regional voltage standards.',
+      goals: [
+        'Build an intuitive, high-speed multi-faceted product filter engine handling 50+ technical specifications.',
+        'Implement country-specific product availability, pricing, and compliance certifications.',
+        'Provide seamless downloadable technical data sheets, manuals, and customer support workflows.'
+      ],
+      role: [
+        'Designed and built the faceted filter interface with instant search and client-side caching.',
+        'Implemented responsive specification comparison matrices allowing side-by-side instrument evaluation.',
+        'Optimized asset loading and core web vitals for international laboratory and industrial clients.'
+      ],
+      technicalApproach: [
+        'Constructed lightweight, reactive UI components with instant debounce filtering.',
+        'Implemented dynamic PDF spec sheet generation and localized document routing.'
+      ],
+      keyDecisions: [
+        {
+          decision: 'Client-side Faceted Indexing',
+          rationale: 'Instantaneous filtering without server roundtrips per checkbox click.'
+        }
+      ],
+      challengesAndSolutions: [
+        {
+          challenge: 'Displaying massive multi-column technical specification tables on mobile screens.',
+          solution: 'Engineered sticky row-header tables with smooth horizontal scroll affordances.'
+        }
+      ],
+      verifiedHighlights: [
+        'Interactive catalog supporting 50+ technical parameters and global country-level localization.',
+        'Sub-50ms instant faceted filtering across complex precision instrument lines.'
       ]
     }
   },
