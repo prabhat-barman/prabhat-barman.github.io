@@ -64,9 +64,9 @@ export const TracingBeam: React.FC<TracingBeamProps> = ({
           </div>
 
           <svg
-            viewBox={`0 0 20 ${svgHeight}`}
+            viewBox={`0 0 20 ${Math.max(svgHeight, 1)}`}
             width="20"
-            height={svgHeight}
+            height={Math.max(svgHeight, 1)}
             className="ml-0.5 block"
             aria-hidden="true"
           >

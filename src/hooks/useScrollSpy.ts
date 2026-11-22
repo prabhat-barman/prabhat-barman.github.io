@@ -17,7 +17,7 @@ export function useScrollSpy(sectionIds: string[], offset = 120): string {
           const id = sectionIds[i];
           const element = document.getElementById(id);
           if (element) {
-            const top = element.offsetTop;
+            const top = element.getBoundingClientRect().top + window.scrollY;
             if (scrollPosition >= top) {
               setActiveId(id);
               break;

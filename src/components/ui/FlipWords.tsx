@@ -15,6 +15,8 @@ export const FlipWords: React.FC<FlipWordsProps> = ({
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
+    if (!words || words.length === 0) return;
+
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
@@ -26,7 +28,9 @@ export const FlipWords: React.FC<FlipWordsProps> = ({
     return () => clearInterval(interval);
   }, [words, duration]);
 
-  const currentWord = words[currentWordIndex];
+  if (!words || words.length === 0) return null;
+
+  const currentWord = words[currentWordIndex % words.length];
 
   return (
     <span

@@ -68,12 +68,22 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
 
   const [customThought, setCustomThought] = useState<string | null>(null);
   const [isTouring, setIsTouring] = useState(false);
+  const tourTimeoutRef = useRef<number | null>(null);
+
+  // Clean up tour timer on unmount
+  useEffect(() => {
+    return () => {
+      if (tourTimeoutRef.current) {
+        window.clearTimeout(tourTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Quick Tour function
   const TOUR_STOPS = [
     { target: 'hero', text: "Welcome to Prabhat.dev! 4+ years of React & React Native production experience 🚀" },
     { target: 'work', text: "Here is my work! Try the 1,000 Hz WebSocket stress tester and mobile phone simulator below 🏎️" },
-    { target: 'sticky-scroll', text: "Architecture: How we achieved 60fps frame rates and 35–40% faster initial loads ⚡" },
+    { target: 'architecture', text: "Architecture: How we achieved 60fps frame rates and 35–40% faster initial loads ⚡" },
     { target: 'about', text: "My philosophy: Good code solves user needs; great architecture scales without friction 🛡️" },
     { target: 'experience', text: "4+ years at Netlink Software Group delivering automotive IoT and enterprise apps 💼" },
     { target: 'playground', text: "Check out the interactive lab! Test kinetic typography and canvas wave physics 🧪" },
@@ -82,6 +92,9 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
 
   const handleStartTour = (e?: React.MouseEvent) => {
     e?.stopPropagation();
+    if (tourTimeoutRef.current) {
+      window.clearTimeout(tourTimeoutRef.current);
+    }
     setIsTouring(true);
     let currentStep = 0;
 
@@ -92,12 +105,12 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
         return;
       }
       const stop = TOUR_STOPS[currentStep];
-      const el = document.getElementById(stop.target);
+      const el = document.getElementById(stop.target) || document.getElementById('sticky-scroll');
       el?.scrollIntoView({ behavior: 'smooth' });
       setCustomThought(stop.text);
       setShowBubble(true);
       currentStep++;
-      setTimeout(executeStep, 4000);
+      tourTimeoutRef.current = window.setTimeout(executeStep, 4000);
     };
 
     executeStep();
@@ -109,7 +122,7 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
 
     const sections = [
       { id: 'work', text: "Check out SiriusXM & IrisInsights below! You can stress test the telemetry live 🏎️" },
-      { id: 'sticky-scroll', text: "Architecture deep dive: Notice how 60fps is preserved with selective memoization ⚡" },
+      { id: 'architecture', text: "Architecture deep dive: Notice how 60fps is preserved with selective memoization ⚡" },
       { id: 'experience', text: "3 promotions at Netlink Software from Trainee to Senior Frontend Engineer 💼" },
       { id: 'playground', text: "Welcome to the lab! Test the 60fps wave canvas and micro-interactions 🧪" },
       { id: 'contact', text: "Want to talk about a role or project? Send a message below! 📬" },

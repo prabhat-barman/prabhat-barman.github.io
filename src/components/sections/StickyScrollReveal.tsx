@@ -167,6 +167,7 @@ export const StickyScrollReveal: React.FC = () => {
 
   return (
     <section id="architecture" ref={containerRef} className="relative py-28 md:py-36 border-b border-black/8 bg-[#F9F9F6] transition-colors duration-500">
+      <div id="sticky-scroll" className="absolute -top-24 left-0 pointer-events-none" aria-hidden="true" />
       <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20">
         {/* Section title */}
         <div className="mb-20 border-b border-black/8 pb-8">

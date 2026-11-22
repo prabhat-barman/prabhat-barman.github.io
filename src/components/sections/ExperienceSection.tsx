@@ -11,6 +11,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { TracingBeam } from '../ui/TracingBeam';
 import { CardSpotlight } from '../ui/CardSpotlight';
 import { HoverBorderGradient } from '../ui/HoverBorderGradient';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 
 const ResumeModal = lazy(() =>
   import('../ui/ResumeModal').then((m) => ({ default: m.ResumeModal }))
@@ -271,12 +272,14 @@ export const ExperienceSection: React.FC = () => {
 
       {/* Interactive Printable / Copyable ATS Resume Modal */}
       {isResumeModalOpen && (
-        <Suspense fallback={null}>
-          <ResumeModal
-            isOpen={isResumeModalOpen}
-            onClose={() => setIsResumeModalOpen(false)}
-          />
-        </Suspense>
+        <ErrorBoundary fallback={null}>
+          <Suspense fallback={null}>
+            <ResumeModal
+              isOpen={isResumeModalOpen}
+              onClose={() => setIsResumeModalOpen(false)}
+            />
+          </Suspense>
+        </ErrorBoundary>
       )}
     </section>
   );

@@ -8,6 +8,7 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { Playground } from './components/sections/Playground';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
 // Code-split heavy interactive modals for ultra-fast initial paint
 const InteractiveBotCompanion = lazy(() =>
@@ -65,19 +66,23 @@ export function App() {
       </main>
 
       {/* Floating Interactive Mascot / Bot Companion */}
-      <Suspense fallback={null}>
-        <InteractiveBotCompanion />
-      </Suspense>
+      <ErrorBoundary fallback={null}>
+        <Suspense fallback={null}>
+          <InteractiveBotCompanion />
+        </Suspense>
+      </ErrorBoundary>
 
       {/* Interactive Developer Terminal (⌘K / ~) */}
-      <Suspense fallback={null}>
-        {isTerminalOpen && (
-          <DeveloperTerminal
-            isOpen={isTerminalOpen}
-            onClose={() => setIsTerminalOpen(false)}
-          />
-        )}
-      </Suspense>
+      <ErrorBoundary fallback={null}>
+        <Suspense fallback={null}>
+          {isTerminalOpen && (
+            <DeveloperTerminal
+              isOpen={isTerminalOpen}
+              onClose={() => setIsTerminalOpen(false)}
+            />
+          )}
+        </Suspense>
+      </ErrorBoundary>
 
       {/* Editorial Footer */}
       <Footer />
