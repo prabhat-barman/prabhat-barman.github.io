@@ -4,6 +4,7 @@ import {
   Printer, 
   Copy, 
   Check, 
+  Download,
   ExternalLink, 
   MapPin, 
   Mail, 
@@ -127,6 +128,17 @@ ${profileData.certifications.map((c) => `- ${c.name} (${c.issuer}, ${c.date})`).
               <Printer className="w-3.5 h-3.5 text-[#CCFF00]" />
               <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
+
+            {profileData.contact.hasResumeFile && (
+              <a
+                href={profileData.contact.resumeUrl}
+                download="Prabhat_Barman_Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-mono-tech font-semibold transition-all shadow-xs"
+              >
+                <Download className="w-3.5 h-3.5 text-white" />
+                <span className="hidden sm:inline">Download PDF</span>
+              </a>
+            )}
 
             <button
               type="button"

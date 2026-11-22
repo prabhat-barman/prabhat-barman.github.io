@@ -26,7 +26,7 @@ export const profileData: ProfileData = {
     instagram: 'https://www.instagram.com/__meme__o2__/',
     twitter: 'https://x.com/prabhat_dev',
     resumeUrl: '/resume.pdf',
-    hasResumeFile: false // toggle to true when file placed in /public/resume.pdf
+    hasResumeFile: true // toggle to true when file placed in /public/resume.pdf
   },
   metrics: [
     {
