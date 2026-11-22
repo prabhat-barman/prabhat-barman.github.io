@@ -11,7 +11,6 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { profileData } from '../../data/profile';
-import { projectsData } from '../../data/projects';
 
 interface MessageAction {
   label: string;
