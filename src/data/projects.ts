@@ -315,7 +315,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     id: 'netlink-design-system',
-    title: 'floq_ui & Enterprise Architecture',
+    title: 'FLOQ',
     category: 'Enterprise UI System & Reusable Framework',
     year: '2022 — Present',
     featured: true,

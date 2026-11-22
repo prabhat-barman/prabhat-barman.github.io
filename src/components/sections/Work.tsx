@@ -341,7 +341,7 @@ const NetlinkDesignSystemPreview: React.FC = () => {
       <div className="flex items-center justify-between border-b border-black/8 pb-4 mb-6">
         <div className="flex items-center gap-2 font-mono-tech text-xs text-[#5C5C66]">
           <Table className="w-3.5 h-3.5 text-[#121214]" />
-          <span>NETLINK_ENTERPRISE :: FLOQ_UI_SYSTEM</span>
+          <span>NETLINK_ENTERPRISE :: FLOQ_SYSTEM</span>
         </div>
         <div className="flex items-center gap-1 bg-black/5 p-1 rounded-lg">
           <button

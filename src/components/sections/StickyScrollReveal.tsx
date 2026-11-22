@@ -92,7 +92,7 @@ export function MaskedField({ value, isAuthorized }: FieldProps) {
     description: 'Designed and deployed reusable component abstractions at Netlink Software adopted across 6+ distinct enterprise modules. Accelerated team delivery timelines by approximately 20% while enforcing design consistency.',
     metric: '30% Less Code',
     metricLabel: 'Across 6+ Enterprise Modules',
-    techBadge: 'floq_ui • TypeScript • Storybook',
+    techBadge: 'FLOQ • TypeScript • Storybook',
     gradientClass: 'from-[#3b0764] via-[#1e1b4b] to-[#18181b]',
     accentColor: '#F472B6',
     codeSnippet: `// Compound Enterprise Data Grid Primitive
