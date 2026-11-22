@@ -534,54 +534,5 @@ export const projectsData: ProjectData[] = [
         'Sub-50ms instant faceted filtering across complex precision instrument lines.'
       ]
     }
-  },
-  {
-    id: 'creative-experiments',
-    title: 'Creative Frontend Experiments',
-    category: 'Interaction Lab & Creative Coding',
-    year: 'Continuous',
-    featured: false,
-    tagline: 'Micro-interactions, kinetic typography, and canvas mathematics.',
-    summary: 'A curated suite of interaction prototypes exploring modern browser graphics, velocity-based typography physics, 60fps canvas wave simulations, and tactile micro-interactions.',
-    role: 'Creative Developer — Interaction Design, Canvas Math, DOM Animation Optimization',
-    techStack: ['React 19', 'TypeScript', 'HTML5 Canvas API', 'CSS Math (clamp, trig)', 'Lucide Icons'],
-    accentColor: '#CCFF00',
-    demoUrl: '#playground',
-    repoUrl: 'https://github.com/prabhat-barman',
-    visible: true,
-    previewType: 'creative-lab',
-    caseStudy: {
-      overview: 'An open playground where interaction design and software performance meet. These experiments serve as testbeds for UI patterns before bringing them into production applications.',
-      problem: 'Modern web applications often feel sterile and repetitive. These experiments explore how restrained, mathematically calculated animations can evoke tactile joy without degrading Core Web Vitals.',
-      goals: [
-        'Build smooth 60fps physics animations without heavy third-party rendering engines.',
-        'Respect prefers-reduced-motion without breaking the core functionality.',
-        'Demonstrate deep mastery of the DOM, Canvas 2D context, and gesture math.'
-      ],
-      role: [
-        'Designed and implemented all interaction formulas, spring physics, and canvas rendering loops.'
-      ],
-      technicalApproach: [
-        'Used requestAnimationFrame loops with delta-time calculation to ensure consistent physics across 60Hz, 120Hz, and 144Hz displays.',
-        'Employed native CSS custom properties for hardware-accelerated transforms and opacity adjustments.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Vanilla Canvas 2D over Three.js/WebGL',
-          rationale: 'Avoided multi-megabyte bundle overhead for 2D wave equations; vanilla Canvas achieved identical visual fidelity under 5kb total footprint.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Preventing excessive React re-renders during high-frequency mousemove events.',
-          solution: 'Directly updated canvas buffers and refs without triggering React reconciliation cycles.'
-        }
-      ],
-      verifiedHighlights: [
-        'Interactive real-time kinetic typography distortion.',
-        'Damped wave grid canvas simulation at steady 60fps.',
-        'Tactile micro-interaction laboratory with instant visual haptics.'
-      ]
-    }
   }
 ];
