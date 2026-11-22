@@ -310,17 +310,17 @@ const DemandManagementPreview: React.FC = () => {
                 <span className="text-[#CCFF00] font-semibold">{d.status}</span>
               </div>
               <h5 className="font-semibold text-sm text-white mb-2">{d.role}</h5>
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/10 font-mono-tech text-[11px]">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2 pt-2 border-t border-white/10 font-mono-tech text-[10px] sm:text-[11px]">
                 <div>
-                  <span className="text-white/40 block">Submitted:</span>
+                  <span className="text-white/40 block text-[9px] sm:text-[10px]">Submitted:</span>
                   <span className="text-white font-bold">{d.submitted} profiles</span>
                 </div>
                 <div>
-                  <span className="text-white/40 block">Screened:</span>
-                  <span className="text-white font-bold">{d.screened} candidates</span>
+                  <span className="text-white/40 block text-[9px] sm:text-[10px]">Screened:</span>
+                  <span className="text-white font-bold">{d.screened} cand.</span>
                 </div>
                 <div>
-                  <span className="text-white/40 block">SLA Clock:</span>
+                  <span className="text-white/40 block text-[9px] sm:text-[10px]">SLA Clock:</span>
                   <span className="text-[#8B5CF6] font-bold">{d.slaRemaining}</span>
                 </div>
               </div>
