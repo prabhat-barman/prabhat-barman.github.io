@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
               {profileData.shortBio}
             </p>
             <div className="pt-2 flex items-center gap-3 font-mono-tech text-xs text-[#5C5C66]">
-              <span>Bengaluru, IN</span>
+              <span>Bhopal, IN</span>
               <span>•</span>
               <span className="tabular-nums font-semibold text-[#121214]">{currentTime || '12:00:00 PM'} IST</span>
             </div>
