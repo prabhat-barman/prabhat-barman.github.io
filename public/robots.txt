@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://prabhat.dev/sitemap.xml
+Sitemap: https://prabhat-barman.github.io/sitemap.xml
