@@ -78,7 +78,7 @@ export const projectsData: ProjectData[] = [
     role: 'Lead Mobile & Frontend Architect — React Native (Expo), Redux Toolkit, Real-Time Expense Analytics & Bilingual Architecture',
     techStack: ['React Native', 'Expo', 'React 19', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Automotive IoT', 'Bilingual (EN/FR)', 'Telemetry'],
     accentColor: '#3B82F6',
-    demoUrl: 'https://www.cruise-mu.com',
+    demoUrl: 'https://www.cruise-mu.com/',
     repoUrl: '',
     visible: true,
     previewType: 'automotive-telemetry',
@@ -387,7 +387,9 @@ export const projectsData: ProjectData[] = [
     role: 'Frontend Engineer — Student Dashboard, Mock Test Engine & Performance Analytics',
     techStack: ['React.js', 'JavaScript (ES6+)', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'Audio API'],
     accentColor: '#FF6B00',
-    demoUrl: '',
+    demoUrl: 'https://www.languageacademy.com.au/',
+    appStoreUrl: 'https://apps.apple.com/in/app/pte-practice-ai-mock-tests/id6443614190',
+    playStoreUrl: 'https://play.google.com/store/search?q=language+academy&c=apps&hl=en_IN',
     repoUrl: '',
     visible: true,
     previewType: 'education-exam',
@@ -428,6 +430,7 @@ export const projectsData: ProjectData[] = [
         }
       ],
       verifiedHighlights: [
+        'Production education platform live at https://www.languageacademy.com.au/.',
         'Interactive student dashboard with comprehensive score analytics.',
         'Timed mock test modules mirroring official exam specifications.',
         'Responsive and reusable UI components built with React.js.',
