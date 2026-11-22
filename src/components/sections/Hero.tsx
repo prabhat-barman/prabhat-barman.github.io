@@ -4,7 +4,6 @@ import { AvailabilityBadge } from '../ui/AvailabilityBadge';
 import { MagneticButton } from '../ui/MagneticButton';
 import { InteractiveDevStation } from '../ui/InteractiveDevStation';
 import { Spotlight } from '../ui/Spotlight';
-import { FlipWords } from '../ui/FlipWords';
 import { HoverBorderGradient } from '../ui/HoverBorderGradient';
 import { CardSpotlight } from '../ui/CardSpotlight';
 
@@ -39,15 +38,7 @@ export const Hero: React.FC = () => {
           {/* Left Column: Headline & Action CTAs */}
           <div className="lg:col-span-7">
             <h1 className="font-display text-hero font-extrabold text-[#121214] tracking-tight leading-[0.98]">
-              I build digital experiences that{' '}
-              <FlipWords
-                words={[
-                  'work beautifully.',
-                  'scale to millions.',
-                  'run at 60 FPS.',
-                  'feel instantaneous.',
-                ]}
-              />
+              Architecting fast, resilient web & mobile interfaces.
             </h1>
 
             <p className="mt-6 md:mt-8 text-lg md:text-xl xl:text-2xl text-[#5C5C66] max-w-2xl font-body leading-relaxed font-normal">

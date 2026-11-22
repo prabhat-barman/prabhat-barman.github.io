@@ -10,10 +10,7 @@ import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
-// Code-split heavy interactive modals for ultra-fast initial paint
-const InteractiveBotCompanion = lazy(() =>
-  import('./components/ui/InteractiveBotCompanion').then((m) => ({ default: m.InteractiveBotCompanion }))
-);
+// Code-split developer terminal for fast initial paint
 const DeveloperTerminal = lazy(() =>
   import('./components/ui/DeveloperTerminal').then((m) => ({ default: m.DeveloperTerminal }))
 );
@@ -64,13 +61,6 @@ export function App() {
         <Playground />
         <Contact />
       </main>
-
-      {/* Floating Interactive Mascot / Bot Companion */}
-      <ErrorBoundary fallback={null}>
-        <Suspense fallback={null}>
-          <InteractiveBotCompanion />
-        </Suspense>
-      </ErrorBoundary>
 
       {/* Interactive Developer Terminal (⌘K / ~) */}
       <ErrorBoundary fallback={null}>

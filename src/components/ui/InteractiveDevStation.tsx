@@ -1,156 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
-  Headphones, 
-  Coffee, 
-  Zap, 
-  MessageSquare, 
-  Volume2, 
-  VolumeX, 
-  Sparkles,
-  Terminal,
-  Activity,
-  Code2,
-  Compass
+  Layers, 
+  Gauge, 
+  Terminal, 
+  ShieldCheck, 
+  Cpu, 
+  ArrowUpRight
 } from 'lucide-react';
 
 interface InteractiveDevStationProps {
   className?: string;
 }
 
-const QUOTES = [
-  "Hey there! Welcome to Prabhat.dev 👋",
-  "Architected FLOQ: Enterprise Design System deployed across 6+ modules 🎨",
-  "React Native + Reanimated 3: Smooth 60fps on iOS & Android 📱",
-  "Currently architecting high-performance React 19 apps ⚡",
-  "Bluetooth LE & JSI Bridges: Sub-50ms telematics response 🏎️",
-  "Coffee converted into clean TypeScript code: 1,420+ cups ☕",
-  "60 FPS locked in. Zero frame drops allowed! 🎯",
-  "Need a senior React & React Native engineer? Let's collaborate!",
-  "Inspect the code: Strict TypeScript, zero warnings 🛡️",
-];
-
 export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ className = '' }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState<'matrix' | 'benchmarks' | 'stack'>('matrix');
+  const [selectedSystem, setSelectedSystem] = useState<number>(0);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
-  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
-
-  // Interactive States
-  const [activeMood, setActiveMood] = useState<'coding' | 'focus' | 'coffee' | 'turbo'>('coding');
-  const [quoteIndex, setQuoteIndex] = useState(0);
-  const [showBubble, setShowBubble] = useState(true);
-  const [coffeeLevel, setCoffeeLevel] = useState(85);
-  const [turboCount, setTurboCount] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [fps, setFps] = useState(60);
-
-  // Measure real-time FPS
-  useEffect(() => {
-    let frameCount = 0;
-    let lastTime = performance.now();
-    let animId: number;
-
-    const measureFps = () => {
-      frameCount++;
-      const now = performance.now();
-      if (now - lastTime >= 1000) {
-        setFps(Math.round((frameCount * 1000) / (now - lastTime)));
-        frameCount = 0;
-        lastTime = now;
-      }
-      animId = requestAnimationFrame(measureFps);
-    };
-
-    animId = requestAnimationFrame(measureFps);
-    return () => cancelAnimationFrame(animId);
-  }, []);
-
-  const [customThought, setCustomThought] = useState<string | null>(null);
-  const [isTouring, setIsTouring] = useState(false);
-  const tourTimeoutRef = useRef<number | null>(null);
-
-  // Clean up tour timer on unmount
-  useEffect(() => {
-    return () => {
-      if (tourTimeoutRef.current) {
-        window.clearTimeout(tourTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  // Quick Tour function
-  const TOUR_STOPS = [
-    { target: 'hero', text: "Welcome to Prabhat.dev! 4+ years of React & React Native production experience 🚀" },
-    { target: 'work', text: "Here is my work! Try the 1,000 Hz WebSocket stress tester and mobile phone simulator below 🏎️" },
-    { target: 'architecture', text: "Architecture: How we achieved 60fps frame rates and 35–40% faster initial loads ⚡" },
-    { target: 'about', text: "My philosophy: Good code solves user needs; great architecture scales without friction 🛡️" },
-    { target: 'experience', text: "4+ years at Netlink Software Group delivering automotive IoT and enterprise apps 💼" },
-    { target: 'playground', text: "Check out the interactive lab! Test kinetic typography and canvas wave physics 🧪" },
-    { target: 'contact', text: "Ready to collaborate? Let's build something extraordinary together! 📬" },
-  ];
-
-  const handleStartTour = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    if (tourTimeoutRef.current) {
-      window.clearTimeout(tourTimeoutRef.current);
-    }
-    setIsTouring(true);
-    let currentStep = 0;
-
-    const executeStep = () => {
-      if (currentStep >= TOUR_STOPS.length) {
-        setIsTouring(false);
-        setCustomThought("Tour complete! Feel free to explore or open the ⌘K Terminal 🚀");
-        return;
-      }
-      const stop = TOUR_STOPS[currentStep];
-      const el = document.getElementById(stop.target) || document.getElementById('sticky-scroll');
-      el?.scrollIntoView({ behavior: 'smooth' });
-      setCustomThought(stop.text);
-      setShowBubble(true);
-      currentStep++;
-      tourTimeoutRef.current = window.setTimeout(executeStep, 4000);
-    };
-
-    executeStep();
-  };
-
-  // Contextual scroll listener
-  useEffect(() => {
-    if (isTouring) return;
-
-    const sections = [
-      { id: 'work', text: "Check out SiriusXM & IrisInsights below! You can stress test the telemetry live 🏎️" },
-      { id: 'architecture', text: "Architecture deep dive: Notice how 60fps is preserved with selective memoization ⚡" },
-      { id: 'experience', text: "3 promotions at Netlink Software from Trainee to Senior Frontend Engineer 💼" },
-      { id: 'playground', text: "Welcome to the lab! Test the 60fps wave canvas and micro-interactions 🧪" },
-      { id: 'contact', text: "Want to talk about a role or project? Send a message below! 📬" },
-    ];
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY < 400) {
-        setCustomThought(null);
-        return;
-      }
-
-      for (const sec of sections) {
-        const el = document.getElementById(sec.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 300 && rect.bottom >= 300) {
-            setCustomThought(sec.text);
-            setShowBubble(true);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isTouring]);
 
   // Mouse tilt physics
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -158,19 +26,14 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = -((y - centerY) / centerY) * 10;
-    const rotY = ((x - centerX) / centerX) * 10;
+    const rotX = -((y - centerY) / centerY) * 6;
+    const rotY = ((x - centerX) / centerX) * 6;
 
     setRotateX(rotX);
     setRotateY(rotY);
-    setGlarePosition({
-      x: (x / rect.width) * 100,
-      y: (y / rect.height) * 100,
-    });
   };
 
   const handleMouseLeave = () => {
@@ -179,290 +42,239 @@ export const InteractiveDevStation: React.FC<InteractiveDevStationProps> = ({ cl
     setRotateY(0);
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  const systems = [
+    {
+      name: 'FLOQ Design System',
+      tag: 'Enterprise UI System',
+      metric: '35–40% faster initial load',
+      detail: 'Standardized token architecture deployed across 6+ modules, reducing duplicate code by 30%.',
+      icon: Layers,
+      badge: 'React 19 • Storybook 8'
+    },
+    {
+      name: 'Demand Management',
+      tag: 'B2B Talent Platform',
+      metric: '< 50ms grid filter latency',
+      detail: 'Fine-grained RBAC and virtualized candidate tables managing 1,000+ talent demands.',
+      icon: Cpu,
+      badge: 'React.js • Redux Toolkit'
+    },
+    {
+      name: 'IrisInsights.us',
+      tag: 'HIPAA Clinical Suite',
+      metric: '100% WCAG 2.1 AA',
+      detail: 'Zero-leak ephemeral PHI state, automated session lockouts, and cryptographic compliance.',
+      icon: ShieldCheck,
+      badge: 'Next.js • HIPAA Vault'
+    },
+    {
+      name: 'SiriusXM Drive Mobile',
+      tag: 'Connected Telematics',
+      metric: '60 FPS on UI Thread',
+      detail: 'BLE 5.0 proximity pairing and Reanimated 3 worklets for real-time vehicular control.',
+      icon: Gauge,
+      badge: 'React Native • BLE'
+    }
+  ];
 
-  // Next quote
-  const handleNextQuote = () => {
-    setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
-    setShowBubble(true);
-  };
+  const benchmarks = [
+    { label: 'Initial Load Time Cut', value: '35–40%', note: 'Granular memoization & dynamic route splitting' },
+    { label: 'Duplicate Code Reduced', value: '30%', note: 'Atomic tokens across 6+ enterprise modules' },
+    { label: 'Mobile Frame Budget', value: '60 FPS', note: 'Reanimated 3 native worklet execution' },
+    { label: 'Virtual Grid Query', value: '< 50ms', note: 'Sub-50ms search across 1,000+ data rows' },
+  ];
 
-  // Trigger Turbo compile
-  const handleTurbo = () => {
-    setActiveMood('turbo');
-    setTurboCount((prev) => prev + 1);
-    setShowBubble(true);
-    setQuoteIndex(4); // 60 FPS quote
-
-    setTimeout(() => {
-      setActiveMood('coding');
-    }, 2500);
-  };
-
-  // Refuel coffee
-  const handleCoffee = () => {
-    setActiveMood('coffee');
-    setCoffeeLevel((prev) => Math.min(100, prev + 15));
-    setShowBubble(true);
-    setQuoteIndex(3); // Coffee quote
-
-    setTimeout(() => {
-      setActiveMood('coding');
-    }, 2500);
-  };
-
-  // Toggle Lo-Fi Focus
-  const handleFocus = () => {
-    setActiveMood((prev) => (prev === 'focus' ? 'coding' : 'focus'));
-    setIsMuted((prev) => !prev);
-    setShowBubble(true);
-    setQuoteIndex(1);
-  };
+  const stackCategories = [
+    { category: 'Frontend Web', items: ['React.js (React 19)', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Next.js', 'Vite'] },
+    { category: 'Mobile Engineering', items: ['React Native (iOS & Android)', 'Reanimated 3', 'Vision Camera', 'Bluetooth LE', 'MMKV'] },
+    { category: 'Performance & Quality', items: ['React Profiler', 'Route Splitting', 'Vitest / RTL', 'WCAG 2.1 AA', 'Docker'] }
+  ];
 
   return (
     <div
       className={`relative select-none perspective-[1200px] ${className}`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
     >
-      {/* 3D Tilting Card Container */}
+      {/* Sleek Dark Engineering Card */}
       <div
-        className="relative rounded-3xl overflow-hidden border border-black/10 bg-[#FAF9F5] shadow-xl md:shadow-2xl transition-transform duration-200 ease-out"
+        className="relative rounded-3xl overflow-hidden border border-black/10 bg-[#121214] text-white shadow-2xl transition-transform duration-200 ease-out"
         style={{
-          transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${isHovered ? 1.015 : 1}, ${isHovered ? 1.015 : 1}, 1)`,
+          transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${isHovered ? 1.01 : 1}, ${isHovered ? 1.01 : 1}, 1)`,
           transformStyle: 'preserve-3d',
         }}
       >
-        {/* Dynamic Glare Reflection Overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none z-30 transition-opacity duration-300"
-          style={{
-            opacity: isHovered ? 0.35 : 0,
-            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%)`,
-          }}
-        />
-
-        {/* Top Header Bar / Live Status */}
-        <div className="absolute top-0 inset-x-0 z-20 p-2.5 sm:p-5 flex items-center justify-between gap-2 pointer-events-none">
-          {/* Status Badge */}
-          <div className="pointer-events-auto inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/75 backdrop-blur-md text-white text-[10px] sm:text-xs font-mono-tech border border-white/10 shadow-sm max-w-[200px] sm:max-w-none">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CCFF00] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#CCFF00]" />
-            </span>
-            <span className="font-semibold text-[10px] sm:text-[11px] tracking-wide truncate">
-              {activeMood === 'focus' && 'HEADPHONES ON • FOCUS'}
-              {activeMood === 'coffee' && 'REFUELING CAFFEINE • +100%'}
-              {activeMood === 'turbo' && 'TURBO COMPILING • 0ms'}
-              {activeMood === 'coding' && 'PRABHAT • ACTIVE CODING'}
+        {/* Terminal Header */}
+        <div className="px-5 py-3.5 bg-[#18181c] border-b border-white/10 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/80" />
+            <span className="ml-2 font-mono-tech text-xs text-white/50 tracking-wider">
+              architecture-console.tsx
             </span>
           </div>
 
-          {/* Real-time FPS Meter */}
-          <div className="pointer-events-auto flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-black/8 text-[10px] sm:text-[11px] font-mono-tech text-[#121214] shadow-xs shrink-0">
-            <Activity className="w-3 h-3 text-[#6FA800]" />
-            <span className="font-bold">{fps} FPS</span>
+          <div className="flex items-center gap-2 text-[11px] font-mono-tech text-white/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+            <span>4+ YOE • Production</span>
           </div>
         </div>
 
-        {/* Character Illustration Visual */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F3F2EC]">
-          <img
-            src="/images/developer-character.jpg"
-            alt="Prabhat Barman 3D Developer Character at Workstation"
-            className={`w-full h-full object-cover object-center transition-all duration-700 ${
-              activeMood === 'turbo' ? 'scale-105 filter brightness-105' : 'scale-100'
+        {/* Console Tab Bar */}
+        <div className="px-5 pt-4 pb-2 border-b border-white/10 flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setActiveTab('matrix')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono-tech transition-colors ${
+              activeTab === 'matrix'
+                ? 'bg-white/15 text-white font-semibold'
+                : 'text-white/50 hover:text-white'
             }`}
-          />
-
-          {/* Ambient Lighting Gradient Bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-          {/* Interactive Speech Bubble */}
-          {showBubble && (
-            <div
-              className="absolute left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs bottom-20 z-20 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-black/10 shadow-lg transform transition-all duration-300 hover:scale-[1.02] group"
-              style={{ transform: 'translateZ(30px)' }}
-            >
-              <div className="flex items-start gap-2.5">
-                <div className="w-6 h-6 rounded-full bg-[#CCFF00] text-[#121214] flex items-center justify-center shrink-0 font-bold text-xs">
-                  💬
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs font-semibold text-[#121214] font-body leading-snug">
-                    {customThought || QUOTES[quoteIndex]}
-                  </div>
-                  <div className="text-[10px] font-mono-tech text-[#5C5C66] mt-2 flex items-center justify-between pt-1.5 border-t border-black/8">
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); handleNextQuote(); }}
-                      className="text-black font-semibold hover:underline"
-                    >
-                      Next Quote →
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleStartTour}
-                      className="px-2 py-0.5 rounded bg-[#121214] text-[#CCFF00] font-bold hover:bg-black transition-colors"
-                    >
-                      {isTouring ? 'Touring...' : 'Quick Tour 🚀'}
-                    </button>
-                  </div>
-                </div>
-              </div>
-              {/* Little triangle tail */}
-              <div className="absolute -bottom-1.5 left-8 w-3 h-3 bg-white border-b border-r border-black/10 transform rotate-45" />
-            </div>
-          )}
-
-          {/* Floating Technology Badges on the 3D surface */}
-          <div
-            className="hidden sm:flex absolute right-5 top-20 flex-col gap-2 z-10"
-            style={{ transform: 'translateZ(25px)' }}
           >
-            <div className="px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-mono-tech font-bold text-[#121214] shadow-md flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
-              <span className="text-[#61DAFB] font-extrabold">⚛</span>
-              <span>React 19</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-mono-tech font-bold text-[#121214] shadow-md flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
-              <span className="text-[#3178C6] font-extrabold">TS</span>
-              <span>TypeScript</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-mono-tech font-bold text-[#121214] shadow-md flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
-              <Code2 className="w-3.5 h-3.5 text-[#121214]" />
-              <span>React Native & BLE</span>
-            </div>
-          </div>
-
-          {/* Turbo Particle Burst Effect */}
-          {activeMood === 'turbo' && (
-            <div className="absolute inset-0 pointer-events-none z-30 flex items-center justify-center">
-              <div className="text-[#CCFF00] font-mono-tech text-3xl font-extrabold tracking-widest animate-ping drop-shadow-md">
-                ⚡ 100% COMPILED ⚡
-              </div>
-            </div>
-          )}
+            01 / Flagship Systems
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('benchmarks')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono-tech transition-colors ${
+              activeTab === 'benchmarks'
+                ? 'bg-white/15 text-white font-semibold'
+                : 'text-white/50 hover:text-white'
+            }`}
+          >
+            02 / Benchmarks
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('stack')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono-tech transition-colors ${
+              activeTab === 'stack'
+                ? 'bg-white/15 text-white font-semibold'
+                : 'text-white/50 hover:text-white'
+            }`}
+          >
+            03 / Tech Stack
+          </button>
         </div>
 
-        {/* Bottom Interactive Dashboard Bar */}
-        <div className="p-4 sm:p-5 bg-white border-t border-black/8 relative z-20">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Mascot description */}
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              <div className="w-10 h-10 rounded-xl bg-[#121214] text-[#CCFF00] flex items-center justify-center font-mono-tech font-bold text-sm shrink-0">
-                PB
-              </div>
-              <div>
-                <div className="font-display font-bold text-sm text-[#121214] flex items-center gap-1.5">
-                  <span>Interactive Dev Station</span>
-                  <Sparkles className="w-3.5 h-3.5 text-[#6FA800]" />
-                </div>
-                <div className="text-xs text-[#5C5C66] font-body flex items-center gap-2">
-                  <span>Tap controls to interact with character</span>
-                </div>
-              </div>
+        {/* Tab 1: Flagship Systems */}
+        {activeTab === 'matrix' && (
+          <div className="p-5 space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {systems.map((sys, idx) => {
+                const Icon = sys.icon;
+                const isSelected = selectedSystem === idx;
+                return (
+                  <div
+                    key={sys.name}
+                    onClick={() => setSelectedSystem(idx)}
+                    className={`p-3 rounded-xl border transition-all cursor-pointer ${
+                      isSelected
+                        ? 'border-white/30 bg-white/10 shadow-lg'
+                        : 'border-white/5 bg-white/[0.03] hover:bg-white/[0.06]'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <div className="flex items-center gap-2">
+                        <Icon className="w-3.5 h-3.5 text-[#A3E635]" />
+                        <span className="font-display font-bold text-xs text-white">
+                          {sys.name}
+                        </span>
+                      </div>
+                      <span className="font-mono-tech text-[10px] text-white/40">
+                        0{idx + 1}
+                      </span>
+                    </div>
+                    <div className="font-mono-tech text-[11px] text-[#A3E635] font-semibold">
+                      {sys.metric}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Interactive Control Buttons */}
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-              {/* Coffee Refuel Button */}
-              <button
-                type="button"
-                onClick={handleCoffee}
-                title="Refuel Coffee"
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono-tech transition-all border ${
-                  activeMood === 'coffee'
-                    ? 'bg-[#121214] text-[#CCFF00] border-[#121214]'
-                    : 'bg-[#F9F9F6] text-[#121214] border-black/8 hover:border-black/25 active:scale-95'
-                }`}
-              >
-                <Coffee className="w-3.5 h-3.5" />
-                <span className="hidden xs:inline">{coffeeLevel}%</span>
-              </button>
-
-              {/* Lo-Fi Focus Button */}
-              <button
-                type="button"
-                onClick={handleFocus}
-                title="Focus & Headphones Mode"
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono-tech transition-all border ${
-                  activeMood === 'focus'
-                    ? 'bg-[#121214] text-[#CCFF00] border-[#121214]'
-                    : 'bg-[#F9F9F6] text-[#121214] border-black/8 hover:border-black/25 active:scale-95'
-                }`}
-              >
-                <Headphones className="w-3.5 h-3.5" />
-                {isMuted ? <VolumeX className="w-3 h-3 text-[#5C5C66]" /> : <Volume2 className="w-3 h-3 text-[#6FA800] animate-pulse" />}
-              </button>
-
-              {/* Turbo Compiler */}
-              <button
-                type="button"
-                onClick={handleTurbo}
-                title="Turbo Compile Build"
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono-tech font-bold transition-all border ${
-                  activeMood === 'turbo'
-                    ? 'bg-[#CCFF00] text-[#121214] border-[#121214] shadow-sm'
-                    : 'bg-[#121214] text-white border-transparent hover:bg-black active:scale-95'
-                }`}
-              >
-                <Zap className="w-3.5 h-3.5 text-[#CCFF00]" />
-                <span>Turbo {turboCount > 0 ? `(${turboCount})` : ''}</span>
-              </button>
-
-              {/* Chat bubble toggle */}
-              <button
-                type="button"
-                onClick={handleNextQuote}
-                title="Next Developer Thought"
-                className="p-2 rounded-xl text-xs font-mono-tech bg-[#F9F9F6] text-[#121214] border border-black/8 hover:border-black/25 active:scale-95"
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-              </button>
-
-              {/* Quick Tour Button */}
-              <button
-                type="button"
-                onClick={handleStartTour}
-                title="Start Guided Portfolio Tour"
-                className={`p-2 rounded-xl text-xs font-mono-tech transition-all border ${
-                  isTouring
-                    ? 'bg-[#CCFF00] text-black border-[#121214] shadow-xs'
-                    : 'bg-[#F9F9F6] text-[#121214] border-black/8 hover:border-black/25 active:scale-95'
-                }`}
-              >
-                <Compass className={`w-3.5 h-3.5 ${isTouring ? 'animate-spin' : ''}`} />
-              </button>
-
-              {/* Terminal Launcher Button */}
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
-                title="Open Interactive CLI Terminal (⌘K)"
-                className="p-2 rounded-xl text-xs font-mono-tech bg-[#F9F9F6] text-[#121214] border border-black/8 hover:border-black/25 active:scale-95 hidden sm:inline-flex"
-              >
-                <Terminal className="w-3.5 h-3.5 text-[#121214]" />
-              </button>
+            {/* Selected System Breakdown Box */}
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono-tech">
+                <span className="text-white/50 uppercase tracking-wider">
+                  {systems[selectedSystem].tag}
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">
+                  {systems[selectedSystem].badge}
+                </span>
+              </div>
+              <p className="text-xs text-white/80 font-body leading-relaxed">
+                {systems[selectedSystem].detail}
+              </p>
             </div>
           </div>
+        )}
 
-          {/* Micro Telemetry Bar */}
-          <div className="mt-3 pt-3 border-t border-black/6 flex items-center justify-between text-[11px] font-mono-tech text-[#5C5C66]">
-            <div className="flex items-center gap-2 truncate">
-              <Terminal className="w-3 h-3 text-[#121214]" />
-              <span className="text-[#121214] font-medium truncate">
-                {activeMood === 'focus' && '♪ Lo-Fi Beats: 120BPM Flow State'}
-                {activeMood === 'coffee' && '☕ Caffeine Level: Peak Efficiency'}
-                {activeMood === 'turbo' && '⚡ Vite HMR: Hot reload in 14ms'}
-                {activeMood === 'coding' && 'λ git status: working tree clean (main)'}
-              </span>
+        {/* Tab 2: Benchmarks */}
+        {activeTab === 'benchmarks' && (
+          <div className="p-5 space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+              {benchmarks.map((b) => (
+                <div key={b.label} className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                  <div className="font-display font-black text-2xl text-white">
+                    {b.value}
+                  </div>
+                  <div className="font-display font-semibold text-xs text-[#A3E635]">
+                    {b.label}
+                  </div>
+                  <div className="text-[11px] text-white/50 font-body leading-snug">
+                    {b.note}
+                  </div>
+                </div>
+              ))}
             </div>
-            <span className="text-[#121214] font-bold shrink-0 ml-2">4+ Yrs Exp</span>
           </div>
+        )}
+
+        {/* Tab 3: Tech Stack */}
+        {activeTab === 'stack' && (
+          <div className="p-5 space-y-3 font-mono-tech text-xs">
+            {stackCategories.map((cat) => (
+              <div key={cat.category} className="space-y-1.5">
+                <div className="text-[10px] text-white/40 uppercase tracking-wider">
+                  {cat.category}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {cat.items.map((item) => (
+                    <span
+                      key={item}
+                      className="px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-white text-[11px]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Footer Action Bar */}
+        <div className="px-5 py-3 bg-[#18181c] border-t border-white/10 flex items-center justify-between text-xs font-mono-tech text-white/50">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
+            className="inline-flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"
+          >
+            <Terminal className="w-3.5 h-3.5 text-[#A3E635]" />
+            <span>Open Terminal (⌘K)</span>
+          </button>
+
+          <a
+            href="#work"
+            className="inline-flex items-center gap-1 text-[#A3E635] hover:underline"
+          >
+            <span>View 4 Flagship Projects</span>
+            <ArrowUpRight className="w-3 h-3" />
+          </a>
         </div>
       </div>
     </div>

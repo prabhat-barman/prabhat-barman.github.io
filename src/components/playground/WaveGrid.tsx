@@ -116,7 +116,7 @@ export const WaveGrid: React.FC = () => {
       <div className="flex items-center justify-between font-mono-tech text-xs text-white/50 border-b border-white/10 pb-4">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
-          <span>EXP_02 :: CANVAS_WAVE_HARMONICS</span>
+          <span>CANVAS_2D :: DAMPED_SINE_HARMONICS</span>
         </div>
         <div className="text-white/60">
           60 FPS • DAMPED SINE EQUATION

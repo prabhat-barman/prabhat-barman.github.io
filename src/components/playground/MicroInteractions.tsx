@@ -17,7 +17,7 @@ export const MicroInteractions: React.FC = () => {
       <div className="flex items-center justify-between font-mono-tech text-xs text-[#5C5C66] border-b border-black/8 pb-4">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#121214]" />
-          <span>EXP_03 :: TACTILE_MICRO_LAB</span>
+          <span>MICRO_INTERACTIONS :: HAPTIC_STATE_MACHINE</span>
         </div>
         <div className="flex items-center gap-1 bg-black/5 p-1 rounded-lg">
           {(['spring', 'haptic', 'slider'] as const).map((tab) => (

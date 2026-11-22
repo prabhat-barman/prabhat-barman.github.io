@@ -28,7 +28,7 @@ export const FrequencyVisualizer: React.FC = () => {
       <div className="flex items-center justify-between font-mono-tech text-xs text-white/50 border-b border-white/10 pb-4">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
-          <span>EXP_04 :: FREQUENCY_DSP_SIMULATOR</span>
+          <span>AUDIO_DSP :: REAL_TIME_FFT_BUFFER</span>
         </div>
         <button
           onClick={() => setIsRunning(!isRunning)}

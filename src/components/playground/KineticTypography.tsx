@@ -30,7 +30,7 @@ export const KineticTypography: React.FC = () => {
       <div className="flex items-center justify-between font-mono-tech text-xs text-white/50 border-b border-white/10 pb-4">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
-          <span>EXP_01 :: VARIABLE_KINETICS</span>
+          <span>TYPOGRAPHY_KINETICS :: SPRING_INTERPOLATION</span>
         </div>
         <div className="hidden sm:flex items-center gap-4">
           <span>X: {(mousePos.x * 100).toFixed(0)}%</span>

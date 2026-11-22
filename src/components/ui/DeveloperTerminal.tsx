@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal as TerminalIcon, X, Maximize2, Minimize2, Sparkles, CornerDownLeft } from 'lucide-react';
+import { Terminal as TerminalIcon, X, Maximize2, Minimize2, CornerDownLeft } from 'lucide-react';
 import { profileData } from '../../data/profile';
 import { projectsData } from '../../data/projects';
 import { Meteors } from './Meteors';
@@ -90,10 +90,9 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
               <div><span className="text-white font-bold">skills</span> - Core React, RN, and performance stack</div>
               <div><span className="text-white font-bold">projects</span> - View all verified production apps</div>
               <div><span className="text-white font-bold">telemetry</span> - Real-time vehicle telematics status</div>
-              <div><span className="text-white font-bold">coffee</span> - Fuel developer productivity</div>
-              <div><span className="text-white font-bold">matrix</span> - Toggle matrix phosphor theme</div>
+              <div><span className="text-white font-bold">contact</span> - Direct contact & booking links</div>
               <div><span className="text-white font-bold">clear</span> - Clear terminal display screen</div>
-              <div><span className="text-[#CCFF00] font-bold">sudo hire prabhat</span> - Launch hiring protocol 🚀</div>
+              <div><span className="text-[#CCFF00] font-bold">hire</span> - Senior engineering inquiry</div>
               <div><span className="text-white font-bold">exit</span> - Close terminal shell</div>
             </div>
           </div>
@@ -206,56 +205,38 @@ export const DeveloperTerminal: React.FC<DeveloperTerminalProps> = ({ isOpen, on
         );
         break;
 
-      case 'coffee':
-        output = (
-          <div className="space-y-2 text-xs text-amber-300 font-mono">
-            <pre className="text-amber-400">
-{`   ( (
-    ) )
-  ........
-  |      |]
-  \\      /
-   \`----\``}
-            </pre>
-            <p className="text-[#CCFF00] font-bold">☕ Fresh Brew Poured!</p>
-            <p className="text-zinc-300">Productivity increased to 100%. Ready to code high-performance React architectures!</p>
-          </div>
-        );
-        break;
-
       case 'matrix':
         setIsMatrixTheme((prev) => !prev);
         output = <p className="text-[#CCFF00] text-xs">Matrix phosphor theme toggled.</p>;
         break;
 
-      case 'sudo hire prabhat':
       case 'hire':
       case 'hire-me':
+      case 'contact':
         output = (
-          <div className="p-3 rounded-xl bg-gradient-to-r from-[#CCFF00]/20 to-emerald-500/20 border border-[#CCFF00]/40 text-xs space-y-2">
-            <div className="flex items-center gap-2 text-[#CCFF00] font-bold text-sm">
-              <Sparkles className="w-4 h-4" />
-              <span>ACCESS GRANTED: HIRING PROTOCOL INITIATED!</span>
+          <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs space-y-2">
+            <div className="text-[#CCFF00] font-bold text-sm">
+              GET IN TOUCH / COLLABORATE
             </div>
-            <p className="text-zinc-200">
-              Redirecting you directly to Prabhat's direct contact line and email channel...
+            <p className="text-zinc-300 text-xs">
+              Open to senior frontend architecture roles, high-impact contracts, and React Native engagements.
             </p>
+            <div className="space-y-1 text-zinc-400 font-mono text-[11px] pt-1">
+              <p>Email: <span className="text-white">{profileData.contact.email}</span></p>
+              <p>Phone: <span className="text-white">{profileData.contact.phone}</span></p>
+              <p>Location: <span className="text-white">{profileData.location}</span></p>
+            </div>
             <button
               onClick={() => {
                 onClose();
-                window.location.hash = '#contact';
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-3 py-1.5 rounded-lg bg-[#CCFF00] text-black font-bold hover:bg-[#b8e600] transition-colors"
+              className="mt-2 px-3 py-1.5 rounded-lg bg-[#CCFF00] text-black font-bold hover:bg-[#b8e600] transition-colors"
             >
-              Open Contact Form Now →
+              Open Contact Form →
             </button>
           </div>
         );
-        setTimeout(() => {
-          onClose();
-          const contactElem = document.getElementById('contact');
-          contactElem?.scrollIntoView({ behavior: 'smooth' });
-        }, 1800);
         break;
 
       case 'clear':
