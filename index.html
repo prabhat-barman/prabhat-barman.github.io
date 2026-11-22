@@ -33,10 +33,14 @@
     <meta property="twitter:description" content="Thoughtful, performant web and mobile applications engineered with React.js and React Native. 4+ years of production excellence." />
     <meta property="twitter:image" content="https://prabhat-barman.github.io/og-preview.png" />
 
-    <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+    <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono (Preloaded & Non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;700;800&display=swap" />
+    </noscript>
 
     <!-- Favicon SVG -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -90,7 +94,20 @@
       </div>
     </noscript>
 
-    <div id="root"></div>
+    <div id="root">
+      <header style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 1720px; margin: 0 auto;">
+        <span style="font-weight: 800; font-size: 1.25rem; font-family: -apple-system, sans-serif; color: #121214;">PRABHAT.DEV</span>
+        <span style="font-size: 0.85rem; font-family: monospace; color: #10B981; font-weight: 600;">● AVAILABLE FOR HIRE</span>
+      </header>
+      <main style="max-width: 1720px; margin: 0 auto; padding: 4rem 2rem; font-family: -apple-system, sans-serif;">
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.05; color: #121214; max-width: 900px; margin: 0 0 1.5rem 0;">
+          I build digital experiences that work beautifully and scale to millions.
+        </h1>
+        <p style="font-size: 1.25rem; color: #5C5C66; max-width: 700px; line-height: 1.6; margin: 0;">
+          Software Engineer specializing in React.js, React Native, and high-performance frontend systems with 4+ years of production experience.
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
