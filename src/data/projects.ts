@@ -376,68 +376,7 @@ export const projectsData: ProjectData[] = [
       ]
     }
   },
-  {
-    id: 'language-academy',
-    title: 'Language Academy',
-    category: 'EdTech & Exam Simulation Platform',
-    year: '2022 — 2023',
-    featured: false,
-    tagline: 'Modern education platform for language proficiency exams with analytics and mock tests.',
-    summary: 'A responsive education platform for students preparing for language certification exams, featuring timed mock test modules, audio playback assessments, score tracking, and performance analytics.',
-    role: 'Frontend Engineer — Student Dashboard, Mock Test Engine & Performance Analytics',
-    techStack: ['React.js', 'JavaScript (ES6+)', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'Audio API'],
-    accentColor: '#FF6B00',
-    demoUrl: 'https://www.languageacademy.com.au/',
-    appStoreUrl: 'https://apps.apple.com/in/app/pte-practice-ai-mock-tests/id6443614190',
-    playStoreUrl: 'https://play.google.com/store/search?q=language+academy&c=apps&hl=en_IN',
-    repoUrl: '',
-    visible: true,
-    previewType: 'education-exam',
-    caseStudy: {
-      overview: 'Language Academy enables language learners to prepare for international proficiency exams through realistic timed testing simulations, automated scoring rubrics, and detailed performance insights.',
-      problem: 'Students needed an intuitive interface that mirrored real-world computer-based exam conditions—including strict timers, audio passage playback, and instant performance feedback—without distracting UI clutter.',
-      goals: [
-        'Build responsive and reusable UI components using React.js and modern frontend architecture.',
-        'Implement student dashboard, authentication flow, mock test modules, score tracking, and analytics.',
-        'Ensure sub-second question transitions and resilient state persistence during test sessions.',
-        'Provide actionable visual score breakdowns across reading, writing, listening, and speaking.'
-      ],
-      role: [
-        'Developed the interactive exam test runner with countdown timer and question navigator.',
-        'Built student dashboard visual score cards displaying historical progress and target percentiles.',
-        'Integrated audio playback controls for listening comprehension exercises.',
-        'Managed exam session state persistence to prevent loss of answers during accidental page refreshes.'
-      ],
-      technicalApproach: [
-        'Created a deterministic Redux exam slice tracking current question index, answers map, and elapsed time.',
-        'Implemented auto-save triggers on every answer selection syncing with local storage and backend REST endpoints.',
-        'Used fluid responsive layouts ensuring tests could be taken seamlessly on laptops, tablets, or phones.'
-      ],
-      keyDecisions: [
-        {
-          decision: 'Offline-Resilient Exam State',
-          rationale: 'Saved candidate progress locally on every keystroke/selection so network blips never disrupted a timed test.'
-        },
-        {
-          decision: 'Distraction-Free Exam Mode',
-          rationale: 'Engineered a minimalist fullscreen layout mode hiding all non-essential navigation during active tests.'
-        }
-      ],
-      challengesAndSolutions: [
-        {
-          challenge: 'Synchronizing audio passage playback with question timer restrictions.',
-          solution: 'Built custom HTML5 audio controllers with event callbacks that automatically unlocked question fields upon audio completion.'
-        }
-      ],
-      verifiedHighlights: [
-        'Production education platform live at https://www.languageacademy.com.au/.',
-        'Interactive student dashboard with comprehensive score analytics.',
-        'Timed mock test modules mirroring official exam specifications.',
-        'Responsive and reusable UI components built with React.js.',
-        'Seamless authentication and student session management.'
-      ]
-    }
-  },
+
   {
     id: 'demand-management-system',
     title: 'Demand Management System — B2B Vendor & Resource Portal',
